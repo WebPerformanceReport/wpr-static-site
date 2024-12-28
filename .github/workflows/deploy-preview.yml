@@ -8,11 +8,6 @@ jobs:
   deploy-preview:
     runs-on: ubuntu-latest
     steps:
-      - name: Debug SSH Host
-        env:
-          SSH_HOST: ${{ secrets.SSH_HOST_DEV_SERVER }}
-        run: echo "SSH Host: $SSH_HOST"
-
       - name: Execute remote SSH commands using SSH key
         uses: appleboy/ssh-action@master
         with:
