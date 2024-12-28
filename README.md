@@ -1,4 +1,4 @@
-# WebPerformance Report Static Website
+# WebPerformance Report Static Site
 
 Web page performance test report every week in your inbox: [Website](https://webperformancereport.com/)
 
@@ -7,13 +7,13 @@ Web page performance test report every week in your inbox: [Website](https://web
 ### 1. Clone this Repository
 
 ```
-git clone https://github.com/edwinmh/webperformance-report
+git clone -b dev https://github.com/edwinmh/wpr-static-site
 ```
 
 ### 2. Navigate to the directory
 
 ```
-cd webperformance-report
+cd wpr-static-site
 ```
 
 ### 3. Install dependencies
