@@ -20,5 +20,5 @@ jobs:
 
             # Pull the latest code
             echo "Pulling latest code..."
-            git pull https://${{ secrets.ORG_GIT_TOKEN }}@github.com/WebPerformanceReport/wpr-static-site.git dev
+            git pull https://${{ secrets.SSH_GIT_TOKEN }}@github.com/WebPerformanceReport/wpr-static-site.git dev
 
