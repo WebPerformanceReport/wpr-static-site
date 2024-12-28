@@ -5,9 +5,12 @@ on:
     branches:
       - dev
 jobs:
-  deploy-staging:
+  deploy-preview:
     runs-on: ubuntu-latest
     steps:
+      - name: Debug SSH Host
+        run: echo "SSH Host: ${{ secrets.SSH_HOST_DEV_SERVER }}"
+
       - name: Execute remote SSH commands using SSH key
         uses: appleboy/ssh-action@master
         with:
