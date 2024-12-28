@@ -1,0 +1,24 @@
+# GitHub Action to deploy WebPerformance Report Static Site on preview
+name: Deploy Preview
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute remote SSH commands using SSH key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST_DEV_SERVER }}
+          username: ${{ secrets.SSH_USERNAME_DEV_SERVER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_DEV_SERVER }}
+          script: |
+            # Navigate to the project directory
+            cd /var/www/vhosts/webperformancereport.com/preview.webperformancereport.com/
+
+            # Pull the latest code
+            echo "Pulling latest code..."
+            git pull https://${{ secrets.ORG_GIT_TOKEN }}@github.com/WebPerformanceReport/wpr-static-site.git dev
+
