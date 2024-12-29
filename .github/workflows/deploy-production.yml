@@ -1,11 +1,11 @@
-# GitHub Action to deploy WebPerformance Report Static Site on preview
-name: Deploy Preview
+# GitHub Action to deploy WebPerformance Report Static Site on production
+name: Deploy Production
 on:
   push:
     branches:
-      - dev
+      - main
 jobs:
-  deploy-preview:
+  deploy-production:
     runs-on: ubuntu-latest
     steps:
       - name: Execute remote SSH commands using SSH key
@@ -16,11 +16,11 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY_DEV_SERVER }}
           script: |
             # Navigate to the project directory
-            cd /var/www/vhosts/webperformancereport.com/preview.webperformancereport.com/
+            cd /var/www/vhosts/webperformancereport.com/httpdocs/
 
             # Pull the latest code
             git status
             git add .
             git stash
-            git pull https://${{ secrets.SSH_GIT_TOKEN }}@github.com/WebPerformanceReport/wpr-static-site.git dev
+            git pull https://${{ secrets.SSH_GIT_TOKEN }}@github.com/WebPerformanceReport/wpr-static-site.git main
 
