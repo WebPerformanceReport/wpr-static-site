@@ -564,6 +564,37 @@ div label[for=ui-component-toggle__yearly] {
 
 /*--------------------------------------------------------------
 |
+| Catalog
+|
+--------------------------------------------------------------*/
+
+.ui-section-catalog {
+  background-color: var(--ui-color-background-subscribe);
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.ui-section-catalog__layout {
+  flex-direction: column;
+  row-gap: var(--ui-gap-customer);
+}
+
+.ui-section-catalog--logo {
+  height: 100%;
+  width: auto;
+}
+
+.ui-section-catalog--logo-str { height: 1.75rem; }
+  
+.ui-section-catalog--logo-bhn { height: 1.375rem; }
+
+.ui-section-catalog .ui-text-intro {
+  color: var(--ui-color-typography-body);
+}
+
+/*--------------------------------------------------------------
+|
 | 7.4 FEATURE
 |
 --------------------------------------------------------------*/
