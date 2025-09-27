@@ -1,1 +1,121 @@
-<iframe id="wn-sendinblue" title="WebPerformance Report Subscription" loading="lazy" width="100%" height="1000px" src="https://104c0af5.sibforms.com/serve/MUIFAOr_tMQ82WwaJ9TgcnCi2rDjKbbN0NbDCaqDQQDYZnTWAUbjbmsKN7l6rcNODQ2vCzWE1WR0VRC0VaLW-8lVle9eLUEmf9nySMJXWFL1obgnZevTE2cHntFR33q5mKp3B07RO-e0II9yCqIXXbAkTtZCr0J2h0_PinuSQQ1x6Fa41FTnPwNoLI7n0PMo2qco-fgka5cIqQM6" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
+<form
+  id="subscribeForm"
+  class="wpr-subscribe"
+  action="https://webperformancereport.com/report/proxy/subscribe.php"
+  method="post"
+  novalidate
+  data-enhanced="true"
+>
+  <!-- Hidden: source dinámico -->
+  <input type="hidden" name="source" value="Performance" />
+
+  <!-- Hidden timestamp -->
+  <input type="hidden" name="ts" value="" />
+
+  <!-- Honeypot -->
+  <div class="hp" aria-hidden="true" hidden>
+    <label for="company">Company</label>
+    <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <!-- Email -->
+  <div class="field">
+    <label for="email">Enter your email address <span>*</span></label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      required
+      inputmode="email"
+      autocomplete="email"
+      placeholder="EMAIL"
+      aria-describedby="email-hint"
+    />
+    <p id="email-hint" class="hint">
+      Provide your email address to subscribe. Example: abc@xyz.com
+    </p>
+  </div>
+
+  <!-- Website URL -->
+  <div class="field">
+    <label for="siteUrl">Enter your website address <span>*</span></label>
+    <input
+      id="siteUrl"
+      name="siteUrl"
+      type="url"
+      required
+      inputmode="url"
+      placeholder="https://example.com"
+      pattern="https?://.+"
+      aria-describedby="url-hint"
+    />
+    <p id="url-hint" class="hint">
+       Provide your Website URL. For e.g https://example.com/
+    </p>
+  </div>
+
+  <!-- Location -->
+  <div class="field">
+    <label for="location">Choose your Test Location <span>*</span></label>
+    <select id="location" name="location" required aria-describedby="location-hint">
+      <option value="" disabled selected hidden>Select one</option>
+      <option value="FRA_DE_02">Europe: Frankfurt, Germany (Chrome)</option>
+      <option value="DUB_IE_01">Europe: Ireland (Chrome)</option>
+      <option value="LHR_GB_01">Europe: London, United Kingdom (Chrome)</option>
+      <option value="CDG_FR_01">Europe: Paris, France (Chrome)</option>
+      <option value="AMS_NL_02">Europe: Amsterdam, Netherlands (Chrome)</option>
+      <option value="MXP_IT_01">Europe: Milan, Italy (Chrome)</option>
+      <option value="QVZ_FI_01">Europe: Hamina, Finland (Chrome)</option>
+      <option value="Dulles">North America: Dulles, VA USA (Chrome)</option>
+      <option value="IAD_US_01">North America: Dulles, Virginia, USA (Chrome)</option>
+      <option value="SLC_US_02">North America: Salt Lake City, Utah, USA (Chrome)</option>
+      <option value="LAX_US_01">North America: Los Angeles, California, USA (Chrome)</option>
+      <option value="YYZ_CA_01">North America: Toronto, Canada (Chrome)</option>
+      <option value="SYD_AU_01">Oceania: Sydney, Australia (Chrome)</option>
+      <option value="MEL_AU_03">Oceania: Melbourne, Australia (Chrome)</option>
+      <option value="TPE_TW_01">Asia: Taiwan (Chrome)</option>
+      <option value="ICN_KR_01">Asia: Seoul, Korea (Chrome)</option>
+      <option value="NRT_JP_01">Asia: Tokyo, Japan (Chrome)</option>
+      <option value="HKG_CN_01">Asia: Hong Kong, China (Chrome)</option>
+      <option value="BJS_CN_04">Asia: Beijing, China (Chrome)</option>
+      <option value="BOM_IN_01">Asia: Mumbai, India (Chrome)</option>
+      <option value="GRU_BR_01">South America: Sao Paulo, Brazil (Chrome)</option>
+    </select>
+    <p id="location-hint" class="hint">
+      Select a Location. EU, North / South America, Oceania, and Asia locations available.
+    </p>
+  </div>
+
+  <!-- Device / connection -->
+  <div class="field">
+    <label for="device">Choose Device Mode <span>*</span></label>
+    <select id="device" name="device" required aria-describedby="device-hint">
+      <option value="" disabled selected hidden>Select one</option>
+      <option value="1">desktop</option>
+      <option value="2">mobile</option>
+    </select>
+    <p id="device-hint" class="hint">
+      Connections: Desktop - Cable (5 Mbps) or Mobile - Fast 3G (1.6 Mbps).
+    </p>
+  </div>
+
+  <!-- Consent -->
+  <div class="field checkbox">
+    <input id="consent" name="consent" type="checkbox" value="on" required />
+    <label for="consent">
+      I agree to receive your reports and accept the <a href="/privacy-policy/">Privacy Policy</a>.
+    </label>
+  </div>
+
+  <!-- Submit -->
+  <div class="actions">
+    <button type="submit" data-submit>SUBSCRIBE</button>
+  </div>
+
+  <!-- Footnote -->
+  <p class="footnote">WebPerformanceReport.com is powered by WebPageTest.</p>
+</form>
+
+<div id="wpr-messages" class="wpr-messages" role="status" aria-live="polite" hidden></div>
+
+{% include "layouts/shared/form-subscribe-script.njk" %}
