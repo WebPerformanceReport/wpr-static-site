@@ -1,6 +1,6 @@
-{% extends 'layouts/base.njk' %}
+{% extends 'layouts/about-us/base.njk' %}
 {% block pagemaincontent %}
-  {% include "layouts/thanks-message.njk" %}
+    {{ content | safe }}
 {% endblock %}
 {% block shared_content_catalog %}
   {% include "layouts/shared/catalog.njk" %}
@@ -8,4 +8,3 @@
 {% block shared_content_footer %}
   {% include "layouts/shared/footer.njk" %}
 {% endblock %}
-{{ content }}

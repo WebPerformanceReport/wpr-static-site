@@ -645,7 +645,7 @@ div label[for=ui-component-toggle__yearly] {
   text-align: center;
 }
 
-.ui-section-about p { color: #000; }
+.ui-section-about p { color: #464443; }
 
 .ui-section-about--quote {
   margin-bottom: 1rem;
@@ -653,6 +653,10 @@ div label[for=ui-component-toggle__yearly] {
 }
 
 .ui-section-about--author { line-height: 1.25; }
+
+.page--about-us .ui-section-about { 
+  text-align: left;
+}
 
 /*--------------------------------------------------------------
 |

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Cookiebot cookie consent script: Banner script -->
+    <script defer id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="7819dc9c-01f3-4d09-a8dc-b26fa39e69c0" data-blockingmode="auto" type="text/javascript"></script>
+
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="WebPerformance Report">
+    <meta name="description" content="WebPerformance Report every week in your inbox. Reports, Decisions, Results...">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="About US | WebPerformance Report">
+    <meta property="og:description" content="WebPerformance Report every week in your inbox. Reports, Decisions, Results...">
+    <meta property="og:image" content="https://webperformancereport.com/assets/img/webperformance-report.png">
+    <meta property="og:image:alt" content="About US | WebPerformance Report">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://webperformancereport.com/about-us/">
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@webperfreport" />
+    <meta name="twitter:title" content="About US | WebPerformance Report" />
+    <meta name="twitter:description" content="WebPerformance Report every week in your inbox. Reports, Decisions, Results..." />
+    <meta name="twitter:image" content="https://webperformancereport.com/assets/img/webperformance-report.png" />
+
+    <!-- SPEED -->
+
+    <!-- LINK -->
+    <link rel="icon" href="{{ '/' | url }}favicon.ico">
+    <link rel="apple-touch-icon" href="{{ '/' | url }}apple-touch-icon.png">
+
+    <style>
+    /* inter-regular - latin */
+    @font-face {
+      font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      src: url('fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+          url('fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    /* inter-700 - latin */
+    @font-face {
+      font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      src: url('fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+          url('fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+    </style>
+
+    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20250418">
+    <link rel="stylesheet" href="{{ '/' | url }}style.css?20250418">
+
+    <!-- TITLE -->
+    <title>{{ title }}</title>
+  </head>
+  <body class="{{ pageClass }}">
+    <header role="banner" class="ui-section-header">
+      <div class="ui-layout-container">
+        <div class="ui-section-header__layout ui-layout-flex">
+          <!-- LOGO -->
+          <a href="https://webperformancereport.com/" role="link" aria-label="#" class="ui-section-header--logo">
+            <img src="{{ '/' | url }}assets/img/webperformance-report-logo.png" width="100" height="100" alt="#" class="">
+          </a>
+          <!-- HAMBURGER -->
+          <input type="checkbox" id="ui-section-header--menu-id">
+          <label for="ui-section-header--menu-id" class="ui-section-header--menu-icon"></label>
+          <!-- MENU -->
+          <nav role="navigation" class="ui-section-header--nav ui-layout-flex">
+            <a href="{{ '/' | url }}#Sponsors" role="link" aria-label="Featured" class="ui-section-header--nav-link">Sponsors</a>
+            <a href="{{ '/' | url }}#Subscribe" role="link" aria-label="Subscribe" class="ui-section-header--nav-link">Subscribe</a>
+            <a href="{{ '/' | url }}#Users" role="link" aria-label="Users" class="ui-section-header--nav-link">Users</a>
+            <a href="{{ '/' | url }}#Catalog" role="link" aria-label="Users" class="ui-section-header--nav-link">Catalog</a>
+            <a href="{{ '/' | url }}#Report" role="link" aria-label="Report" class="ui-section-header--nav-link">Report</a>
+            <a href="{{ '/' | url }}#Contact" role="link" aria-label="Contact" class="ui-section-header--nav-link">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main role="main">
+      <section class="ui-section-title">
+        <div class="ui-layout-container">
+          <h1>{{ mainTitle }}</h1>
+        </div>
+      </section>
+      <section class="ui-section-about">
+        <div class="ui-layout-container">
+          {% block pagemaincontent %}
+            content
+          {% endblock %}
+        </div>
+      </section>
+    </main>
+    {% block shared_content_footer %}
+      content
+    {% endblock %}
+  </body>
+</html>
