@@ -7,7 +7,7 @@
   data-enhanced="true"
 >
   <!-- Hidden: source dinámico -->
-  <input type="hidden" name="source" value="Observatory" />
+  <input type="hidden" name="source" value="Wave" />
 
   <!-- Hidden timestamp -->
   <input type="hidden" name="ts" value="" />
@@ -36,23 +36,23 @@
     </p>
   </div>
 
-<!-- Website Domain -->
-<div class="field">
-  <label for="domain">Enter your Domain <span>*</span></label>
-  <input
-    id="domain"
-    name="domain"
-    type="text"
-    required
-    inputmode="url"
-    placeholder="Scan a website (e.g. example.com)"
-    pattern="^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,}$"
-    aria-describedby="domain-hint"
-  />
-  <p id="domain-hint" class="hint">
-    Provide your Domain. Example: <code>example.com</code>
-  </p>
-</div>
+  <!-- Website URL -->
+  <div class="field">
+    <label for="siteUrl">Enter your website address <span>*</span></label>
+    <input
+      id="siteUrl"
+      name="siteUrl"
+      type="url"
+      required
+      inputmode="url"
+      placeholder="https://example.com"
+      pattern="https?://.+"
+      aria-describedby="url-hint"
+    />
+    <p id="url-hint" class="hint">
+      Provide your website URL. Example: https://example.com/
+    </p>
+  </div>
 
   <!-- Consent -->
   <div class="field checkbox">
@@ -69,10 +69,11 @@
 
   <!-- Footnote -->
   <p class="footnote">
-    Built using Mozilla’s HTTP Observatory.
+    Built on top of the WAVE Accessibility Evaluation Tool.
   </p>
 </form>
 
 <div id="wpr-messages" class="wpr-messages" role="status" aria-live="polite" hidden></div>
 
 {% include "layouts/shared/form-subscribe-script.njk" %}
+
