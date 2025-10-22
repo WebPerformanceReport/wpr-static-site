@@ -654,9 +654,7 @@ div label[for=ui-component-toggle__yearly] {
 
 .ui-section-about--author { line-height: 1.25; }
 
-.page--about-us .ui-section-about { 
-  text-align: left;
-}
+.page--about-us .ui-section-about { text-align: left; }
 
 /*--------------------------------------------------------------
 |
@@ -1459,3 +1457,8 @@ div label[for=ui-component-toggle__yearly] {
 .wpr-alert__icon { font-size:1.1em; line-height:1; }
 .wpr-subscribe .hp { display: none; position:absolute !important; left:-9999px !important; visibility:hidden !important; }
 .wpr-subscribe label span { color: #ff4949; }
+
+.regular-text {
+  font-size: 1rem;
+  line-height: 1.5;
+}

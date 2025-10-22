@@ -1457,3 +1457,8 @@ div label[for=ui-component-toggle__yearly] {
 .wpr-alert__icon { font-size:1.1em; line-height:1; }
 .wpr-subscribe .hp { display: none; position:absolute !important; left:-9999px !important; visibility:hidden !important; }
 .wpr-subscribe label span { color: #ff4949; }
+
+.regular-text {
+  font-size: 1rem;
+  line-height: 1.5;
+}
