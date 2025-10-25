@@ -1,2 +1,5 @@
-_site/report/
+_site/report/proxy/
+_site/report/wpt/
+report/proxy/
+report/wpt/
 .env

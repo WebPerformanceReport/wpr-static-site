@@ -1,0 +1,86 @@
+{
+    "report": {
+        "id": "240516_AiDcVZ_K31",
+        "url": "https://sassyclassy.de/",
+        "from": "Frankfurt, Germany - EC2 - Chrome - Emulated Motorola G Power - 3GFast",
+        "connectivity": "3GFast",
+        "mobile": 1,
+        "date": "2024-05-16T22:17:51",
+        "optimizationScores": {
+            "score_lighthouse-perf": 60,
+            "score_security": "A+",
+            "score_first-byte-time": "A",
+            "score_keep-alive": "A",
+            "score_compress-transfer": "A",
+            "score_compress-images": "A",
+            "score_cache-static-content": "A",
+            "score_use-cdn": "X"
+        },
+        "webVitals": {
+            "lab": {
+                "largest-contentful-paint": 1086,
+                "cumulative-layout-shift": 0.00,
+                "first-input-delay": 676
+            },
+            "CrUX": {
+                "largest-contentful-paint": 1086,
+                "cumulative-layout-shift": 0.00,
+                "interaction-to-next-paint": 117,
+                "time-to-first-byte": 626,
+                "first-input-delay": 676
+            }
+        },
+        "lighthouseScores": {
+            "score_performance": 60,
+            "score_accessibility": 96,
+            "score_best-practices": 96,
+            "score_seo": 93
+        },
+        "performanceResults": {
+            "highLevel": {
+                "first-byte": 0.854,
+                "start-render": 2.200,
+                "first-contentful-paint": 1.970,
+                "speed-index": 3.458
+            },
+            "documentComplete": {
+                "time": 0.854,
+                "requests": 2.200,
+                "bytes-in": 1.970
+            },
+            "fullyLoaded": {
+                "time": 0.854,
+                "requests": 2.200,
+                "bytes-in": 1.970
+            }
+        },
+        "contentBreakdown": {
+            "mimeType": {
+                "js": {
+                    "requests": 27,
+                    "bytes": 305
+                },
+                "css": {
+                    "requests": 3,
+                    "bytes": 103
+                },
+                "image": {
+                    "requests": 61,
+                    "bytes": 882
+                },
+                "font": {
+                    "requests": 9,
+                    "bytes": 255
+                },
+                "html": {
+                    "requests": 13,
+                    "bytes": 24
+                }
+            }
+        }
+    },
+    "statusCode": "200",
+    "statusMessage": "report delivered",
+    "webPerformanceReportUrl": "https://webperformancereport.com/",
+    "webPerformanceReportVersion": "1.0.0"
+}
