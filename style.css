@@ -222,6 +222,8 @@ small { font-size: var(--ui-typography-s); }
   line-height: 1;
 }
 
+.ui-text-nowrap { white-space: nowrap; }
+
 /*--------------------------------------------------------------
 4.0 IMAGE
 --------------------------------------------------------------*/
@@ -324,6 +326,39 @@ input[name="toggle"] { display: none; }
   border-radius: var(--ui-radius-button);
   cursor: pointer;
   padding: .5rem .625rem;
+}
+
+.page--plans .ui-component-toggle {
+  background-color: transparent;
+  border: .0625rem solid #4c97d9;
+  border-radius: .375rem;
+  padding: .125rem;
+}
+
+.page--plans .ui-component-toggle--label {
+  border-radius: .25rem;
+  color: #4c97d9;
+  font-weight: 600;
+  padding: .45rem .9rem;
+}
+
+.page--plans #ui-component-toggle__monthly:checked ~
+div label[for=ui-component-toggle__monthly],
+.page--plans #ui-component-toggle__yearly:checked ~
+div label[for=ui-component-toggle__yearly] {
+  background-color: #4c97d9;
+  color: #fff;
+}
+
+.page--plans .ui-section-pricing .ui-component-button {
+  background-color: #4c97d9;
+  border-color: #4c97d9;
+  color: #fff;
+}
+
+.page--plans .ui-section-pricing .ui-component-button.ui-component-button-primary {
+  background-color: #fff;
+  color: #4c97d9;
 }
 
 #ui-component-toggle__monthly:checked ~
@@ -537,6 +572,12 @@ div label[for=ui-component-toggle__yearly] {
   text-align: center;
 }
 
+.ui-section-title--full {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+}
+
 /*--------------------------------------------------------------
 |
 | 7.3 SUBSCRIBE
@@ -638,23 +679,29 @@ div label[for=ui-component-toggle__yearly] {
 |
 --------------------------------------------------------------*/
 
-.ui-section-about {
+.ui-section-about,
+.ui-section-plans {
   background-color: var(--ui-color-background-subscribe) !important;
   padding-bottom: 2rem;
   padding-top: 2rem;
   text-align: center;
 }
 
-.ui-section-about p { color: #464443; }
+.ui-section-about p,
+.ui-section-plans p { color: #464443; }
 
-.ui-section-about--quote {
+.ui-section-about--quote,
+.ui-section-plans--quote {
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
 
-.ui-section-about--author { line-height: 1.25; }
+.ui-section-about--author,
+.ui-section-plans--author { line-height: 1.25; }
 
 .page--about-us .ui-section-about { text-align: left; }
+
+.page--plans .ui-section-plans { text-align: left; }
 
 /*--------------------------------------------------------------
 |
@@ -664,9 +711,14 @@ div label[for=ui-component-toggle__yearly] {
 
 .ui-section-pricing {
   display: none;
-  padding-bottom: 5rem;
-  padding-top: 5rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
   text-align: center;
+}
+
+.page--pricing .ui-section-pricing,
+.page--plans .ui-section-pricing {
+  display: block;
 }
 
 .ui-section-pricing__layout {
@@ -678,8 +730,21 @@ div label[for=ui-component-toggle__yearly] {
 /* CARD */
 
 .ui-component-card--pricing {
+  background-color: #fff;
   padding: 1.5rem 1.5rem 1.75rem;
   text-align: left;
+}
+
+.ui-component-card--pricing .ui-component-button {
+  width: 100%;
+}
+
+.ui-component-card--pricing h2 {
+  align-items: baseline;
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+  text-align: center;
 }
 
 .ui-component-card--pricing-price {
@@ -693,28 +758,115 @@ div label[for=ui-component-toggle__yearly] {
   font-weight: 700;
 }
 
+.ui-component-card--pricing-featured {
+  border-color: var(--ui-color-brand);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.05);
+  position: relative;
+}
+
+.ui-component-card--pricing-badge {
+  background-color: var(--ui-color-background-primary);
+  border-radius: 999px;
+  color: var(--ui-color-typography-button);
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 700;
+  padding: .2rem .5rem;
+}
+
+.ui-component-card--pricing-badge-wrap {
+  height: .9rem;
+  position: relative;
+  text-align: center;
+}
+
 /* AMOUNT */
 
-.ui-component-card--pricing-amount-1::before { content: "$5"; }
+.ui-component-card--pricing-amount-0::before { content: "$0"; }
 
 #ui-component-toggle__yearly:checked ~ div
-.ui-component-card--pricing-amount-1::before { content: "$3"; }
+.ui-component-card--pricing-amount-0::before { content: "$0"; }
 
-.ui-component-card--pricing-amount-2::before { content: "$15"; }
-
-#ui-component-toggle__yearly:checked ~ div
-.ui-component-card--pricing-amount-2::before { content: "$13"; }
-
-.ui-component-card--pricing-amount-3::before { content: "$25"; }
+.ui-component-card--pricing-amount-1::before { content: "$30"; }
 
 #ui-component-toggle__yearly:checked ~ div
-.ui-component-card--pricing-amount-3::before { content: "$23"; }
+.ui-component-card--pricing-amount-1::before { content: "$27"; }
+
+.ui-component-card--pricing-amount-2::before { content: "$60"; }
+
+#ui-component-toggle__yearly:checked ~ div
+.ui-component-card--pricing-amount-2::before { content: "$54"; }
+
+.ui-component-card--pricing-amount-3::before { content: "$90"; }
+
+#ui-component-toggle__yearly:checked ~ div
+.ui-component-card--pricing-amount-3::before { content: "$81"; }
+
+.ui-component-card--pricing-amount-4::before { content: "$150"; }
+
+#ui-component-toggle__yearly:checked ~ div
+.ui-component-card--pricing-amount-4::before { content: "$135"; }
 
 /* LIST */
 
 .ui-component-list--pricing {
   margin-bottom: 1.5rem;
   margin-top: 1.25rem;
+}
+
+.ui-section-compare {
+  background-color: var(--ui-color-background-subscribe);
+  padding-bottom: 4rem;
+  padding-top: 4rem;
+}
+
+.ui-section-compare h2 {
+  text-align: center;
+}
+
+.ui-section-compare__table {
+  margin-top: 2rem;
+  overflow-x: auto;
+}
+
+.ui-table-compare {
+  border-collapse: collapse;
+  min-width: 42rem;
+  width: 100%;
+}
+
+.ui-table-compare th,
+.ui-table-compare td {
+  border: .0625rem solid var(--ui-color-border);
+  padding: .75rem .9rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.ui-table-compare thead th {
+  background-color: var(--ui-color-background-tertiary);
+  font-weight: 700;
+}
+
+.ui-table-compare tbody th {
+  font-weight: 600;
+  width: 22%;
+}
+
+.ui-table-compare__highlight-col {
+  background-color: rgba(102, 144, 185, 0.12);
+}
+
+.ui-table-compare th:nth-child(4),
+.ui-table-compare td:nth-child(4) {
+  border-color: rgba(66, 106, 144, 0.25);
+  border-left-color: rgba(66, 106, 144, 0.35);
+  border-right-color: rgba(66, 106, 144, 0.35);
+}
+
+.ui-table-compare th:nth-child(3),
+.ui-table-compare td:nth-child(3) {
+  border-right-color: rgba(66, 106, 144, 0.35);
 }
 
 /*--------------------------------------------------------------
@@ -730,6 +882,7 @@ div label[for=ui-component-toggle__yearly] {
 }
 
 .ui-section-faq__layout {
+  align-items: start;
   margin-bottom: 2rem;
   row-gap: var(--ui-gap-faq);
   text-align: left;
@@ -742,7 +895,10 @@ div label[for=ui-component-toggle__yearly] {
 
 .ui-section-faq--answer { padding-left: 1.875rem; }
 
-.ui-section-faq--note { text-align: center; }
+.ui-section-faq--note {
+  color: var(--ui-color-n-700);
+  text-align: center;
+}
 
 /*--------------------------------------------------------------
 |
@@ -888,7 +1044,8 @@ div label[for=ui-component-toggle__yearly] {
   }
 
   .ui-layout-grid-2,
-  .ui-layout-grid-3 {
+  .ui-layout-grid-3,
+  .ui-layout-grid-4 {
     column-gap: var(--ui-layout-gutter);
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
@@ -1077,6 +1234,7 @@ div label[for=ui-component-toggle__yearly] {
   .ui-layout-container { width: 60rem; }
 
   .ui-layout-grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .ui-layout-grid-4 { grid-template-columns: repeat(4, 1fr); }
 
   .ui-layout-grid-3 div:nth-of-type(3) { position: static; }
 
@@ -1275,7 +1433,7 @@ div label[for=ui-component-toggle__yearly] {
 
   .ui-section-pricing {
     padding-bottom: 7.5rem;
-    padding-top: 7.5rem;
+    padding-top: 1.5rem;
   }
 
   .ui-component-card--pricing { padding: 3rem; }
