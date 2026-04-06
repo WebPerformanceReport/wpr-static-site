@@ -1,0 +1,254 @@
+html {
+    font-family: arial,helvetica,sans-serif;
+    color: #3c4858;
+    font-size: 16px;
+}
+
+.container__report {
+    font-family: arial,helvetica,sans-serif;
+    color: #3c4858;
+    font-size: 16px;
+}
+
+.container__report h1 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.container__report h2, 
+.container__report h3, 
+.container__report h4, 
+.container__report h5, 
+.container__report h6 {
+    color: #222;
+    font-size: 1.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.container__report hr {
+    border-top: 1px dashed #666666;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.container__report p {
+    line-height: 1;
+    font-size: 0.875rem;
+}
+
+.container__report a {
+    color: #6690b9;
+    text-decoration: underline;
+}
+
+.container__report strong {
+    color: #3c4858;
+}
+
+.container__report {
+    max-width: 600px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.report-logo {
+    text-align: center;
+}
+
+.report-header {
+    position: relative;
+}
+
+.report-header,
+.report-footer .bottom__wrapper {
+    background-color: #6690b9;
+    padding: 10px;
+    color: white;
+    text-align: center;
+}
+
+.report-footer__link a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.footnote__wrapper p {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    line-height: 0.5;
+}
+
+.tools {
+    margin-top: 1.5rem;
+}
+
+.tools__nav {
+    text-align: center;
+}
+
+.sponsors {
+    text-align: center;
+}
+
+table.optimization-scores__table,
+table.optimization-scores__details,
+table.metrics__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0px; /* Spacing between tables */
+}
+
+table.optimization-scores__table th, 
+table.optimization-scores__table td,
+table.optimization-scores__details th,
+table.optimization-scores__details td {
+    text-align: center;
+    padding: 10px 2px;
+    border: 2px solid #fff;
+    color: #222;
+}
+
+table.metrics__table th,
+table.metrics__table td {
+    text-align: center;
+    padding: 10px 2px;
+    border: 1px solid #C0C0C0;
+    color: #3b3f44;
+    font-weight: normal;
+    word-break: break-all;
+}
+
+.optimization-scores__details th {
+    width: 25%;
+}
+
+.web-vitals__table.web-vitals__table--crux th,
+.metrics__table th,
+.lighthouse__table th {
+    width: 25%;
+}
+
+.web-vitals__table th,
+.document__table th,
+.fully-loaded__table th {
+    width: 33%;
+}
+
+.score__grades {
+    font-size: 1.875rem;
+    color: #222;
+}
+
+.score__grades span strong {
+    color: #222;
+}
+
+.score__titles {
+    font-size: 0.688rem;
+}
+
+table.optimization-scores__details .score--good {
+    background-color: #9bce54;
+}
+table.optimization-scores__details .score--average {
+    background-color: #f1c52e;
+}
+table.optimization-scores__details .score--poor {
+    background-color: #e33535;
+}
+
+table.optimization-scores__details .score--check {
+    background-color: #9bce54;
+}
+
+table.metrics__table {
+    margin-bottom: 1.5rem;
+}
+
+table.metrics__table .score__titles,
+table.metrics__table .metrics__titles {
+    background-color: #F0F0F0;
+    font-size: 0.875rem;
+}
+
+table.metrics__table .score__grades,
+table.metrics__table .metrics__values {
+    color: #3b3f44;
+    font-size: 0.875rem;
+}
+
+table.web-vitals__table .score--good,
+table.lighthouse__table .score--good {
+    background-color: #a1ffa4;
+}
+
+table.web-vitals__table .score--average,
+table.lighthouse__table .score--average {
+    background-color: #ffb342;
+}
+
+table.web-vitals__table .score--poor,
+table.lighthouse__table .score--poor {
+    background-color: #ff7580;
+}
+
+.perf-links__item--domain {
+    color: #777;
+    font-size: 0.688rem;
+}
+
+.container__report .button__wrapper {
+    text-align: center;
+}
+
+.container__report .button {
+    background-color: #6690b9;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    line-height: 1.15;
+    padding: 9px 10px;
+    border-radius: 3px;
+    margin: 10px;
+    display: block;
+}
+
+.report-section {
+    position: relative;
+    padding: 0 10px;
+}
+
+.container__report .highlight {
+    color: #ff0000;
+    font-size: 0.625rem;
+}
+
+.social__wrapper {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.social-media_logo {
+    width: 32px;
+    height: 32px;
+}
+
+.logo-x {
+    padding-right: 5px;
+}
+
+@media screen and (max-width: 490px) {
+    .container__report p {
+        line-height: 1.5;
+    }
+
+    .footnote__wrapper p {
+        line-height: 0.5;
+    }
+}
