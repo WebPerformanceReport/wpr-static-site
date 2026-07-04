@@ -717,7 +717,8 @@ div label[for=ui-component-toggle__yearly] {
 .page--plans .ui-section-plans { text-align: left; }
 
 .page--terms-of-service .ui-section-about,
-.page--refund-policy .ui-section-about { text-align: left; }
+.page--refund-policy .ui-section-about,
+.page--legal-notice .ui-section-about { text-align: left; }
 
 .page--terms-of-service .ui-section-about ul,
 .page--refund-policy .ui-section-about ul {

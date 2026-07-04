@@ -1,0 +1,7 @@
+{% extends 'layouts/legal-notice/base.njk' %}
+{% block pagemaincontent %}
+    {{ content | safe }}
+{% endblock %}
+{% block shared_content_footer %}
+  {% include "layouts/shared/footer.njk" %}
+{% endblock %}
