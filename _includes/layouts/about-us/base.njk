@@ -38,8 +38,8 @@
       font-family: 'Inter';
       font-style: normal;
       font-weight: 400;
-      src: url('fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-          url('fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      src: url('{{ "/" | url }}fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+          url('{{ "/" | url }}fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
 
     /* inter-700 - latin */
@@ -48,13 +48,13 @@
       font-family: 'Inter';
       font-style: normal;
       font-weight: 700;
-      src: url('fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-          url('fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      src: url('{{ "/" | url }}fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+          url('{{ "/" | url }}fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
     </style>
 
-    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20251012">
-    <link rel="stylesheet" href="{{ '/' | url }}style.css?20251012">
+    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20260704">
+    <link rel="stylesheet" href="{{ '/' | url }}style.css?20260704">
 
     <!-- TITLE -->
     <title>{{ title }}</title>
@@ -95,9 +95,6 @@
           {% endblock %}
         </div>
       </section>
-      {% block shared_content_testimonials %}
-        content
-      {% endblock %}
     </main>
     {% block shared_content_footer %}
       content

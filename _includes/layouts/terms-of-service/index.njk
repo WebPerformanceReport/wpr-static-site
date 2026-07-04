@@ -1,8 +1,7 @@
-{% extends 'layouts/base.njk' %}
+{% extends 'layouts/terms-of-service/base.njk' %}
 {% block pagemaincontent %}
-  {% include "layouts/privacy-policy_cookies.njk" %}
+    {{ content | safe }}
 {% endblock %}
 {% block shared_content_footer %}
   {% include "layouts/shared/footer.njk" %}
 {% endblock %}
-{{ content }}
