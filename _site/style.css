@@ -716,16 +716,20 @@ div label[for=ui-component-toggle__yearly] {
 
 .page--plans .ui-section-plans { text-align: left; }
 
-.page--terms-of-service .ui-section-about { text-align: left; }
+.page--terms-of-service .ui-section-about,
+.page--refund-policy .ui-section-about { text-align: left; }
 
-.page--terms-of-service .ui-section-about ul {
+.page--terms-of-service .ui-section-about ul,
+.page--refund-policy .ui-section-about ul {
   list-style: disc;
   padding-left: 1.25rem;
 }
 
-.page--terms-of-service .ui-section-about li { margin-bottom: 0.4rem; }
+.page--terms-of-service .ui-section-about li,
+.page--refund-policy .ui-section-about li { margin-bottom: 0.4rem; }
 
-.page--terms-of-service .ui-section-about hr {
+.page--terms-of-service .ui-section-about hr,
+.page--refund-policy .ui-section-about hr {
   border: none;
   border-top: 1px solid var(--ui-color-border);
   margin: 2rem 0;
