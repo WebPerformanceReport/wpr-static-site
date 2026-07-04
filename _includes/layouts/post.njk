@@ -1,0 +1,132 @@
+{% extends 'layouts/blog/base.njk' %}
+
+{% block pagemaincontent %}
+
+  <section class="ui-section-post-header">
+    <div class="ui-layout-container">
+      <nav class="ui-post-breadcrumb" aria-label="Breadcrumb">
+        <a href="{{ '/' | url }}">WebPerformance Report</a>
+        <span aria-hidden="true">&rsaquo;</span>
+        <a href="{{ '/' | url }}blog/">Blog</a>
+      </nav>
+      <h1 class="ui-post-title">{{ title }}</h1>
+      <div class="ui-post-author-row">
+        <div class="ui-post-author">
+          {% if author.avatar %}
+            <img src="{{ author.avatar }}" alt="{{ author.name }}" class="ui-post-author__avatar" width="36" height="36">
+          {% endif %}
+          <span class="ui-post-author__name">{{ author.name }}</span>
+          {% if author.twitter %}
+            <a href="{{ author.twitter }}" class="ui-post-author__social" aria-label="X (Twitter)" rel="noopener" target="_blank">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M9.294 6.928 14.357 1h-1.2L8.762 6.147 5.25 1H1.2l5.31 7.784L1.2 15h1.2l4.642-5.436L10.75 15H14.8L9.294 6.928Zm-1.644 1.925-.538-.775L2.87 1.9h1.843l3.454 4.977.538.775 4.492 6.475h-1.843L7.65 8.853Z"/></svg>
+            </a>
+          {% endif %}
+          {% if author.github %}
+            <a href="{{ author.github }}" class="ui-post-author__social" aria-label="GitHub" rel="noopener" target="_blank">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+            </a>
+          {% endif %}
+          {% if author.linkedin %}
+            <a href="{{ author.linkedin }}" class="ui-post-author__social" aria-label="LinkedIn" rel="noopener" target="_blank">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146Zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+            </a>
+          {% endif %}
+        </div>
+        <div class="ui-post-meta-info">
+          <span class="ui-post-meta-date">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zM3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/></svg>
+            <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+          </span>
+          {% if readingTime %}
+            <span class="ui-post-meta-read">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/></svg>
+              {{ readingTime }} min read
+            </span>
+          {% endif %}
+        </div>
+      </div>
+      <hr class="ui-post-divider">
+    </div>
+  </section>
+
+  {% if heroVideo %}
+    <div class="ui-post-hero">
+      <div class="ui-layout-container">
+        {% videoFacade heroVideo, heroVideoTitle, featuredImage %}
+      </div>
+    </div>
+  {% elif featuredImage %}
+    <div class="ui-post-hero">
+      <div class="ui-layout-container">
+        <img src="{{ featuredImage }}" alt="{{ title }}" class="ui-post-hero__img" width="1200" height="600">
+      </div>
+    </div>
+  {% endif %}
+
+  <section class="ui-section-post">
+    <div class="ui-layout-container">
+      <div class="ui-post-layout">
+
+        <article class="ui-section-post__content">
+          {{ content | safe }}
+          <div class="ui-section-post__back">
+            <a href="{{ '/' | url }}blog/" class="ui-component-button ui-component-button-normal ui-component-button-secondary" role="link" aria-label="Back to Blog">&larr; Back to Blog</a>
+          </div>
+        </article>
+
+        <aside class="ui-post-sidebar" aria-label="Table of contents">
+          <div class="ui-post-toc">
+            <p class="ui-post-toc__title">On this page</p>
+            <nav id="toc-nav" aria-label="Article sections"></nav>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('.ui-post-video-facade').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var id = el.dataset.ytId;
+        window.open('https://www.youtube.com/watch?v=' + id, '_blank', 'noopener');
+      });
+    });
+
+    (function () {
+      var content = document.querySelector('.ui-section-post__content');
+      var tocNav = document.getElementById('toc-nav');
+      if (!content || !tocNav) return;
+      var headings = content.querySelectorAll('h2, h3');
+      if (!headings.length) return;
+      var ul = document.createElement('ul');
+      ul.className = 'ui-post-toc__list';
+      headings.forEach(function (h) {
+        if (!h.id) {
+          h.id = h.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        }
+        var li = document.createElement('li');
+        li.className = 'ui-post-toc__item' + (h.tagName === 'H3' ? ' ui-post-toc__item--sub' : '');
+        var a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.textContent = h.textContent;
+        a.className = 'ui-post-toc__link';
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+      tocNav.appendChild(ul);
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var link = tocNav.querySelector('a[href="#' + entry.target.id + '"]');
+          if (link) link.classList.toggle('is-active', entry.isIntersecting);
+        });
+      }, { rootMargin: '-10% 0px -75% 0px' });
+      headings.forEach(function (h) { observer.observe(h); });
+    })();
+  </script>
+
+{% endblock %}
+
+{% block shared_content_footer %}
+  {% include "layouts/shared/footer.njk" %}
+{% endblock %}

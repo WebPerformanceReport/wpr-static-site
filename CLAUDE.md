@@ -22,7 +22,7 @@ Built output goes to `_site/`. There are no tests or linters configured.
 
 ## Architecture
 
-This is an **Eleventy (11ty)** static site with no custom `.eleventy.js` config (uses defaults).
+This is an **Eleventy (11ty)** static site. A `.eleventy.js` config exists at the root that adds two date filters: `readableDate` and `htmlDateString` (used by blog templates).
 
 **Template system:** Pages are `.liquid` files (front matter + HTML); layouts are `.njk` (Nunjucks) files in `_includes/layouts/`. Liquid files declare their layout in front matter (`layout: layouts/home.njk`) and Nunjucks layouts use `{% block %}` / `{% include %}` for composition.
 
