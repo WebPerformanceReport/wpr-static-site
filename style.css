@@ -154,17 +154,30 @@ html { box-sizing: border-box; }
 body {
   background-color: var(--ui-color-background-primary);
   color: var(--ui-color-typography-body);
+  display: flex;
+  flex-direction: column;
   font-family: var(--ui-typography-typeface);
   font-feature-settings: "liga", "kern";
   font-size: var(--ui-typography-p);
   font-weight: 400;
   line-height: var(--ui-typography-p-leading);
   margin: 0 auto;
+  min-height: 100vh;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
-body.page--privacy-policy .cookie-consent-wrap {
+body > main {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+
+main > section:last-child {
+  flex: 1 0 auto;
+}
+
+body.page--cookie-policy .cookie-consent-wrap {
   text-align: left;
 }
 
