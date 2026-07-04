@@ -716,6 +716,21 @@ div label[for=ui-component-toggle__yearly] {
 
 .page--plans .ui-section-plans { text-align: left; }
 
+.page--terms-of-service .ui-section-about { text-align: left; }
+
+.page--terms-of-service .ui-section-about ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.page--terms-of-service .ui-section-about li { margin-bottom: 0.4rem; }
+
+.page--terms-of-service .ui-section-about hr {
+  border: none;
+  border-top: 1px solid var(--ui-color-border);
+  margin: 2rem 0;
+}
+
 /*--------------------------------------------------------------
 |
 | 7.6 PRICING
