@@ -81,9 +81,13 @@ By using the service, you confirm that you are legally able to enter into these 
 
 ## 5. Intended Use
 
-WebPerformance Report is designed primarily for professional use by organizations and individuals responsible for managing, monitoring, or improving digital products and services.
+WebPerformance Report is intended solely for professional, business, or commercial use.
 
-This includes businesses, government agencies, public sector organizations, educational institutions, universities, schools, financial institutions, non-profit organizations, healthcare organizations, digital agencies, consultants, freelancers, developers, technology teams, marketing teams, Digital Property owners, content creators, professional bloggers, and any other organization or individual managing digital properties.
+By creating an account, using the service, or purchasing a subscription, you confirm that you are acting in the course of your trade, business, profession, organization, employment, or other commercial activity, and not as a consumer.
+
+WebPerformance Report does not offer paid subscriptions for personal, household, or consumer use.
+
+This includes, but is not limited to, businesses, government agencies, public sector organizations, educational institutions, universities, schools, financial institutions, non-profit organizations, healthcare organizations, digital agencies, consultants, freelancers, developers, technology teams, marketing teams, Digital Property owners, content creators, professional bloggers, and any other organization or individual managing digital properties.
 
 The service is intended to support informed decision-making through automated digital reporting.
 
