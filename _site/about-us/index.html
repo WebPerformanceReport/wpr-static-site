@@ -38,8 +38,8 @@
       font-family: 'Inter';
       font-style: normal;
       font-weight: 400;
-      src: url('fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-          url('fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      src: url('/fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+          url('/fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
 
     /* inter-700 - latin */
@@ -48,13 +48,13 @@
       font-family: 'Inter';
       font-style: normal;
       font-weight: 700;
-      src: url('fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-          url('fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      src: url('/fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+          url('/fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
     </style>
 
-    <link rel="preload" as="style" href="/style.css?20251012">
-    <link rel="stylesheet" href="/style.css?20251012">
+    <link rel="preload" as="style" href="/style.css?20260704">
+    <link rel="stylesheet" href="/style.css?20260704">
 
     <!-- TITLE -->
     <title>About Us | WebPerformance Report</title>
@@ -113,48 +113,31 @@
 
         </div>
       </section>
-      
-  <section class="ui-section-title ui-section-testimonials">
-    <div class="ui-layout-container">
-        <h2>Testimonials</h2><a name="Testimonials"></a>
-    </div>
-</section>
-<section class="ui-section-catalog ui-section-testimonials">
-    <div class="ui-layout-container">
-        <div class="ui-section-catalog__layout ui-layout-grid ui-layout-grid-3">
-            <div class="ui-component-cta ui-layout-flex">
-                <img src="/assets/img/testimonials/testimony.png" loading="lazy" alt="testimonial" width="80px" height="71px" class="">
-                <p style="margin-bottom:0; line-height: 1.5;"><i>“I love having a weekly reminder of the Web Performance of my site, as another checkpoint that I'm not letting things regress, Also look forward to the featured links in case I missed anything in the webperf world in the last week.”</i></p>
-                <p class="regular-text"><strong style="color: #426a90;">Barry Pollard,</strong><br><i>Web Performance Developer Advocate <br><strong>at Google</strong></i></p>
-            </div>
-            <div class="ui-component-cta ui-layout-flex">
-                <img src="/assets/img/testimonials/testimony.png" loading="lazy" alt="testimonial" width="80px" height="71px" class="">
-                <p style="margin-bottom:0; line-height: 1.5;"><i>“WPR provides an easy way for me to observe and share simplified performance monitoring results with other engineers. Compared to other solutions, WPR just gets to the point with the data you need.”</i></p>
-                <p class="regular-text"><strong style="color: #426a90;">Jacob Gross,</strong><br><i>Senior Performance Engineer<br><strong>at Framer</strong></i></p>
-            </div>
-            <div class="ui-component-cta ui-layout-flex">
-                <img src="/assets/img/testimonials/testimony.png" loading="lazy" alt="testimonial" width="80px" height="71px" class="">
-                <p style="margin-bottom:0; line-height: 1.5;"><i>“A snapshot report that provides valuable insights to help you focus on your website's performance, based on data, makes it a worthwhile choice, especially considering such factors influence SEO.”</i></p>
-                <p class="regular-text"><strong style="color: #426a90;">Madhu Kumar C,</strong><br><i>Digital Marketer and AI Blogger<br><strong>Independent Consultant</strong></i></p>
-            </div>
-        </div>
-    </div>
-</section>
-
     </main>
     
   <footer role="contentinfo" class="ui-section-footer">
     <div class="ui-layout-container">
-    <div class="ui-section-footer__layout ui-layout-flex">
-        <!-- COPYRIGHT -->
-        <p class="ui-section-footer--copyright ui-text-note"><small>&copy; WebPerformance Report | <a href="/privacy-policy/" alt="privacy policy">Privacy policy</a> | <a href="/about-us/" alt="about us">About us</a></small></p>
+    <div class="ui-section-footer__layout">
         <!-- MENU -->
-        <a href="https://twitter.com/webperfreport" role="link" aria-label="#" class="ui-component--social-media">
-        <image alt="twitter" width="36" height="36" loading="lazy" src="/assets/img/Orion_twitter.svg" />
-        </a>
-        <a href="https://www.linkedin.com/company/webperfreport/" role="link" aria-label="#" class="ui-component--social-media">
-        <image alt="linkedin" width="36" height="36" loading="lazy" src="/assets/img/Orion_linkedin.svg" />
-        </a>
+        <div class="ui-section-footer--social">
+          <a href="https://twitter.com/webperfreport" role="link" aria-label="#" class="ui-component--social-media">
+          <image alt="twitter" width="31" height="31" loading="lazy" src="/assets/img/Orion_twitter.svg" />
+          </a>
+          <a href="https://www.linkedin.com/company/webperfreport/" role="link" aria-label="#" class="ui-component--social-media">
+          <image alt="linkedin" width="31" height="31" loading="lazy" src="/assets/img/Orion_linkedin.svg" />
+          </a>
+          <a href="https://bsky.app/profile/webperfreport.bsky.social" role="link" aria-label="#" class="ui-component--social-media">
+          <image alt="bluesky" width="31" height="31" loading="lazy" src="/assets/img/bluesky-logo.svg" />
+          </a>
+        </div>
+        <!-- LINKS -->
+        <p class="ui-section-footer--links ui-text-note">
+          <small><a href="/cookie-policy/" alt="cookie policy">Cookie Policy</a> | <a href="/terms-of-service/" alt="terms of service">Terms of Service</a> | <a href="/refund-policy/" alt="refund policy">Refund Policy</a> | <a href="/legal-notice/" alt="legal notice">Legal Notice</a> | <a href="/about-us/" alt="about us">About Us</a></small>
+        </p>
+        <!-- COPYRIGHT -->
+        <p class="ui-section-footer--copyright ui-text-note">
+          <small>&copy; 2026 WebPerformance Report. All rights reserved.</small>
+        </p>
     </div>
     </div>
 </footer>

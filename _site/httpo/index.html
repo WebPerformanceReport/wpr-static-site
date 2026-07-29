@@ -41,8 +41,8 @@
       font-family: 'Inter';
       font-style: normal;
       font-weight: 400;
-      src: url('fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-          url('fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      src: url('/fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+          url('/fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
 
     /* inter-700 - latin */
@@ -51,13 +51,13 @@
       font-family: 'Inter';
       font-style: normal;
       font-weight: 700;
-      src: url('fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-          url('fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      src: url('/fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+          url('/fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
     </style>
 
-    <link rel="preload" as="style" href="/style.css?20251012">
-    <link rel="stylesheet" href="/style.css?20251012">
+    <link rel="preload" as="style" href="/style.css?20260704">
+    <link rel="stylesheet" href="/style.css?20260704">
 
     <!-- TITLE -->
     <title>HTTP Observatory Report | WebPerformance Report</title>
@@ -191,7 +191,7 @@
   <div class="field checkbox">
     <input id="consent" name="consent" type="checkbox" value="on" required />
     <label for="consent">
-      I agree to receive your reports and accept the <a href="/privacy-policy/">Privacy Policy</a>.
+      I agree to receive your reports and accept the <a href="/cookie-policy/">Cookie Policy</a>.
     </label>
   </div>
 
@@ -537,13 +537,13 @@
       </section>
       <section class="ui-section-close">
         <div class="ui-layout-container">
-          <p>Get Connected: <a href="mailto: info@webperformancereport.com">info@webperformancereport.com</a></p>
+          <p>Get in touch: <a href="mailto: info@webperformancereport.com">info@webperformancereport.com</a></p>
 		      <p><a href="https://www.producthunt.com/products/WebPerformance-Report" rel="noopener" target="_blank"><img loading="lazy" src="https://api.producthunt.com/widgets/embed-image/v1/review.svg?post_id=297274&theme=light" alt="WebPerformance Report - Web page performance test every week in your inbox.  | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54"  /></a></p>
           <address>
             <strong>WebPerformance Report</strong><br>
-            81477 Munich, Germany
+            Reports. Decisions. Results.
             <br>
-            <small>(beta version)</small>
+            <small>(stable version 😊)</small>
           </address>
         </div>
       </section>
@@ -551,16 +551,27 @@
     
   <footer role="contentinfo" class="ui-section-footer">
     <div class="ui-layout-container">
-    <div class="ui-section-footer__layout ui-layout-flex">
-        <!-- COPYRIGHT -->
-        <p class="ui-section-footer--copyright ui-text-note"><small>&copy; WebPerformance Report | <a href="/privacy-policy/" alt="privacy policy">Privacy policy</a> | <a href="/about-us/" alt="about us">About us</a></small></p>
+    <div class="ui-section-footer__layout">
         <!-- MENU -->
-        <a href="https://twitter.com/webperfreport" role="link" aria-label="#" class="ui-component--social-media">
-        <image alt="twitter" width="36" height="36" loading="lazy" src="/assets/img/Orion_twitter.svg" />
-        </a>
-        <a href="https://www.linkedin.com/company/webperfreport/" role="link" aria-label="#" class="ui-component--social-media">
-        <image alt="linkedin" width="36" height="36" loading="lazy" src="/assets/img/Orion_linkedin.svg" />
-        </a>
+        <div class="ui-section-footer--social">
+          <a href="https://twitter.com/webperfreport" role="link" aria-label="#" class="ui-component--social-media">
+          <image alt="twitter" width="31" height="31" loading="lazy" src="/assets/img/Orion_twitter.svg" />
+          </a>
+          <a href="https://www.linkedin.com/company/webperfreport/" role="link" aria-label="#" class="ui-component--social-media">
+          <image alt="linkedin" width="31" height="31" loading="lazy" src="/assets/img/Orion_linkedin.svg" />
+          </a>
+          <a href="https://bsky.app/profile/webperfreport.bsky.social" role="link" aria-label="#" class="ui-component--social-media">
+          <image alt="bluesky" width="31" height="31" loading="lazy" src="/assets/img/bluesky-logo.svg" />
+          </a>
+        </div>
+        <!-- LINKS -->
+        <p class="ui-section-footer--links ui-text-note">
+          <small><a href="/cookie-policy/" alt="cookie policy">Cookie Policy</a> | <a href="/terms-of-service/" alt="terms of service">Terms of Service</a> | <a href="/refund-policy/" alt="refund policy">Refund Policy</a> | <a href="/legal-notice/" alt="legal notice">Legal Notice</a> | <a href="/about-us/" alt="about us">About Us</a></small>
+        </p>
+        <!-- COPYRIGHT -->
+        <p class="ui-section-footer--copyright ui-text-note">
+          <small>&copy; 2026 WebPerformance Report. All rights reserved.</small>
+        </p>
     </div>
     </div>
 </footer>
