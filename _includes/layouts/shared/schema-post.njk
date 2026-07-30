@@ -1,0 +1,74 @@
+{#
+  Structured data for a single blog post.
+
+  Every string is emitted through `| dump`, which JSON-encodes the value *and*
+  adds the surrounding quotes — that is what keeps an apostrophe or a quote in a
+  title from producing invalid JSON-LD. Optional fields are guarded and carry a
+  leading comma so the object stays valid when a post omits them.
+#}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": {{ (site.url + page.url) | dump | safe }},
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": {{ (site.url + page.url) | dump | safe }}
+      },
+      "url": {{ (site.url + page.url) | dump | safe }},
+      "headline": {{ title | dump | safe }},
+      "datePublished": {{ (date | htmlDateString) | dump | safe }},
+      "dateModified": {{ (date | htmlDateString) | dump | safe }},
+      "inLanguage": "en",
+      "publisher": {
+        "@type": "Organization",
+        "name": {{ site.name | dump | safe }},
+        "url": {{ site.url | dump | safe }},
+        "logo": {
+          "@type": "ImageObject",
+          "url": {{ (site.url + site.logo) | dump | safe }}
+        }
+      }
+      {%- if description %},
+      "description": {{ description | dump | safe }}
+      {%- endif %}
+      {%- if featuredImage %},
+      "image": {{ (site.url + featuredImage) | dump | safe }}
+      {%- endif %}
+      {%- if author.name %},
+      "author": {
+        "@type": "Person",
+        "name": {{ author.name | dump | safe }}
+        {%- if author.linkedin %},
+        "url": {{ author.linkedin | dump | safe }}
+        {%- endif %}
+      }
+      {%- endif %}
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": {{ site.name | dump | safe }},
+          "item": {{ site.url | dump | safe }}
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": {{ (site.url + "/blog/") | dump | safe }}
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": {{ title | dump | safe }}
+        }
+      ]
+    }
+  ]
+}
+</script>

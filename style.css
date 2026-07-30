@@ -47,6 +47,10 @@ TABLE OF CONTENT
 
   --ui-color-brand: #426a90;
 
+  /* Darker brand tone for solid-button hover. Named explicitly because white text
+     sits on it: it must never resolve to a light value. */
+  --ui-color-brand-hover: #1a2a39;
+
   /* COLOR PALETTE */
 
   --ui-color-n-000: #fff;
@@ -59,7 +63,6 @@ TABLE OF CONTENT
 
   --ui-color-n-200: #6690b9;
   --ui-color-n-210: #426a90;
-  --ui-color-n-220: #f5f5f5;
   --ui-color-n-220: #1a2a39;
   --ui-color-n-230: #dddddd;
 
@@ -706,6 +709,12 @@ div label[for=ui-component-toggle__yearly] {
   padding-bottom: 2rem;
   padding-top: 2rem;
   text-align: center;
+  /* Contains the `.ui-section-title--full` breakout below, whose `width: 100vw`
+     includes the scrollbar and would otherwise push a horizontal scrollbar onto
+     the page. `clip` (not `hidden`) trims it without creating a scroll
+     container, so `position: sticky` descendants keep working. */
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .ui-section-about p,
@@ -1727,31 +1736,136 @@ div label[for=ui-component-toggle__yearly] {
   padding-bottom: 4rem;
 }
 
-.ui-section-blog__grid {
-  display: grid;
+.ui-section-blog__list {
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
 }
 
+/* Full-width post row: media stacked on mobile, inset beside the body from 48rem up.
+   The card owns the padding so the thumbnail never touches the card edge. */
+
 .ui-component-card--post {
   background: var(--ui-color-n-000);
-  border: 1px solid var(--ui-color-border);
-  border-radius: var(--ui-radius-card);
-  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  padding: 1rem;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
+
+.ui-component-card--post:hover {
+  border-color: var(--ui-color-brand);
+  box-shadow: 0 .5rem 1.5rem rgba(40, 40, 40, .09);
+  transform: translateY(-.125rem);
+}
+
+.ui-component-card--post__media {
+  display: block;
+  overflow: hidden;
+  border-radius: .375rem;
+  background-color: var(--ui-color-n-050);
+}
+
+.ui-component-card--post__media img {
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  transition: transform .3s ease;
+}
+
+.ui-component-card--post:hover .ui-component-card--post__media img { transform: scale(1.03); }
+
+.ui-component-card--post__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: .25rem 0 .5rem;
+}
+
+.ui-component-card--post__meta {
+  align-items: center;
+  color: var(--ui-color-n-300);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: var(--ui-typography-s);
+  letter-spacing: .01em;
+  margin-bottom: .625rem;
+}
+
+.ui-component-card--post__sep { margin: 0 .5rem; }
 
 .ui-component-card--post h2 {
   font-size: var(--ui-typography-h3);
-  margin-bottom: 0.5rem;
+  line-height: var(--ui-typography-h2-leading);
+  margin-bottom: .625rem;
 }
 
 .ui-component-card--post h2 a {
   color: var(--ui-color-n-700);
   text-decoration: none;
+  transition: color .2s ease;
 }
 
 .ui-component-card--post h2 a:hover { color: var(--ui-color-brand); }
 
-.ui-component-card--post .ui-text-note { margin-bottom: 0.75rem; }
+.ui-component-card--post__intro {
+  color: var(--ui-color-typography-body);
+  line-height: var(--ui-typography-p-leading);
+  margin-bottom: 1.5rem;
+  max-width: 60ch;
+}
+
+/* Shared CTA button — blog card preview and post footer */
+
+.ui-component-button-cta {
+  align-items: center;
+  background-color: var(--ui-color-brand);
+  border: .0625rem solid var(--ui-color-brand);
+  border-radius: var(--ui-radius-button);
+  color: var(--ui-color-typography-button);
+  display: inline-flex;
+  font-weight: 700;
+  gap: .5rem;
+  line-height: 1;
+  margin-top: auto;
+  padding: .75rem 1.125rem .8125rem;
+  text-decoration: none;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.ui-component-button-cta:hover {
+  background-color: var(--ui-color-brand-hover);
+  border-color: var(--ui-color-brand-hover);
+  color: var(--ui-color-typography-button);
+}
+
+/* The global `svg { margin: 0 auto }` would absorb the flex free space and
+   override justify-content, so reset it on button icons. */
+.ui-component-button-cta__icon {
+  margin: 0;
+  transition: transform .2s ease;
+}
+
+.ui-component-button-cta:hover .ui-component-button-cta__icon { transform: translateX(.1875rem); }
+
+/* Back variant — arrow leads to the left */
+
+.ui-component-button-cta--back:hover .ui-component-button-cta__icon { transform: translateX(-.1875rem); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-component-card--post,
+  .ui-component-card--post__media img,
+  .ui-component-button-cta,
+  .ui-component-button-cta__icon { transition: none; }
+
+  .ui-component-card--post:hover { transform: none; }
+
+  .ui-component-card--post:hover .ui-component-card--post__media img { transform: none; }
+
+  .ui-component-button-cta:hover .ui-component-button-cta__icon { transform: none; }
+}
 
 /* Post single */
 
@@ -1836,11 +1950,40 @@ div label[for=ui-component-toggle__yearly] {
 }
 
 @media screen and (min-width: 48rem) {
-  .ui-section-blog__grid { grid-template-columns: repeat(2, 1fr); }
+  .ui-component-card--post {
+    align-items: stretch;
+    grid-template-columns: 14rem 1fr;
+    gap: 1.5rem;
+    padding: 1.25rem;
+  }
+
+  .ui-component-card--post-nomedia { grid-template-columns: 1fr; }
+
+  /* Media fills the row height so its top and bottom edges line up with the
+     text block — from the meta line down to the button. */
+  .ui-component-card--post__media {
+    height: 100%;
+    min-height: 10rem;
+  }
+
+  .ui-component-card--post__media img {
+    aspect-ratio: auto;
+    height: 100%;
+  }
+
+  .ui-component-card--post__body { padding: 0 .5rem 0 0; }
 }
 
 @media screen and (min-width: 64rem) {
-  .ui-section-blog__grid { grid-template-columns: repeat(3, 1fr); }
+  .ui-component-card--post {
+    grid-template-columns: 17rem 1fr;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
+  .ui-component-card--post-nomedia { grid-template-columns: 1fr; }
+
+  .ui-component-card--post__body { padding: 0 1rem 0 0; }
 }
 
 /* Post single — header */
@@ -2031,6 +2174,77 @@ div label[for=ui-component-toggle__yearly] {
   font-weight: 700;
 }
 
+/* The generic `.ui-section-post__content a` / `p` colors are more specific than a
+   single component class, so both would repaint the buttons and the sign-off.
+   These scoped rules keep the component colors inside the article body. */
+
+/* margin-bottom is included here because `.ui-section-post__content p` would
+   otherwise win and tie the spacing to the responsive --ui-typography-margin-body. */
+.ui-section-post__content .ui-post-signature {
+  color: var(--ui-color-brand);
+  margin-bottom: 2rem;
+}
+
+.ui-section-post__content .ui-post-cta-banner,
+.ui-section-post__content .ui-component-button-cta { color: var(--ui-color-typography-button); }
+
+/* Motto sign-off after the closing paragraph */
+
+.ui-post-signature {
+  border-top: .0625rem solid var(--ui-color-border);
+  color: var(--ui-color-brand);
+  font-size: var(--ui-typography-h3);
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: .01em;
+  margin: 2.5rem 0 2rem;
+  padding-top: 1.5rem;
+  text-align: right;
+}
+
+/* Full-width closing CTA */
+
+.ui-post-cta-banner {
+  align-items: center;
+  background-color: var(--ui-color-brand);
+  border: .0625rem solid var(--ui-color-brand);
+  border-radius: var(--ui-radius-card);
+  color: var(--ui-color-typography-button);
+  display: flex;
+  font-size: var(--ui-typography-h3);
+  font-weight: 700;
+  gap: .625rem;
+  justify-content: center;
+  line-height: 1.2;
+  margin: 0 0 1.5rem;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .2s ease, border-color .2s ease;
+  width: 100%;
+}
+
+.ui-post-cta-banner:hover {
+  background-color: var(--ui-color-brand-hover);
+  border-color: var(--ui-color-brand-hover);
+  color: var(--ui-color-typography-button);
+}
+
+.ui-post-cta-banner__icon {
+  flex: none;
+  margin: 0;
+  transition: transform .2s ease;
+}
+
+.ui-post-cta-banner:hover .ui-post-cta-banner__icon { transform: translateX(.25rem); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-post-cta-banner,
+  .ui-post-cta-banner__icon { transition: none; }
+
+  .ui-post-cta-banner:hover .ui-post-cta-banner__icon { transform: none; }
+}
+
 .ui-post-metric-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2183,20 +2397,25 @@ div label[for=ui-component-toggle__yearly] {
   margin: 1rem 0 1.5rem;
 }
 
+/* The marker hangs in the left padding rather than being a flex item. As a flex
+   container the <li> turned every inline run — "Added", the <strong>, the
+   trailing text — into a separate flex item, so each wrapped as its own column
+   and the text fell apart on narrow screens. */
 .ui-post-checklist li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.55rem;
+  position: relative;
+  padding-left: 1.65rem;
   margin-bottom: 0.6rem;
   color: #464443;
+  line-height: var(--ui-typography-p-leading);
 }
 
 .ui-post-checklist li::before {
   content: '';
-  flex-shrink: 0;
+  position: absolute;
+  left: 0;
+  top: 0.2rem;
   width: 1.1rem;
   height: 1.1rem;
-  margin-top: 0.15rem;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='none' stroke='%232e7d32' stroke-width='1.2'/%3E%3Cpath fill='none' stroke='%232e7d32' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='M4.5 8l2.5 2.5 4-4'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;

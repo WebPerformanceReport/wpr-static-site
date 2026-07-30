@@ -7,17 +7,36 @@
   </section>
   <section class="ui-section-blog">
     <div class="ui-layout-container">
-      <div class="ui-section-blog__grid">
+      <div class="ui-section-blog__list">
         {% for post in collections.post | reverse %}
-          <article class="ui-component-card ui-component-card--post">
-            <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
-            <p class="ui-text-note">
-              <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
-            </p>
-            {% if post.data.description %}
-              <p>{{ post.data.description }}</p>
+          <article class="ui-component-card ui-component-card--post{% if not post.data.featuredImage %} ui-component-card--post-nomedia{% endif %}">
+            {% if post.data.featuredImage %}
+              <a class="ui-component-card--post__media" href="{{ post.url }}" tabindex="-1" aria-hidden="true">
+                {# The first card is above the fold and is the LCP element: it must not be
+                   lazy-loaded, or the browser requests it at Low priority and LCP suffers. #}
+                <img src="{{ post.data.featuredImage }}" alt="" width="480" height="270" decoding="async"
+                  {% if loop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+              </a>
             {% endif %}
-            <a href="{{ post.url }}" class="ui-component-button ui-component-button-normal ui-component-button-secondary" role="link" aria-label="Read {{ post.data.title }}">Read more</a>
+            <div class="ui-component-card--post__body">
+              <p class="ui-component-card--post__meta">
+                <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+                {% if post.data.readingTime %}
+                  <span class="ui-component-card--post__sep" aria-hidden="true">&middot;</span>
+                  <span>{{ post.data.readingTime }} min read</span>
+                {% endif %}
+              </p>
+              <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+              {% if post.data.description %}
+                <p class="ui-component-card--post__intro">{{ post.data.description }}</p>
+              {% endif %}
+              <a href="{{ post.url }}" class="ui-component-button-cta" aria-label="Read {{ post.data.title }}">
+                <span>Read article</span>
+                <svg class="ui-component-button-cta__icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
+                  <path d="M1 8h12M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
           </article>
         {% else %}
           <p>No posts yet.</p>

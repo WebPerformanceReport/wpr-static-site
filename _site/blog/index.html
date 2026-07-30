@@ -26,6 +26,7 @@
     <meta name="twitter:image" content="https://webperformancereport.com/assets/img/webperformance-report.png" />
 
     <!-- LINK -->
+    <link rel="canonical" href="https://webperformancereport.com/blog/">
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -48,8 +49,8 @@
     }
     </style>
 
-    <link rel="preload" as="style" href="/style.css?20260530">
-    <link rel="stylesheet" href="/style.css?20260530">
+    <link rel="preload" as="style" href="/style.css?20260729">
+    <link rel="stylesheet" href="/style.css?20260729">
 
     <!-- TITLE -->
     <title>Blog | WebPerformance Report</title>
@@ -66,11 +67,12 @@
           <input type="checkbox" id="ui-section-header--menu-id">
           <label for="ui-section-header--menu-id" class="ui-section-header--menu-icon"></label>
           <!-- MENU -->
-          <nav role="navigation" class="ui-section-header--nav ui-layout-flex">
-            <a href="/#Sponsors" role="link" aria-label="Sponsors" class="ui-section-header--nav-link">Sponsors</a>
+          <nav role="navigation" class="ui-section-header--nav ui-layout-flex"><a href="/#Sponsors" role="link" aria-label="Sponsors" class="ui-section-header--nav-link">Sponsors</a>
             <a href="/#Subscribe" role="link" aria-label="Subscribe" class="ui-section-header--nav-link">Subscribe</a>
+            <a href="/#About" role="link" aria-label="About" class="ui-section-header--nav-link">About</a>
             <a href="/#Users" role="link" aria-label="Users" class="ui-section-header--nav-link">Users</a>
-            <a href="/blog/" role="link" aria-label="Blog" class="ui-section-header--nav-link">Blog</a>
+            <a href="/#Catalog" role="link" aria-label="Catalog" class="ui-section-header--nav-link">Catalog</a>
+            <a href="/#Report" role="link" aria-label="Report" class="ui-section-header--nav-link">Report</a>
             <a href="/#Contact" role="link" aria-label="Contact" class="ui-section-header--nav-link">Contact</a>
           </nav>
         </div>
@@ -85,17 +87,35 @@
   </section>
   <section class="ui-section-blog">
     <div class="ui-layout-container">
-      <div class="ui-section-blog__grid">
+      <div class="ui-section-blog__list">
         
           <article class="ui-component-card ui-component-card--post">
-            <h2><a href="/blog/why-webperformance-report-exists/">Why WebPerformance Report Exists</a></h2>
-            <p class="ui-text-note">
-              <time datetime="2026-05-29">29 May 2026</time>
-            </p>
             
-              <p>A conversation with Henri Helvetica about web performance, reports, and the missing last mile between data and decisions.</p>
+              <a class="ui-component-card--post__media" href="/blog/why-webperformance-report-exists/" tabindex="-1" aria-hidden="true">
+                
+                <img src="/assets/img/blog/why-webperformance-report-exists-hero-image.jpg" alt="" width="480" height="270" decoding="async"
+                  loading="eager" fetchpriority="high">
+              </a>
             
-            <a href="/blog/why-webperformance-report-exists/" class="ui-component-button ui-component-button-normal ui-component-button-secondary" role="link" aria-label="Read Why WebPerformance Report Exists">Read more</a>
+            <div class="ui-component-card--post__body">
+              <p class="ui-component-card--post__meta">
+                <time datetime="2026-07-29">29 July 2026</time>
+                
+                  <span class="ui-component-card--post__sep" aria-hidden="true">&middot;</span>
+                  <span>12 min read</span>
+                
+              </p>
+              <h2><a href="/blog/why-webperformance-report-exists/">Why WebPerformance Report Exists</a></h2>
+              
+                <p class="ui-component-card--post__intro">A conversation with Henri Helvetica about web performance, reports, and the missing last mile between data and decisions.</p>
+              
+              <a href="/blog/why-webperformance-report-exists/" class="ui-component-button-cta" aria-label="Read Why WebPerformance Report Exists">
+                <span>Read article</span>
+                <svg class="ui-component-button-cta__icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
+                  <path d="M1 8h12M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
           </article>
         
       </div>
@@ -106,16 +126,27 @@
     
   <footer role="contentinfo" class="ui-section-footer">
     <div class="ui-layout-container">
-    <div class="ui-section-footer__layout ui-layout-flex">
-        <!-- COPYRIGHT -->
-        <p class="ui-section-footer--copyright ui-text-note"><small>&copy; WebPerformance Report | <a href="/privacy-policy/" alt="privacy policy">Privacy policy</a> | <a href="/about-us/" alt="about us">About us</a></small></p>
+    <div class="ui-section-footer__layout">
         <!-- MENU -->
-        <a href="https://twitter.com/webperfreport" role="link" aria-label="#" class="ui-component--social-media">
-        <image alt="twitter" width="36" height="36" loading="lazy" src="/assets/img/Orion_twitter.svg" />
-        </a>
-        <a href="https://www.linkedin.com/company/webperfreport/" role="link" aria-label="#" class="ui-component--social-media">
-        <image alt="linkedin" width="36" height="36" loading="lazy" src="/assets/img/Orion_linkedin.svg" />
-        </a>
+        <div class="ui-section-footer--social">
+          <a href="https://twitter.com/webperfreport" role="link" aria-label="#" class="ui-component--social-media">
+          <image alt="twitter" width="31" height="31" loading="lazy" src="/assets/img/Orion_twitter.svg" />
+          </a>
+          <a href="https://www.linkedin.com/company/webperfreport/" role="link" aria-label="#" class="ui-component--social-media">
+          <image alt="linkedin" width="31" height="31" loading="lazy" src="/assets/img/Orion_linkedin.svg" />
+          </a>
+          <a href="https://bsky.app/profile/webperfreport.bsky.social" role="link" aria-label="#" class="ui-component--social-media">
+          <image alt="bluesky" width="31" height="31" loading="lazy" src="/assets/img/bluesky-logo.svg" />
+          </a>
+        </div>
+        <!-- LINKS -->
+        <p class="ui-section-footer--links ui-text-note">
+          <small><a href="/cookie-policy/" alt="cookie policy">Cookie Policy</a> | <a href="/terms-of-service/" alt="terms of service">Terms of Service</a> | <a href="/refund-policy/" alt="refund policy">Refund Policy</a> | <a href="/legal-notice/" alt="legal notice">Legal Notice</a> | <a href="/about-us/" alt="about us">About Us</a> | <a href="/blog/" alt="blog">Blog</a></small>
+        </p>
+        <!-- COPYRIGHT -->
+        <p class="ui-section-footer--copyright ui-text-note">
+          <small>&copy; 2026 WebPerformance Report. All rights reserved.</small>
+        </p>
     </div>
     </div>
 </footer>

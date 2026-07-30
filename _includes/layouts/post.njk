@@ -70,7 +70,12 @@
         <article class="ui-section-post__content">
           {{ content | safe }}
           <div class="ui-section-post__back">
-            <a href="{{ '/' | url }}blog/" class="ui-component-button ui-component-button-normal ui-component-button-secondary" role="link" aria-label="Back to Blog">&larr; Back to Blog</a>
+            <a href="{{ '/' | url }}blog/" class="ui-component-button-cta ui-component-button-cta--back" aria-label="Back to Blog">
+              <svg class="ui-component-button-cta__icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
+                <path d="M15 8H3M7 4 3 8l4 4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Back to Blog</span>
+            </a>
           </div>
         </article>
 

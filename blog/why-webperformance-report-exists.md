@@ -1,7 +1,7 @@
 ---
 title: "Why WebPerformance Report Exists"
 description: "A conversation with Henri Helvetica about web performance, reports, and the missing last mile between data and decisions."
-date: 2026-05-29
+date: 2026-07-29
 layout: layouts/post.njk
 permalink: "/blog/why-webperformance-report-exists/"
 pageClass: page--post
@@ -14,8 +14,7 @@ tags:
 author:
   name: Edwin Molina Hernández
   avatar: /assets/img/blog/authors/author-photo-edwin-molina-hernandez.jpg
-  twitter: https://x.com/edwinmolina_
-  github: https://github.com/edwinmolina
+  github: https://github.com/edwinmh
   linkedin: https://www.linkedin.com/in/edwinmolinahernandez/
 featuredImage: /assets/img/blog/why-webperformance-report-exists-hero-image.jpg
 heroVideo: "hLPhaEQCpjA"
@@ -184,6 +183,11 @@ WebPerformance Report exists because the digital world does not suffer from a la
 
 WebPerformance Report exists to close that gap: to deliver the right information to the right person, to make performance understandable, and to help teams move from metrics to decisions, and from decisions to results.
 
-<div class="ui-post-section-banner">Reports. Decisions. Results.</div>
+<p class="ui-post-signature">Reports. Decisions. Results.</p>
 
-[Get your own report.](https://webperformancereport.com/)
+<a class="ui-post-cta-banner" href="https://webperformancereport.com/">
+  <span>Get your own report</span>
+  <svg class="ui-post-cta-banner__icon" viewBox="0 0 16 16" width="18" height="18" aria-hidden="true" focusable="false">
+    <path d="M1 8h12M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</a>
