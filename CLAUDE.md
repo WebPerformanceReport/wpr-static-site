@@ -22,7 +22,9 @@ Built output goes to `_site/`. There are no tests or linters configured.
 
 ## Architecture
 
-This is an **Eleventy (11ty)** static site with no custom `.eleventy.js` config (uses defaults).
+This is an **Eleventy (11ty)** static site. The config is `eleventy.config.js` at the root. It registers the passthrough copies (`style.css`, `assets`, `fonts`, `favicon.ico`, `apple-touch-icon.png`), two date filters used by blog templates (`readableDate`, `htmlDateString`), and the `videoFacade` shortcode used by post layouts. A `.eleventyignore` keeps root Markdown (`CLAUDE.md`, `README.md`) from being built as pages.
+
+**Site metadata:** `_data/site.json` holds the canonical origin and branding (`url`, `name`, `logo`, `defaultImage`). `sitemap.njk` → `/sitemap.xml` and `robots.njk` → `/robots.txt` are generated from it; the sitemap has an `excluded` array at the top for pages that should stay out. `_includes/layouts/shared/schema-post.njk` emits `BlogPosting` + `BreadcrumbList` JSON-LD and is included from `blog/base.njk` when `pageClass == "page--post"`.
 
 **Template system:** Pages are `.liquid` files (front matter + HTML); layouts are `.njk` (Nunjucks) files in `_includes/layouts/`. Liquid files declare their layout in front matter (`layout: layouts/home.njk`) and Nunjucks layouts use `{% block %}` / `{% include %}` for composition.
 

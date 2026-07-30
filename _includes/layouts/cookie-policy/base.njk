@@ -28,6 +28,7 @@
     <!-- SPEED -->
 
     <!-- LINK -->
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
     <link rel="icon" href="{{ '/' | url }}favicon.ico">
     <link rel="apple-touch-icon" href="{{ '/' | url }}apple-touch-icon.png">
 
@@ -53,8 +54,8 @@
     }
     </style>
 
-    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20260704">
-    <link rel="stylesheet" href="{{ '/' | url }}style.css?20260704">
+    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20260729">
+    <link rel="stylesheet" href="{{ '/' | url }}style.css?20260729">
 
     <!-- TITLE -->
     <title>{{ title }}</title>
@@ -91,13 +92,11 @@
       <section class="ui-section-about">
         <div class="ui-layout-container">
           {% block pagemaincontent %}
-            content
           {% endblock %}
         </div>
       </section>
     </main>
     {% block shared_content_footer %}
-      content
     {% endblock %}
   </body>
 </html>

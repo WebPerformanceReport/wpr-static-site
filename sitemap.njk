@@ -1,0 +1,24 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+{#- Pages kept out of the sitemap. `/plans/` is deliberately not indexable yet and
+    carries `noindex, nofollow`; submitting it here would trigger Search Console's
+    "Submitted URL marked 'noindex'" error. Remove it when the page goes live. -#}
+{%- set excluded = [
+  "/plans/",
+  "/thanks/",
+  "/wave/thanks/",
+  "/httpo/thanks/"
+] -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for item in collections.all %}
+{%- if item.url not in excluded %}
+  <url>
+    <loc>{{ site.url }}{{ item.url }}</loc>
+    <lastmod>{{ item.date | htmlDateString }}</lastmod>
+  </url>
+{%- endif %}
+{%- endfor %}
+</urlset>

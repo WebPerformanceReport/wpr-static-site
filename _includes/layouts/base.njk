@@ -28,6 +28,7 @@
     <!-- SPEED -->
 
     <!-- LINK -->
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
     <link rel="icon" href="{{ '/' | url }}favicon.ico">
     <link rel="apple-touch-icon" href="{{ '/' | url }}apple-touch-icon.png">
 
@@ -56,8 +57,8 @@
     }
     </style>
 
-    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20260704">
-    <link rel="stylesheet" href="{{ '/' | url }}style.css?20260704">
+    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20260729">
+    <link rel="stylesheet" href="{{ '/' | url }}style.css?20260729">
 
     <!-- TITLE -->
     <title>{{ title }}</title>
@@ -75,13 +76,13 @@
           <label for="ui-section-header--menu-id" class="ui-section-header--menu-icon"></label>
           <!-- MENU -->
           <nav role="navigation" class="ui-section-header--nav ui-layout-flex">
-            <a href="#Sponsors" role="link" aria-label="Featured" class="ui-section-header--nav-link">Sponsors</a>
+            <a href="{{ '/' | url }}#Sponsors" role="link" aria-label="Featured" class="ui-section-header--nav-link">Sponsors</a>
             <a href="{{ '/' | url }}#Subscribe" role="link" aria-label="Subscribe" class="ui-section-header--nav-link">Subscribe</a>
-            <a href="#About" role="link" aria-label="About" class="ui-section-header--nav-link">About</a>
-            <a href="#Users" role="link" aria-label="Users" class="ui-section-header--nav-link">Users</a>
-            <a href="#Catalog" role="link" aria-label="Catalog" class="ui-section-header--nav-link">Catalog</a>
-            <a href="#Report" role="link" aria-label="Report" class="ui-section-header--nav-link">Report</a>
-            <a href="#Contact" role="link" aria-label="Contact" class="ui-section-header--nav-link">Contact</a>
+            <a href="{{ '/' | url }}#About" role="link" aria-label="About" class="ui-section-header--nav-link">About</a>
+            <a href="{{ '/' | url }}#Users" role="link" aria-label="Users" class="ui-section-header--nav-link">Users</a>
+            <a href="{{ '/' | url }}#Catalog" role="link" aria-label="Catalog" class="ui-section-header--nav-link">Catalog</a>
+            <a href="{{ '/' | url }}#Report" role="link" aria-label="Report" class="ui-section-header--nav-link">Report</a>
+            <a href="{{ '/' | url }}#Contact" role="link" aria-label="Contact" class="ui-section-header--nav-link">Contact</a>
           </nav>
         </div>
       </div>
@@ -130,12 +131,10 @@
       <section class="ui-section-subscribe">
         <div class="ui-layout-container">
           {% block pagemaincontent %}
-            content
           {% endblock %}
         </div>
       </section>
       {% block shared_content_testimonials %}
-        content
       {% endblock %}
       <section class="ui-section-title">
         <div class="ui-layout-container">
@@ -219,7 +218,6 @@
         </div>
       </section>
       {% block shared_content_catalog %}
-        content
       {% endblock %}
       <section class="ui-section-title">
         <div class="ui-layout-container">
@@ -313,7 +311,6 @@
       </section>
     </main>
     {% block shared_content_footer %}
-      content
     {% endblock %}
   </body>
 </html>
