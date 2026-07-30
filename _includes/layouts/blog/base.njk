@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Cookiebot cookie consent script: Banner script -->
+    <script defer id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="7819dc9c-01f3-4d09-a8dc-b26fa39e69c0" data-blockingmode="auto" type="text/javascript"></script>
+
+    {#- A post shares its own hero; anything else falls back to the site image. -#}
+    {%- set shareImage = site.url + featuredImage if featuredImage else site.url + site.defaultImage %}
+
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="WebPerformance Report">
+    <meta name="description" content="{{ description }}">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="{{ title }} | WebPerformance Report">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="{{ shareImage }}">
+    <meta property="og:image:alt" content="{{ title }}">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://webperformancereport.com{{ page.url }}">
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@webperfreport" />
+    <meta name="twitter:title" content="{{ title }} | WebPerformance Report" />
+    <meta name="twitter:description" content="{{ description }}" />
+    <meta name="twitter:image" content="{{ shareImage }}" />
+
+    <!-- LINK -->
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    <link rel="icon" href="{{ '/' | url }}favicon.ico">
+    <link rel="apple-touch-icon" href="{{ '/' | url }}apple-touch-icon.png">
+
+    <style>
+    @font-face {
+      font-display: swap;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      src: url('/fonts/inter-v12-latin-regular.woff2') format('woff2'),
+           url('/fonts/inter-v12-latin-regular.woff') format('woff');
+    }
+    @font-face {
+      font-display: swap;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      src: url('/fonts/inter-v12-latin-700.woff2') format('woff2'),
+           url('/fonts/inter-v12-latin-700.woff') format('woff');
+    }
+    </style>
+
+    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20260729">
+    <link rel="stylesheet" href="{{ '/' | url }}style.css?20260729">
+
+    <!-- TITLE -->
+    <title>{{ title }} | WebPerformance Report</title>
+
+    {%- if pageClass == "page--post" %}
+    <!-- STRUCTURED DATA -->
+    {% include "layouts/shared/schema-post.njk" %}
+    {%- endif %}
+  </head>
+  <body class="{{ pageClass }}">
+    <header role="banner" class="ui-section-header">
+      <div class="ui-layout-container">
+        <div class="ui-section-header__layout ui-layout-flex">
+          <!-- LOGO -->
+          <a href="https://webperformancereport.com/" role="link" aria-label="Home" class="ui-section-header--logo">
+            <img src="{{ '/' | url }}assets/img/webperformance-report-logo.png" width="100" height="100" alt="WebPerformance Report">
+          </a>
+          <!-- HAMBURGER -->
+          <input type="checkbox" id="ui-section-header--menu-id">
+          <label for="ui-section-header--menu-id" class="ui-section-header--menu-icon"></label>
+          <!-- MENU -->
+          <nav role="navigation" class="ui-section-header--nav ui-layout-flex">
+            {#- Same items as the home page menu. Blog and post are standalone pages,
+                so every entry is absolute and sends the visitor back to the home page. -#}
+            <a href="{{ '/' | url }}#Sponsors" role="link" aria-label="Sponsors" class="ui-section-header--nav-link">Sponsors</a>
+            <a href="{{ '/' | url }}#Subscribe" role="link" aria-label="Subscribe" class="ui-section-header--nav-link">Subscribe</a>
+            <a href="{{ '/' | url }}#About" role="link" aria-label="About" class="ui-section-header--nav-link">About</a>
+            <a href="{{ '/' | url }}#Users" role="link" aria-label="Users" class="ui-section-header--nav-link">Users</a>
+            <a href="{{ '/' | url }}#Catalog" role="link" aria-label="Catalog" class="ui-section-header--nav-link">Catalog</a>
+            <a href="{{ '/' | url }}#Report" role="link" aria-label="Report" class="ui-section-header--nav-link">Report</a>
+            <a href="{{ '/' | url }}#Contact" role="link" aria-label="Contact" class="ui-section-header--nav-link">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main role="main">
+      {% block pagemaincontent %}
+      {% endblock %}
+    </main>
+    {% block shared_content_footer %}
+    {% endblock %}
+  </body>
+</html>
