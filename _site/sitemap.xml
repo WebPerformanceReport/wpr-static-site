@@ -21,10 +21,6 @@
     <lastmod>2026-07-29</lastmod>
   </url>
   <url>
-    <loc>https://webperformancereport.com/blog/</loc>
-    <lastmod>2026-07-29</lastmod>
-  </url>
-  <url>
     <loc>https://webperformancereport.com/cookie-policy/</loc>
     <lastmod>2026-07-29</lastmod>
   </url>
@@ -41,19 +37,23 @@
     <lastmod>2026-07-29</lastmod>
   </url>
   <url>
+    <loc>https://webperformancereport.com/blog/</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
     <loc>https://webperformancereport.com/report/ga4/</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
   </url>
   <url>
     <loc>https://webperformancereport.com/report/gsc/</loc>
-    <lastmod>2026-07-29</lastmod>
-  </url>
-  <url>
-    <loc>https://webperformancereport.com/report/wave/</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
   </url>
   <url>
     <loc>https://webperformancereport.com/report/httpo/</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://webperformancereport.com/report/wave/</loc>
+    <lastmod>2026-07-30</lastmod>
   </url>
 </urlset>
