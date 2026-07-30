@@ -5,6 +5,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("apple-touch-icon.png");
 
+  // The report pages are templates, but their images and stylesheet are static.
+  // Without these rules the build never emits them and they only exist in _site
+  // because they were committed by hand.
+  eleventyConfig.addPassthroughCopy("report/*/images");
+  eleventyConfig.addPassthroughCopy("report/*/style.css");
+
   eleventyConfig.addFilter("readableDate", function(dateObj) {
     return new Date(dateObj).toLocaleDateString("en-GB", {
       year: "numeric", month: "long", day: "numeric"
