@@ -645,6 +645,16 @@ div label[for=ui-component-toggle__yearly] {
   row-gap: var(--ui-gap-customer);
 }
 
+.ui-section-catalog__layout + .ui-section-catalog__layout {
+  margin-top: var(--ui-gap-customer);
+}
+
+/* Logos taller than the 172px box scale down instead of overflowing it. */
+.ui-section-catalog__layout img {
+  max-height: 172px;
+  width: auto;
+}
+
 .ui-section-catalog--logo {
   height: 100%;
   width: auto;
