@@ -318,6 +318,13 @@ svg {
 
 .ui-component-button-normal { width: fit-content; }
 
+/* Non-interactive button, e.g. a "Coming soon" card. Rendered as a span so it
+   has no href to navigate to, so it needs the colour anchors get for free. */
+.ui-component-button[aria-disabled="true"] {
+  color: var(--ui-color-brand);
+  cursor: default;
+}
+
 /*--------------------------------------------------------------
 |
 | 6.3 TOGGLE
@@ -649,8 +656,10 @@ div label[for=ui-component-toggle__yearly] {
   margin-top: var(--ui-gap-customer);
 }
 
-/* Logos taller than the 172px box scale down instead of overflowing it. */
-.ui-section-catalog__layout img {
+/* Logos taller than the 172px box scale down instead of overflowing it.
+   Scoped to the card logos: the testimonials section reuses
+   .ui-section-catalog__layout for its own, much smaller, icons. */
+.ui-section-catalog--report-logo {
   max-height: 172px;
   width: auto;
 }
@@ -665,6 +674,10 @@ div label[for=ui-component-toggle__yearly] {
 .ui-section-catalog--logo-bhn { height: 1.375rem; }
 
 .ui-section-catalog .ui-text-intro {
+  color: var(--ui-color-typography-body);
+}
+
+.ui-section-subscribe .ui-text-intro {
   color: var(--ui-color-typography-body);
 }
 
