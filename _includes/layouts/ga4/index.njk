@@ -1,0 +1,14 @@
+{% extends 'layouts/ga4/base.njk' %}
+{% block pagemaincontent %}
+  {% include "layouts/ga4/board.njk" %}
+{% endblock %}
+{% block shared_content_catalog %}
+  {% include "layouts/shared/catalog.njk" %}
+{% endblock %}
+{% block shared_content_testimonials %}
+  {% include "layouts/shared/testimonials.njk" %}
+{% endblock %}
+{% block shared_content_footer %}
+  {% include "layouts/shared/footer.njk" %}
+{% endblock %}
+{{ content }}
