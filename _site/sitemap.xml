@@ -9,10 +9,6 @@
     <lastmod>2026-01-04</lastmod>
   </url>
   <url>
-    <loc>https://webperformancereport.com/</loc>
-    <lastmod>2026-01-04</lastmod>
-  </url>
-  <url>
     <loc>https://webperformancereport.com/wave/</loc>
     <lastmod>2026-01-04</lastmod>
   </url>
@@ -59,5 +55,13 @@
   <url>
     <loc>https://webperformancereport.com/ga4/</loc>
     <lastmod>2026-08-01</lastmod>
+  </url>
+  <url>
+    <loc>https://webperformancereport.com/plans/</loc>
+    <lastmod>2026-08-17</lastmod>
+  </url>
+  <url>
+    <loc>https://webperformancereport.com/</loc>
+    <lastmod>2026-08-29</lastmod>
   </url>
 </urlset>
