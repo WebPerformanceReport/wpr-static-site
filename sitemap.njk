@@ -2,11 +2,9 @@
 permalink: /sitemap.xml
 eleventyExcludeFromCollections: true
 ---
-{#- Pages kept out of the sitemap. `/plans/` is deliberately not indexable yet and
-    carries `noindex, nofollow`; submitting it here would trigger Search Console's
-    "Submitted URL marked 'noindex'" error. Remove it when the page goes live. -#}
+{#- Pages kept out of the sitemap: the post-subscription thank-you pages, which
+    have nothing to rank for and should not be entry points. -#}
 {%- set excluded = [
-  "/plans/",
   "/thanks/",
   "/wave/thanks/",
   "/httpo/thanks/"

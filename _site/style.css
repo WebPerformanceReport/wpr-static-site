@@ -66,6 +66,11 @@ TABLE OF CONTENT
   --ui-color-n-220: #1a2a39;
   --ui-color-n-230: #dddddd;
 
+  /* Secondary text on the light backgrounds (#fff and #f5f5f5). n-300 is
+     #aeaeae, which is 2.0:1 on #f5f5f5 and cannot carry words anyone has to
+     read; it stays for borders and disabled outlines. */
+  --ui-color-n-400: #6f6f6f;
+
   /* BACKGROUND COLOR */
   
   --ui-color-background-header   : var(--ui-color-n-000);
@@ -866,92 +871,30 @@ div label[for=ui-component-toggle__yearly] {
 
 /* AMOUNT */
 
-/* Default: Monthly EUR */
-.ui-component-card--pricing-amount-0::before { content: "€0"; }
+/* The four price variants are real text in the markup, not `content` on a
+   pseudo-element. Generated content is not reliably indexed and screen readers
+   announced "/month" with no figure, which on a pricing page is the whole
+   point of it. `display: none` keeps the three inactive variants out of the
+   accessibility tree as well as off the screen. */
 
-/* Yearly EUR */
-#ui-component-toggle__yearly:checked ~ div
-.ui-component-card--pricing-amount-0::before { content: "€0"; }
+.ui-price { display: none; }
 
-/* Monthly EUR */
-.ui-component-card--pricing-amount-1::before { content: "€15"; }
+/* Monthly + EUR is the default: no toggle qualifier needed. */
+.ui-price--m-eur { display: inline; }
 
-/* Yearly EUR */
-#ui-component-toggle__yearly:checked ~ div
-.ui-component-card--pricing-amount-1::before { content: "€13"; }
+/* Yearly + EUR */
+#ui-component-toggle__yearly:checked ~ div .ui-price--m-eur { display: none; }
+#ui-component-toggle__yearly:checked ~ div .ui-price--y-eur { display: inline; }
 
-/* Monthly: no decimal */
-.ui-component-card--pricing-decimal-1::before { content: ""; }
+/* Monthly + USD */
+#ui-component-toggle__usd:checked ~ div .ui-price--m-eur { display: none; }
+#ui-component-toggle__usd:checked ~ div .ui-price--m-usd { display: inline; }
 
-/* Yearly: cents, same for both currencies */
-#ui-component-toggle__yearly:checked ~ div
-.ui-component-card--pricing-decimal-1::before { content: ".50"; }
-
-/* Monthly EUR */
-.ui-component-card--pricing-amount-2::before { content: "€30"; }
-
-/* Yearly EUR */
-#ui-component-toggle__yearly:checked ~ div
-.ui-component-card--pricing-amount-2::before { content: "€27"; }
-
-/* Monthly EUR */
-.ui-component-card--pricing-amount-3::before { content: "€60"; }
-
-/* Yearly EUR */
-#ui-component-toggle__yearly:checked ~ div
-.ui-component-card--pricing-amount-3::before { content: "€54"; }
-
-/* Monthly EUR */
-.ui-component-card--pricing-amount-4::before { content: "€90"; }
-
-/* Yearly EUR */
-#ui-component-toggle__yearly:checked ~ div
-.ui-component-card--pricing-amount-4::before { content: "€81"; }
-
-/* Monthly EUR */
-.ui-component-card--pricing-amount-5::before { content: "€150"; }
-
-/* Yearly EUR */
-#ui-component-toggle__yearly:checked ~ div
-.ui-component-card--pricing-amount-5::before { content: "€135"; }
-
-/* Monthly USD */
-#ui-component-toggle__usd:checked ~ div
-.ui-component-card--pricing-amount-0::before { content: "$0"; }
-
-#ui-component-toggle__usd:checked ~ div
-.ui-component-card--pricing-amount-1::before { content: "$15"; }
-
-#ui-component-toggle__usd:checked ~ div
-.ui-component-card--pricing-amount-2::before { content: "$30"; }
-
-#ui-component-toggle__usd:checked ~ div
-.ui-component-card--pricing-amount-3::before { content: "$60"; }
-
-#ui-component-toggle__usd:checked ~ div
-.ui-component-card--pricing-amount-4::before { content: "$90"; }
-
-#ui-component-toggle__usd:checked ~ div
-.ui-component-card--pricing-amount-5::before { content: "$150"; }
-
-/* Yearly USD */
-#ui-component-toggle__yearly:checked ~ #ui-component-toggle__usd:checked ~ div
-.ui-component-card--pricing-amount-0::before { content: "$0"; }
-
-#ui-component-toggle__yearly:checked ~ #ui-component-toggle__usd:checked ~ div
-.ui-component-card--pricing-amount-1::before { content: "$13"; }
-
-#ui-component-toggle__yearly:checked ~ #ui-component-toggle__usd:checked ~ div
-.ui-component-card--pricing-amount-2::before { content: "$27"; }
-
-#ui-component-toggle__yearly:checked ~ #ui-component-toggle__usd:checked ~ div
-.ui-component-card--pricing-amount-3::before { content: "$54"; }
-
-#ui-component-toggle__yearly:checked ~ #ui-component-toggle__usd:checked ~ div
-.ui-component-card--pricing-amount-4::before { content: "$81"; }
-
-#ui-component-toggle__yearly:checked ~ #ui-component-toggle__usd:checked ~ div
-.ui-component-card--pricing-amount-5::before { content: "$135"; }
+/* Yearly + USD. Two id qualifiers outrank the single-toggle rules above, so
+   these win without needing !important or source-order tricks. */
+#ui-component-toggle__yearly:checked ~ #ui-component-toggle__usd:checked ~ div .ui-price--y-eur { display: none; }
+#ui-component-toggle__yearly:checked ~ #ui-component-toggle__usd:checked ~ div .ui-price--m-usd { display: none; }
+#ui-component-toggle__yearly:checked ~ #ui-component-toggle__usd:checked ~ div .ui-price--y-usd { display: inline; }
 
 /* LIST */
 
@@ -2481,3 +2424,675 @@ div label[for=ui-component-toggle__yearly] {
   font-size: 1rem;
   line-height: 1.5;
 }
+
+/*--------------------------------------------------------------
+|
+| 7.2.1 HERO - HOME
+|
+| Commercial-phase hero: eyebrow, a solid primary CTA and a ghost
+| second CTA pointing at /plans/. Opt-in per page by adding
+| .ui-section-hero--commercial to the hero section, so a page
+| keeps the centred single-button layout until it is switched
+| over. Deliberately not scoped to a pageClass: httpo, wave and
+| ga4 all still declare page--home. Placed last in the file so it
+| wins over the 768/1024/1200 blocks above without touching them.
+|
+--------------------------------------------------------------*/
+
+/* Alpha on the colour, never `opacity`: an opacity below 1 creates a stacking
+   context, which lifted this line above the absolutely-positioned mobile menu
+   panel and let it show through the open menu. */
+.ui-section-hero--eyebrow {
+  color: var(--ui-color-n-000);
+  font-size: var(--ui-typography-s);
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1.2;
+  margin-bottom: .75rem;
+  text-transform: uppercase;
+}
+
+/* The hero paragraphs sit on the blue field at every width. Without this
+   they inherit the dark body colour below 1200px, where the .ui-text-intro
+   override does not apply yet. */
+.ui-section-hero--commercial .ui-text-intro {
+  color: var(--ui-color-typography-button);
+}
+
+.ui-section-hero--lead {
+  font-size: 1.25rem;
+  line-height: 1.45;
+  margin-bottom: 1rem;
+}
+
+/* Own row for the buttons, so the trust line below can run full width
+   whatever .ui-component-cta does to its direct children. */
+.ui-section-hero--actions {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-gap-cta);
+  width: 100%;
+}
+
+.ui-section-hero--actions .ui-component-button { width: 100%; }
+
+/* Solid, not outlined: the primary action should be the highest-contrast
+   element in the hero. Same inversion the plans page uses on its featured
+   card. */
+.ui-section-hero--commercial .ui-component-button-primary {
+  background-color: var(--ui-color-n-000);
+  border-color: var(--ui-color-n-000);
+  color: var(--ui-color-brand);
+}
+
+.ui-section-hero--commercial .ui-component-button-ghost {
+  background-color: transparent;
+  border-color: var(--ui-color-n-000);
+  color: var(--ui-color-n-000);
+}
+
+.ui-section-hero--trust {
+  align-items: center;
+  color: var(--ui-color-n-000);
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  line-height: 1.4;
+}
+
+.ui-section-hero--trust a {
+  color: var(--ui-color-typography-button);
+  text-decoration: none;
+}
+
+.ui-section-hero--trust a:hover { text-decoration: underline; }
+
+@media screen and (min-width: 48rem) {
+
+  .ui-section-hero--commercial { text-align: left; }
+
+  .ui-section-hero--commercial .ui-component-cta { align-items: flex-start; }
+
+  .ui-section-hero--actions {
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto;
+  }
+
+  .ui-section-hero--actions .ui-component-button { width: fit-content; }
+
+  /* Stays stacked at every width. Side by side it fitted on one line on the
+     home page but wrapped on httpo, where the Mozilla credit is longer, so the
+     two heroes did not line up. Two lines everywhere is the consistent answer. */
+  .ui-section-hero--trust { align-items: flex-start; }
+
+}
+
+/*--------------------------------------------------------------
+|
+| 7.3.1 SPONSOR STRIP - HOME
+|
+| One-line trust band under the hero. Two separate claims sit in
+| it: who sponsors the product (the logo) and who uses it (the
+| copy). The divider is what keeps them from reading as one, so
+| it is not decoration.
+|
+--------------------------------------------------------------*/
+
+.ui-section-sponsor-strip {
+  background-color: var(--ui-color-background-subscribe);
+  padding-bottom: 1.75rem;
+  padding-top: 1.75rem;
+}
+
+.ui-section-sponsor-strip__layout {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.ui-section-sponsor-strip--label {
+  color: var(--ui-color-n-700);
+  font-size: var(--ui-typography-s);
+  font-weight: 700;
+  letter-spacing: .06em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Optical, not geometric, centring. The dotted Catchpoint mark reads far
+   lighter than the black wordmark beside it, which puts the lockup's ink
+   centre 6px right of its box centre. Stacked, that reads as the label above
+   being off to the left, so the logo is nudged back by the same 6px. */
+.ui-section-sponsor-strip--logo {
+  height: auto;
+  transform: translateX(-6px);
+  width: 200px;
+}
+
+.ui-section-sponsor-strip--divider {
+  background-color: var(--ui-color-n-230);
+  display: block;
+  height: .0625rem;
+  width: 4rem;
+}
+
+.ui-section-sponsor-strip--trust {
+  color: var(--ui-color-n-700);
+  font-size: var(--ui-typography-s);
+  line-height: 1.4;
+  margin: 0;
+  max-width: 22rem;
+}
+
+@media screen and (min-width: 48rem) {
+
+  .ui-section-sponsor-strip__layout {
+    flex-direction: row;
+    gap: 3rem;
+    justify-content: center;
+    text-align: left;
+  }
+
+  /* Stacked layout needs a horizontal rule, side-by-side needs a vertical one. */
+  .ui-section-sponsor-strip--divider {
+    height: 3rem;
+    width: .0625rem;
+  }
+
+  /* Side by side there is nothing directly above or below the logo to compare
+     it against, so the optical nudge is not needed and would just skew the row. */
+  .ui-section-sponsor-strip--logo { transform: none; }
+
+  /* The label, the lockup and the rule hold their size in the row. Only the
+     trust copy gives ground as the container narrows, otherwise flex shrinks
+     the 200px logo down to about 96px and wraps the label onto two lines. */
+  .ui-section-sponsor-strip__layout a,
+  .ui-section-sponsor-strip--label,
+  .ui-section-sponsor-strip--divider { flex: 0 0 auto; }
+
+}
+
+/*--------------------------------------------------------------
+|
+| 7.1.1 HEADER - PLANS AND BOARD
+|
+| Commercial-phase entries in the main menu. Plans carries a
+| little extra weight; Your Board is an outlined button with a
+| sign-in mark so returning customers read it as a way in rather
+| than as one more section link. Outlined, not filled, so it
+| never outshouts the hero call to action.
+|
+--------------------------------------------------------------*/
+
+.ui-section-header--nav-link-featured { font-weight: 700; }
+
+.ui-section-header--nav-board {
+  align-items: center;
+  background-color: var(--ui-color-n-000);
+  border: .0625rem solid var(--ui-color-brand);
+  border-radius: var(--ui-radius-button);
+  color: var(--ui-color-brand);
+  display: flex;
+  font-size: 1.125rem;
+  font-weight: 700;
+  gap: .5rem;
+  justify-content: center;
+  line-height: 1.15;
+  margin-top: .5rem;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  transition: background-color 250ms cubic-bezier(.785, .135, .15, .86),
+              color 250ms cubic-bezier(.785, .135, .15, .86);
+}
+
+.ui-section-header--nav-board:hover {
+  background-color: var(--ui-color-brand);
+  color: var(--ui-color-n-000);
+}
+
+.ui-section-header--nav-board svg { flex: 0 0 auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-section-header--nav-board { transition: none; }
+}
+
+@media screen and (min-width: 48rem) {
+
+  .ui-section-header--nav-board {
+    font-size: var(--ui-typography-p);
+    margin-left: .25rem;
+    margin-top: 0;
+    padding: .625rem .875rem;
+  }
+
+}
+
+/*--------------------------------------------------------------
+|
+| 7.1.2 HEADER - FIT AT TABLET WIDTH
+|
+| The horizontal menu has never fitted at 768px: with the old
+| seven links the flex row was already squeezing the 100px logo
+| down to 16px. Pin the logo so it can never be compressed, then
+| compact the menu across the one range where space is tight.
+| From 1024px up the container is wide enough and nothing here
+| applies.
+|
+--------------------------------------------------------------*/
+
+.ui-section-header--logo { flex: 0 0 auto; }
+
+@media screen and (min-width: 48rem) and (max-width: 63.9375rem) {
+
+  .ui-section-header--logo img {
+    height: 4.5rem;
+    width: 4.5rem;
+  }
+
+  .ui-section-header--nav { gap: .75rem; }
+
+  .ui-section-header--nav-link { font-size: .9375rem; }
+
+  .ui-section-header--nav-board {
+    font-size: .9375rem;
+    padding: .5rem .75rem;
+  }
+
+}
+
+/* Same tight range as the header above: 3rem between four items does not fit
+   in a 617px container, so the row closes up before anything has to shrink. */
+@media screen and (min-width: 48rem) and (max-width: 63.9375rem) {
+
+  .ui-section-sponsor-strip__layout { gap: 1.5rem; }
+
+}
+
+/*--------------------------------------------------------------
+|
+| 7.1.3 HEADER - STACKING
+|
+| The open mobile menu is absolutely positioned with no z-index,
+| so any later element that creates a stacking context (an
+| opacity, a transform) paints straight through it. Give the
+| panel a layer of its own, and keep the logo and the close icon
+| one above it so they stay clickable while it is open.
+|
+--------------------------------------------------------------*/
+
+.ui-section-header--nav { z-index: 1; }
+
+.ui-section-header--logo,
+.ui-section-header--menu-icon { z-index: 2; }
+
+/*--------------------------------------------------------------
+|
+| 7.1.4 HEADER - OPEN MENU ON MOBILE
+|
+| The panel used to paint #6690b9 behind #426a90 links: a 1.67:1
+| contrast ratio, where AA wants 4.5:1 at this size. It also only
+| ran as tall as its own content, so the hero showed through
+| underneath the last item in the same blue, and the hero's
+| outlined "See Plans" read as part of the menu.
+|
+| Carrying the header's white down into the panel fixes both: the
+| links land at 5.67:1, and a full-viewport panel leaves nothing
+| of the page behind it visible.
+|
+--------------------------------------------------------------*/
+
+@media screen and (max-width: 47.9375rem) {
+
+  .ui-section-header--nav {
+    background-color: var(--ui-color-n-000);
+    justify-content: flex-start;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+}
+
+/*--------------------------------------------------------------
+|
+| 7.3.2 SPONSOR STRIP - SPONSOR PLUS COLLABORATION
+|
+| Wave and httpo carry two different relationships: Catchpoint
+| sponsors the product, WebAIM and Mozilla collaborate on the
+| report. Filing both under one label would misrepresent both, so
+| each gets its own wording.
+|
+| The prepositions carry no meaning on their own, so they step
+| back in weight and colour instead of taking a line each, which
+| would read as three labels rather than one phrase.
+|
+--------------------------------------------------------------*/
+
+.ui-section-sponsor-strip--label-soft {
+  color: var(--ui-color-n-400);
+  font-weight: 400;
+}
+
+.ui-section-sponsor-strip--logo-collab {
+  height: auto;
+  width: 180px;
+}
+
+/* Two logos and two labels will not fit a 617px container, so the pair stays
+   stacked through the tablet range and only forms a row once there is 960px. */
+@media screen and (min-width: 48rem) and (max-width: 74.9375rem) {
+
+  .ui-section-sponsor-strip__layout--pair {
+    flex-direction: column;
+    gap: 1.25rem;
+    text-align: center;
+  }
+
+  .ui-section-sponsor-strip__layout--pair .ui-section-sponsor-strip--divider {
+    height: .0625rem;
+    width: 4rem;
+  }
+
+}
+
+@media screen and (min-width: 75rem) {
+
+  .ui-section-sponsor-strip__layout--pair { gap: 1.75rem; }
+
+  .ui-section-sponsor-strip__layout--pair .ui-section-sponsor-strip--trust { max-width: 14rem; }
+
+}
+
+/*--------------------------------------------------------------
+|
+| 6.4.1 BOARD CARD
+|
+| GA4 has no public form: the report is set up from the Board by
+| connecting a property. This card fills the slot the subscribe
+| form occupies on the other pages, and borrows that form's frame
+| so the four pages read as one product. Wider than that form
+| (720 against 480) because this card holds prose rather than
+| fields. Left aligned inside a centred section, since prose at
+| this length does not scan when it is centred.
+|
+--------------------------------------------------------------*/
+
+.ui-component-board-card {
+  background-color: var(--ui-color-n-000);
+  border: .0625rem solid var(--ui-color-border);
+  border-radius: .5rem;
+  margin: 2rem auto;
+  max-width: 45rem;
+  padding: 2rem;
+  text-align: left;
+}
+
+.ui-component-board-card--header {
+  align-items: center;
+  border-bottom: .0625rem solid var(--ui-color-border);
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.ui-component-board-card--logo {
+  flex: 0 0 auto;
+  height: auto;
+  margin: 0;
+  width: 2.75rem;
+}
+
+.ui-component-board-card--title {
+  color: var(--ui-color-typography-heading);
+  font-size: var(--ui-typography-h3);
+  line-height: 1.25;
+  margin: 0 0 .125rem;
+}
+
+.ui-component-board-card--note {
+  color: var(--ui-color-n-400);
+  font-size: var(--ui-typography-s);
+  margin: 0;
+}
+
+/* Class, not element: a bare `.ui-component-board-card p` outweighs the single
+   classes on the header note and the footnote and steals their margins. */
+.ui-component-board-card--body {
+  color: var(--ui-color-typography-body);
+  font-size: .9375rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Solid on a light section: ui-component-button-primary only sets a colour,
+   which is right on the blue hero and invisible here. */
+.ui-component-board-card--cta {
+  background-color: var(--ui-color-brand);
+  border: .0625rem solid var(--ui-color-brand);
+  border-radius: var(--ui-radius-button);
+  color: var(--ui-color-typography-button);
+  display: block;
+  font-weight: 700;
+  line-height: 1;
+  margin-top: 1.5rem;
+  padding: 1rem 1rem 1.125rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.ui-component-board-card--cta:hover {
+  background-color: var(--ui-color-brand-hover);
+  border-color: var(--ui-color-brand-hover);
+  color: var(--ui-color-typography-button);
+}
+
+.ui-component-board-card--footnote {
+  font-size: var(--ui-typography-s);
+  margin: .875rem 0 0;
+  text-align: center;
+}
+
+.ui-component-board-card--footnote a { font-weight: 700; }
+
+/*--------------------------------------------------------------
+|
+| 6.4.2 CATALOG CARD
+|
+| The catalogue entries were bare stacks on the section
+| background, so nothing separated one report from the next. They
+| are cards now, matching the pricing cards on /plans/, with the
+| CTA pinned to the bottom so every button in a row lines up
+| whatever the length of the description.
+|
+--------------------------------------------------------------*/
+
+.ui-component-card--catalog {
+  background-color: var(--ui-color-n-000);
+  border: .0625rem solid var(--ui-color-border);
+  border-radius: var(--ui-radius-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .875rem;
+  height: 100%;
+  padding: 1.75rem;
+  text-align: center;
+}
+
+.ui-component-card--catalog h3 {
+  color: var(--ui-color-typography-heading);
+  font-size: var(--ui-typography-h3);
+  line-height: 1.25;
+  margin: 0;
+}
+
+.ui-component-card--catalog p {
+  color: var(--ui-color-typography-body);
+  font-size: .875rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.ui-component-card--catalog-media {
+  align-items: center;
+  display: flex;
+  height: 7.5rem;
+  justify-content: center;
+}
+
+/* The GA4 mark is 204px tall against 71px for WebPageTest, so without a cap the
+   logos sit in a ragged band. The cap has to go on the wrapping link too: a
+   percentage max-height on the image resolves against that link, which is
+   auto-height, so the browser drops it as circular. */
+.ui-component-card--catalog-media a {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+.ui-component-card--catalog-media img {
+  max-height: 100%;
+  width: auto;
+}
+
+/* Pinned to the bottom so buttons align across a row. */
+.ui-component-card--catalog-cta {
+  background-color: var(--ui-color-brand);
+  border: .0625rem solid var(--ui-color-brand);
+  border-radius: var(--ui-radius-button);
+  color: var(--ui-color-typography-button);
+  font-size: .9375rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-top: auto;
+  padding: .875rem 1.25rem 1rem;
+  text-decoration: none;
+}
+
+.ui-component-card--catalog-cta:hover {
+  background-color: var(--ui-color-brand-hover);
+  border-color: var(--ui-color-brand-hover);
+  color: var(--ui-color-typography-button);
+}
+
+/* No href to follow, so it needs its own colour and no hover. */
+/* Muted by the border and the missing fill, not by low-contrast text: n-300 is
+   2.2:1 on white, well under the 4.5:1 this needs to stay readable. */
+.ui-component-card--catalog-cta-soon,
+.ui-component-card--catalog-cta-soon:hover {
+  background-color: transparent;
+  border-color: var(--ui-color-n-300);
+  color: var(--ui-color-brand);
+  cursor: default;
+}
+
+/* The sixth slot sells the bundle rather than a single report. */
+.ui-component-card--catalog-feature {
+  background-color: var(--ui-color-background-secondary);
+  border-color: var(--ui-color-background-secondary);
+  justify-content: center;
+}
+
+.ui-component-card--catalog-feature p { color: var(--ui-color-typography-button); }
+
+.ui-component-card--catalog-feature .ui-component-card--catalog-cta {
+  background-color: var(--ui-color-n-000);
+  border-color: var(--ui-color-n-000);
+  color: var(--ui-color-brand);
+  margin-top: .5rem;
+}
+
+.ui-component-card--catalog-feature .ui-component-card--catalog-cta:hover {
+  background-color: var(--ui-color-brand-hover);
+  border-color: var(--ui-color-n-000);
+  color: var(--ui-color-typography-button);
+}
+
+/* The section grid centres its items by default, which would leave short cards
+   floating; stretch makes every card in a row the same height. */
+.ui-section-catalog .ui-layout-grid-3 { align-items: stretch; }
+
+/*--------------------------------------------------------------
+|
+| 6.4.3 TESTIMONIAL CARD
+|
+| Cards rather than bare stacks, matching the catalogue above.
+| Marked up as blockquote plus footer so the attribution is tied
+| to the quote for a screen reader, not just visually below it.
+| The attribution is pushed to the bottom so three quotes of
+| different lengths still line up.
+|
+--------------------------------------------------------------*/
+
+.ui-component-card--testimonial {
+  background-color: var(--ui-color-n-000);
+  border: .0625rem solid var(--ui-color-border);
+  border-radius: var(--ui-radius-card);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  margin: 0;
+  padding: 1.75rem;
+  text-align: left;
+}
+
+.ui-component-card--testimonial-mark {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.ui-component-card--testimonial-quote {
+  color: var(--ui-color-typography-body);
+  font-size: .9375rem;
+  font-style: italic;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.ui-component-card--testimonial-by {
+  color: var(--ui-color-n-700);
+  font-size: .875rem;
+  font-style: italic;
+  line-height: 1.4;
+  margin-top: auto;
+}
+
+.ui-component-card--testimonial-by strong {
+  font-style: normal;
+}
+
+.ui-component-card--testimonial-by strong:first-child {
+  color: var(--ui-color-brand);
+}
+
+.ui-section-testimonials .ui-layout-grid-3 { align-items: stretch; }
+
+/* These cards are blockquotes, so the shared rule that centres a lone third
+   card in the two-column tablet grid (`.ui-layout-grid-3 div:nth-of-type(3)`)
+   does not match them. Same offset, same breakpoint window. */
+@media screen and (min-width: 48rem) and (max-width: 63.9375rem) {
+
+  .ui-section-testimonials .ui-layout-grid-3 blockquote:nth-of-type(3) {
+    left: calc(50% + (var(--ui-layout-gutter) / 2));
+    position: relative;
+  }
+
+}
+
+/* Commercial entries in the footer row: same size as the legal links, but
+   white and bold so the two purposes stay distinguishable in one line.
+   Qualified with the section, because a bare class loses to the existing
+   `.ui-section-footer a` and the links come out #ddd like all the others. */
+.ui-section-footer a.ui-section-footer--link-key {
+  color: var(--ui-color-n-000);
+  font-weight: 700;
+}
+
+.ui-section-footer a.ui-section-footer--link-key:hover { color: var(--ui-color-n-230); }
