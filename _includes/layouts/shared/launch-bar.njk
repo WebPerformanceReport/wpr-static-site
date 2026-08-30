@@ -1,0 +1,18 @@
+{#- Commercial launch bar. Everything lives here: the copy, the code and the
+    date are plain text below, and the styles are in style.css under
+    "7.0.1 LAUNCH BAR".
+
+    To take it down across the whole site, comment out or empty this file. It
+    is included from all 11 base layouts, so there is nothing else to edit.
+
+    Only "See Plans" is a link. Wrapping the whole sentence made the code hard
+    to select, and dragging over it started a link drag instead of a text
+    selection, which fights the one thing the reader needs to do. -#}
+<div class="ui-section-launch-bar">
+  <div class="ui-layout-container">
+    <p class="ui-section-launch-bar__layout">
+      10% off your first 6 months with code <strong class="ui-section-launch-bar--code">LAUNCH10</strong>. Until 30 September.
+      <a href="{{ '/' | url }}plans/" class="ui-section-launch-bar--cta">See Plans</a>
+    </p>
+  </div>
+</div>

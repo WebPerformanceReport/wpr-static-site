@@ -459,6 +459,13 @@ div label[for=ui-component-toggle__yearly] {
   padding-bottom: 1.25rem;
   padding-top: 1.25rem;
   background-color: var(--ui-color-background-header);
+  /* The open mobile panel is absolutely positioned at top: 0. Without a
+     positioned ancestor it anchors to the document origin, so anything above
+     the header (the launch bar) shifts the close icon down while the panel
+     stays put, and the first menu row ends up level with it. No z-index here
+     on purpose: that would trap the panel and the bar in one stacking
+     context. */
+  position: relative;
 }
 
 .ui-section-header__layout { justify-content: space-between; }
@@ -2730,6 +2737,7 @@ div label[for=ui-component-toggle__yearly] {
 .ui-section-header--logo,
 .ui-section-header--menu-icon { z-index: 2; }
 
+
 /*--------------------------------------------------------------
 |
 | 7.1.4 HEADER - OPEN MENU ON MOBILE
@@ -3096,3 +3104,158 @@ div label[for=ui-component-toggle__yearly] {
 }
 
 .ui-section-footer a.ui-section-footer--link-key:hover { color: var(--ui-color-n-230); }
+
+/*--------------------------------------------------------------
+|
+| 7.0.1 LAUNCH BAR
+|
+| Commercial-launch strip above the header. No dismiss control by
+| choice: CSS alone cannot remember a dismissal, so a close button
+| would reappear on every navigation, which is more irritating
+| than the bar itself. Taken down by hand from _data/launch.js.
+|
+| Footer navy rather than a new colour, so it reads as part of the
+| site chrome instead of an advert.
+|
+--------------------------------------------------------------*/
+
+.ui-section-launch-bar {
+  background-color: var(--ui-color-background-footer);
+  padding-bottom: .75rem;
+  padding-top: .75rem;
+  position: sticky;
+  top: 0;
+  /* Above the logo and the hamburger, which sit at 2, so the header passes
+     behind the bar on scroll instead of over it. The open mobile menu stays
+     at 1 and the bar shows across the top of it, which is what you want from
+     a promo strip anyway. Do not try to lift the menu above this: the logo
+     sits before the checkbox in the DOM, so a sibling selector cannot raise
+     it to match and the panel swallows it. */
+  z-index: 3;
+}
+
+/* Inline flow, not flex. This is a sentence with a link at the end, and as a
+   flex row the link became its own item: it could not sit beside the last
+   words, so it wrapped onto a line of its own and cost 26px on a phone. */
+.ui-section-launch-bar__layout {
+  color: var(--ui-color-typography-button);
+  font-size: var(--ui-typography-s);
+  line-height: 1.4;
+  margin: 0;
+  text-align: center;
+}
+
+/* The code is what people copy, so it gets the accent. Sand on navy is 6.4:1. */
+.ui-section-launch-bar--code {
+  color: var(--ui-color-n-500);
+  letter-spacing: .02em;
+}
+
+/* Shown at every width. The whole bar is the link, but without a visible
+   affordance nothing signals that, and an untapped target is no target. */
+.ui-section-launch-bar--cta {
+  border-bottom: .0625rem solid rgba(255, 255, 255, .5);
+  color: var(--ui-color-typography-button);
+  font-weight: 700;
+  margin-left: .375rem;
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ui-section-launch-bar--cta:hover {
+  border-bottom-color: var(--ui-color-n-000);
+  color: var(--ui-color-typography-button);
+}
+
+/* A 19px line of text is well under a comfortable touch target. This grows the
+   hit area to about 45px without adding a pixel to the bar's height. */
+.ui-section-launch-bar--cta::after {
+  content: "";
+  inset: -.8125rem -.5rem;
+  position: absolute;
+}
+
+@media screen and (min-width: 48rem) {
+
+  /* 14px, not the 16px body size: a promo strip should read as chrome rather
+     than compete with the hero directly beneath it, and every pixel here is
+     permanent now that the bar is sticky. */
+  .ui-section-launch-bar__layout { font-size: .875rem; }
+
+}
+
+/*--------------------------------------------------------------
+|
+| 7.1.5 HEADER - OPEN MENU, MOBILE ONLY
+|
+| The open panel had no primary action: the only thing shaped
+| like a button was Your Board, which is for people who already
+| pay, while Subscribe sat among the section anchors reading like
+| Catalog or Contact. It becomes the solid button here, matching
+| what the hero already decided, and Plans comes first now that
+| the launch bar points at it.
+|
+| All of this is scoped below 768px. The desktop bar keeps its
+| order and its single button.
+|
+--------------------------------------------------------------*/
+
+@media screen and (max-width: 47.9375rem) {
+
+  /* The logo is the only thing pushing the close icon out of place, and it
+     tells a reader nothing they do not already know while inside the menu.
+     `:has` because the logo sits before the checkbox, out of reach of a
+     sibling selector; where it is unsupported the logo simply stays. */
+  .ui-section-header:has(#ui-section-header--menu-id:checked) .ui-section-header--logo {
+    visibility: hidden;
+  }
+
+  .ui-section-header--nav-link-first { order: -1; }
+
+  /* Redundant once Subscribe Free is a button two rows down. */
+  .ui-section-header--nav-link-subscribe { display: none; }
+
+  .ui-section-header--nav-cta {
+    background-color: var(--ui-color-brand);
+    border: .0625rem solid var(--ui-color-brand);
+    border-radius: var(--ui-radius-button);
+    color: var(--ui-color-typography-button);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-top: 1.25rem;
+    padding: 1.0625rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+  }
+
+  .ui-section-header--nav-cta:hover {
+    background-color: var(--ui-color-brand-hover);
+    border-color: var(--ui-color-brand-hover);
+    color: var(--ui-color-typography-button);
+  }
+
+  .ui-section-header--nav-board {
+    margin-top: .625rem;
+    width: 100%;
+  }
+
+  .ui-section-header--nav-note {
+    color: var(--ui-color-n-400);
+    font-size: var(--ui-typography-s);
+    margin: .875rem 0 0;
+    text-align: center;
+  }
+
+}
+
+/* Desktop keeps the row it already had: the hero carries the free-signup CTA
+   there, so a second button in the bar would only compete with Your Board. */
+@media screen and (min-width: 48rem) {
+
+  .ui-section-header--nav-cta,
+  .ui-section-header--nav-note { display: none; }
+
+}
