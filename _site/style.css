@@ -2662,7 +2662,13 @@ div label[for=ui-component-toggle__yearly] {
   color: var(--ui-color-n-000);
 }
 
-.ui-section-header--nav-board svg { flex: 0 0 auto; }
+/* `margin: 0 auto` from the global svg rule turns into 115px of push on each
+   side once this is a full-width flex row, which is what separated the mark
+   from its label by 98px instead of the 8px gap. */
+.ui-section-header--nav-board svg {
+  flex: 0 0 auto;
+  margin: 0;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .ui-section-header--nav-board { transition: none; }
@@ -3203,13 +3209,27 @@ div label[for=ui-component-toggle__yearly] {
 
 @media screen and (max-width: 47.9375rem) {
 
-  /* The logo is the only thing pushing the close icon out of place, and it
-     tells a reader nothing they do not already know while inside the menu.
+  /* 56px, not the 100px the markup asks for. Desktop already drops to 72px;
+     the phone had the largest logo of all, which is backwards. This shortens
+     the header on every page and is what lets the open panel start higher. */
+  .ui-section-header--logo img {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+
+  /* Hidden, not removed. `display: none` takes the logo out of the flow, the
+     header collapses, and the icon jumps 41px up between its burger and cross
+     states: the control moves out from under the finger that just pressed it.
      `:has` because the logo sits before the checkbox, out of reach of a
      sibling selector; where it is unsupported the logo simply stays. */
   .ui-section-header:has(#ui-section-header--menu-id:checked) .ui-section-header--logo {
     visibility: hidden;
   }
+
+  /* 7.375rem was cut for the 100px logo. With the logo at 56px the panel can
+     start higher, keeping the gap under the icon below the 62px rhythm of the
+     items themselves. */
+  #ui-section-header--menu-id:checked ~ .ui-section-header--nav { padding-top: 6rem; }
 
   .ui-section-header--nav-link-first { order: -1; }
 
