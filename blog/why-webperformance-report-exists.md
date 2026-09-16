@@ -135,7 +135,7 @@ At first, WebPerformance Report was focused on performance. But the more the pro
   <li>Added <strong>security reporting</strong> based on Mozilla HTTP Observatory.</li>
   <li>Added <strong>accessibility reporting</strong> based on WAVE.</li>
   <li>Added <strong>analytics reporting</strong> based on Google Analytics 4.</li>
-  <li>Coming soon: <strong>search reporting</strong> based on Google Search Console.</li>
+  <li>Added <strong>search reporting</strong> based on Google Search Console.</li>
   <li>Exploring future reports: Shopify, Website Carbon, and more.</li>
 </ul>
 

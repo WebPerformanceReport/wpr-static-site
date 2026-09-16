@@ -2440,8 +2440,8 @@ div label[for=ui-component-toggle__yearly] {
 | second CTA pointing at /plans/. Opt-in per page by adding
 | .ui-section-hero--commercial to the hero section, so a page
 | keeps the centred single-button layout until it is switched
-| over. Deliberately not scoped to a pageClass: httpo, wave and
-| ga4 all still declare page--home. Placed last in the file so it
+| over. Deliberately not scoped to a pageClass: httpo, wave, ga4
+| and gsc all still declare page--home. Placed last in the file so it
 | wins over the 768/1024/1200 blocks above without touching them.
 |
 --------------------------------------------------------------*/
@@ -2860,6 +2860,10 @@ div label[for=ui-component-toggle__yearly] {
   margin: 0;
   width: 2.75rem;
 }
+
+/* A wordmark rather than a square icon, e.g. Search Console: at 2.75rem its
+   text is unreadable, so it gets the width a square logo spends on height. */
+.ui-component-board-card--logo-wide { width: 6rem; }
 
 .ui-component-board-card--title {
   color: var(--ui-color-typography-heading);
