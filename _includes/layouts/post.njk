@@ -58,7 +58,11 @@
   {% elif featuredImage %}
     <div class="ui-post-hero">
       <div class="ui-layout-container">
-        <img src="{{ featuredImage }}" alt="{{ title }}" class="ui-post-hero__img" width="1200" height="600">
+        {# The hero is the LCP element on a post without a video, so it loads
+         eagerly at high priority. width/height reserve a 16:9 box: featured
+         images must be 16:9, or the page shifts when this one loads. #}
+      <img src="{{ featuredImage }}" alt="{{ title }}" class="ui-post-hero__img" width="1200" height="675"
+        loading="eager" fetchpriority="high" decoding="async">
       </div>
     </div>
   {% endif %}
