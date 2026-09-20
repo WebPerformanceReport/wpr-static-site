@@ -1963,17 +1963,10 @@ div label[for=ui-component-toggle__yearly] {
 
   .ui-component-card--post-nomedia { grid-template-columns: 1fr; }
 
-  /* Media fills the row height so its top and bottom edges line up with the
-     text block — from the meta line down to the button. */
-  .ui-component-card--post__media {
-    height: 100%;
-    min-height: 10rem;
-  }
-
-  .ui-component-card--post__media img {
-    aspect-ratio: auto;
-    height: 100%;
-  }
+  /* Media keeps its 16:9 ratio and is centered against the text block.
+     Stretching it to the row height cropped the sides of featured images,
+     which often carry a title baked into the artwork. */
+  .ui-component-card--post__media { align-self: center; }
 
   .ui-component-card--post__body { padding: 0 .5rem 0 0; }
 }
@@ -2090,11 +2083,11 @@ div label[for=ui-component-toggle__yearly] {
   overflow: hidden;
 }
 
+/* No max-height / object-fit crop: hero images are designed artwork with the
+   title baked in, so they must show in full. */
 .ui-post-hero__img {
   width: 100%;
   height: auto;
-  max-height: 480px;
-  object-fit: cover;
   border-radius: var(--ui-radius-card);
   display: block;
 }
@@ -2343,6 +2336,29 @@ div label[for=ui-component-toggle__yearly] {
 .ui-post-callout p { margin: 0; }
 
 .ui-post-callout strong { color: var(--ui-color-brand); }
+
+/* In-article figure (screenshots) */
+
+.ui-post-figure {
+  margin: 1.5rem 0 2rem;
+}
+
+.ui-post-figure img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--ui-color-border);
+  border-radius: var(--ui-radius-card);
+}
+
+/* n-400, not the lighter n-300 used for post meta: at 0.85rem on the section
+   background, n-300 only reaches 2:1 contrast. n-400 clears WCAG AA. */
+.ui-post-figure figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--ui-color-n-400);
+}
 
 /* Video facade */
 
