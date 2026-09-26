@@ -602,6 +602,102 @@ div label[for=ui-component-toggle__yearly] {
   color: var(--ui-color-typography-body);
 }
 
+/* Home Users: two rows of logos scrolling in opposite directions, pure CSS.
+   Each track holds its group twice and slides by -50%; the padding-right on
+   each group equals the gap, so the copy lands exactly where the original
+   started and the loop has no seam. Every logo passes by, none sits behind
+   a click, and the section stays short at every width. */
+.ui-section-customer .ui-section-customer__intro {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.ui-section-customer__marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.ui-section-customer__marquee + .ui-section-customer__marquee { margin-top: 1.5rem; }
+
+.ui-section-customer__track {
+  animation: ui-customer-marquee 120s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+.ui-section-customer__track--reverse {
+  animation-direction: reverse;
+  animation-duration: 135s;
+}
+
+.ui-section-customer__marquee:hover .ui-section-customer__track { animation-play-state: paused; }
+
+.ui-section-customer__group {
+  align-items: center;
+  column-gap: var(--ui-gap-customer);
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0 var(--ui-gap-customer) 0 0;
+}
+
+.ui-section-customer__group li { flex: none; }
+
+/* A fixed box per logo, so wide wordmarks and tall badges read at a similar
+   weight; object-fit keeps each one's proportions inside it. */
+.ui-section-customer__logo {
+  display: block;
+  height: 3rem;
+  object-fit: contain;
+  width: 8rem;
+}
+
+@keyframes ui-customer-marquee {
+  to { transform: translateX(-50%); }
+}
+
+@media screen and (min-width: 48rem) {
+
+  .ui-section-customer__logo {
+    height: 3.5rem;
+    width: 9rem;
+  }
+
+}
+
+/* No motion: the rows stop and wrap into a static grid, copy hidden. */
+@media (prefers-reduced-motion: reduce) {
+
+  .ui-section-customer__marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .ui-section-customer__track {
+    animation: none;
+    width: auto;
+  }
+
+  .ui-section-customer__group {
+    column-gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 var(--ui-layout-container);
+    row-gap: 1.25rem;
+  }
+
+  .ui-section-customer__group[aria-hidden="true"] { display: none; }
+
+  /* Smaller boxes so the static grid fits three across on a phone instead of
+     two, which would make the section several screens tall. */
+  .ui-section-customer__logo {
+    height: 2.5rem;
+    width: 6rem;
+  }
+
+}
+
 /*--------------------------------------------------------------
 |
 | 7.X.1 TITLE
@@ -763,6 +859,92 @@ div label[for=ui-component-toggle__yearly] {
 
 .ui-section-about--author,
 .ui-section-plans--author { line-height: 1.25; }
+
+/* Home About: two cards. The product card leads in brand blue; the source card
+   stays white, one step back, because it supports the product rather than
+   competing with it. Buttons sit at the bottom so both cards line up. */
+.ui-section-about__cards {
+  display: grid;
+  gap: var(--ui-gap-card);
+  text-align: left;
+}
+
+.ui-section-about__card {
+  border: .0625rem solid var(--ui-color-border);
+  border-radius: var(--ui-radius-card);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.ui-section-about__card p {
+  font-size: .9375rem;
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+
+.ui-section-about__card p:last-of-type { margin-bottom: 1.5rem; }
+
+.ui-section-about__card--product {
+  background-color: var(--ui-color-brand);
+  border-color: var(--ui-color-brand);
+}
+
+.ui-section-about__card--product p { color: var(--ui-color-n-000); }
+
+/* All text on the blue card is white. The accent n-500 is 2.5:1 on the brand
+   blue, below what any text size needs; hierarchy comes from size and weight. */
+.ui-section-about__card--product strong { color: var(--ui-color-n-000); }
+
+.ui-section-about__card--source { background-color: var(--ui-color-n-000); }
+
+.ui-section-about__card--source p { color: var(--ui-color-typography-body); }
+
+/* h3 under the section's "About" h2. */
+.ui-section-about__title {
+  font-size: var(--ui-typography-h3);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 1.25rem;
+}
+
+.ui-section-about__card--product .ui-section-about__title { color: var(--ui-color-n-000); }
+
+.ui-section-about__card--source .ui-section-about__title { color: var(--ui-color-n-400); }
+
+.ui-section-about__logo {
+  display: block;
+  margin-bottom: 1.25rem;
+  width: fit-content;
+}
+
+.ui-section-about__logo img {
+  display: block;
+  height: auto;
+  width: 14rem;
+}
+
+.ui-section-about__button {
+  background-color: var(--ui-color-n-000);
+  color: var(--ui-color-brand);
+  margin-top: auto;
+}
+
+.ui-section-about__card--product .ui-section-about__button { border-color: var(--ui-color-n-000); }
+
+@media screen and (min-width: 48rem) {
+
+  .ui-section-about__cards {
+    align-items: stretch;
+    column-gap: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ui-section-about__card { padding: 2rem; }
+
+  .ui-section-about__card p { font-size: 1rem; }
+
+}
 
 .page--about-us .ui-section-about { text-align: left; }
 

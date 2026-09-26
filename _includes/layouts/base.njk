@@ -57,8 +57,8 @@
     }
     </style>
 
-    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20260919">
-    <link rel="stylesheet" href="{{ '/' | url }}style.css?20260919">
+    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20260926">
+    <link rel="stylesheet" href="{{ '/' | url }}style.css?20260926">
 
     <!-- TITLE -->
     <title>{{ title }}</title>
@@ -99,7 +99,7 @@
               <p class="ui-section-hero--eyebrow">Reports. Decisions. Results.</p>
               <h1><span style="font-size: 2.4rem; color: #fff;">WebPerformance</span> <span style="font-size: 3.10rem;">Report</span></h1>
               <p class="ui-text-intro ui-section-hero--lead">Web performance report every week in your inbox.</p>
-              <p class="ui-text-intro">Core Web Vitals, Lighthouse scores and optimization grades for the site you care about, measured with Catchpoint WebPageTest and written up so anyone on the team can read it. No dashboard to log into.</p>
+              <p class="ui-text-intro">Real-user Core Web Vitals from CrUX, lab metrics, Lighthouse scores and optimization grades. An AI Insight explains what changed since the last report and what to fix first, so anyone on your team can act on it. No dashboard to log into.</p>
               <!-- CTA -->
               <div class="ui-component-cta ui-layout-flex">
                 <div class="ui-section-hero--actions">
@@ -107,7 +107,7 @@
                   <a href="{{ '/' | url }}plans/" role="link" aria-label="See Plans" class="ui-component-button ui-component-button-normal ui-component-button-ghost">See Plans</a>
                 </div>
                 <p class="ui-text-note ui-section-hero--trust">
-                  <small>Free plan: 4 reports a month, no card required.</small>
+                  <small>Free plan: 4 reports a month, AI Insight, no card required.</small>
                   <small><strong>Powered by <a href="https://www.webpagetest.org/?utm_source=webperfreport&utm_medium=website&utm_campaign=sponsors" rel="noopener" target="_blank">WebPageTest</a></strong></small>
                 </p>
               </div>
@@ -148,80 +148,26 @@
       </section>
       <section class="ui-section-about">
         <div class="ui-layout-container">
-          <p class="ui-text-intro">WebPerformance Report is a free Web application to monitor the Web Performance of web pages in an automated way through the delivery of a weekly report (Core Web Vitals metrics included) to its Subscribers.</p>
-          <p class="ui-text-intro">The web performance report is generated using Catchpoint WebPageTest, the gold standard for web performance testing and optimization. <a href="https://www.catchpoint.com/webpagetest?utm_source=webperfreport&utm_medium=website&utm_campaign=about" rel="noopener" target="_blank""><image alt="Catchpoint WebPageTest" style="margin-top:20px;" width="354" height="30" loading="lazy" src="{{ '/' | url }}assets/img/logo-catchpoint-webpagetest.png" /></a></p>
-          <p class="ui-text-intro">Catchpoint ensures Internet Resilience for delivering superior customer and employee digital experiences. Catchpoint’s Internet Performance Monitoring (IPM) provides deep visibility into every aspect of the Internet, like BGP, DNS, SASE, CDN, and WAN, allowing you to identify and resolve issues before they impact your business. </p>
-          <p class="ui-text-intro">Trusted by Forbes' top digital companies, global retailers, and leading CDNs, Catchpoint is the industry-leading choice for Internet Stack monitoring.</p>
-          <!-- CTA -->
-          <div class="ui-component-cta ui-layout-flex">
-            <a href="https://www.catchpoint.com/?utm_source=webperfreport&utm_medium=website&utm_campaign=about" rel="noopener" target="_blank" role="link" aria-label="Explore Catchpoint" class="ui-component-button ui-component-button-normal">Explore Catchpoint</a>
+          <div class="ui-section-about__cards">
+            <!-- THE PRODUCT: the same first paragraph on every report page -->
+            <div class="ui-section-about__card ui-section-about__card--product">
+              <h3 class="ui-section-about__title">About WebPerformance Report</h3>
+              <p>WebPerformance Report is a reporting service. It gathers data from the tools you already trust and turns it into a clear report delivered to your inbox, on your schedule. Free to start, no dashboard to keep checking.</p>
+              <p><strong>The Web Performance Report</strong> tests each page and covers Core Web Vitals from the lab and from real users, optimization grades, Lighthouse scores and a content breakdown, plus an AI Insight that explains what changed since the last delivery.</p>
+              <a href="https://webperformancereport.com/report/wpt/" rel="noopener" target="_blank" class="ui-component-button ui-component-button-normal ui-section-about__button">See the performance report</a>
+            </div>
+            <!-- THE SOURCE: the tool behind this page's report -->
+            <div class="ui-section-about__card ui-section-about__card--source">
+              <h3 class="ui-section-about__title">Where the data comes from</h3>
+              <a href="https://www.catchpoint.com/webpagetest?utm_source=webperfreport&utm_medium=website&utm_campaign=about" rel="noopener" target="_blank" class="ui-section-about__logo"><img alt="Catchpoint WebPageTest" width="354" height="30" loading="lazy" src="{{ '/' | url }}assets/img/logo-catchpoint-webpagetest.png"></a>
+              <p>Catchpoint ensures Internet Resilience for delivering superior customer and employee digital experiences. Its Internet Performance Monitoring gives deep visibility into every layer of the Internet, BGP, DNS, SASE, CDN and WAN, so issues surface before they reach your business.</p>
+              <p>Trusted by Forbes&rsquo; top digital companies, global retailers and leading CDNs.</p>
+              <a href="https://www.catchpoint.com/?utm_source=webperfreport&utm_medium=website&utm_campaign=about" rel="noopener" target="_blank" class="ui-component-button ui-component-button-normal ui-section-about__button">Explore Catchpoint</a>
+            </div>
           </div>
         </div>
       </section>
-      <section class="ui-section-title">
-        <div class="ui-layout-container">
-          <h2>Users</h2><a name="Users"></a>
-        </div>
-      </section>
-      <section class="ui-section-customer">
-        <div class="ui-layout-container">
-          <p class="ui-text-intro">We are really proud that our users also come from big companies and big brands around the world and are using Web Performance Report to monitor the web performance of their websites every week from their inboxes. 🎉</p>
-          <div class="ui-section-customer__layout ui-layout-flex">
-            <img src="{{ '/' | url }}assets/img/users/logo-google.png" loading="lazy" alt="google" width="160px" height="85px" class="ui-section-customer--logo">
-            <img src="{{ '/' | url }}assets/img/users/logo-airbnb.png" loading="lazy" alt="airbnb" width="160px" height="85px" class="ui-section-customer--logo">
-            <img src="{{ '/' | url }}assets/img/users/logo-firefox.png" loading="lazy" alt="firefox" width="160px" height="85px" class="ui-section-customer--logo">
-            <img src="{{ '/' | url }}assets/img/users/logo-stripe.png" loading="lazy" alt="stripe" width="160px" height="76px" class="ui-section-customer--logo">
-          </div>
-          <div class="ui-section-customer__layout ui-layout-flex">
-            <img src="{{ '/' | url }}assets/img/users/logo-microsoft.png" loading="lazy" alt="microsoft" width="160px" height="85px" class="ui-section-customer--logo">
-            <img src="{{ '/' | url }}assets/img/users/logo-vercel.png" loading="lazy" alt="vercel" width="160px" height="85px" class="ui-section-customer--logo">
-            <img src="{{ '/' | url }}assets/img/users/logo-sap.png" loading="lazy" alt="sap" width="160px" height="85px" class="ui-section-customer--logo">
-            <img src="{{ '/' | url }}assets/img/users/logo-fastly.png" loading="lazy" alt="fastly" width="160px" height="76px" class="ui-section-customer--logo">
-          </div>
-          <div style="padding-top: 2rem;" class="ui-section-customer__layout ui-layout-flex">
-            <img src="{{ '/' | url }}assets/img/users/logo-jaguar-text.png" loading="lazy" alt="jaguar" width="160px" height="85px" class="ui-section-customer--logo">
-            <img src="{{ '/' | url }}assets/img/users/logo-chanel.png" loading="lazy" alt="chanel" width="160px" height="85px" class="ui-section-customer--logo">
-			      <img src="{{ '/' | url }}assets/img/users/logo-estee-lauder.png" loading="lazy" alt="Estée Lauder" width="160px" height="85px" class="ui-section-customer--logo">
-			      <img src="{{ '/' | url }}assets/img/users/logo-cbc-news.png" loading="lazy" alt="cbc news" width="160px" height="80px" class="ui-section-customer--logo">
-          </div>
-          <div style="padding-top: 2rem;" class="ui-section-customer__layout ui-layout-flex">
-            <img src="{{ '/' | url }}assets/img/users/logo-livechat.png" loading="lazy" alt="livechat" width="160px" height="85px" class="ui-section-customer--logo">
-            <img src="{{ '/' | url }}assets/img/users/logo-ikea.png" loading="lazy" alt="ikea" width="160px" height="85px" class="ui-section-customer--logo">
-			      <img src="{{ '/' | url }}assets/img/users/logo-flixbus.png" loading="lazy" alt="flixbus" width="160px" height="85px" class="ui-section-customer--logo">
-			      <img src="{{ '/' | url }}assets/img/users/logo-unicef.png" loading="lazy" alt="unicef" width="160px" height="80px" class="ui-section-customer--logo">
-          </div>
-          <div style="padding-top: 2rem;" class="ui-section-customer__layout ui-layout-flex">
-            <img src="{{ '/' | url }}assets/img/users/logo-nestle.png" loading="lazy" alt="nestle" width="160px" height="85px" class="ui-section-customer--logo">
-            <img src="{{ '/' | url }}assets/img/users/logo-rebuy.png" loading="lazy" alt="rebuy" width="160px" height="85px" class="ui-section-customer--logo">
-			      <img src="{{ '/' | url }}assets/img/users/logo-saudia.png" loading="lazy" alt="saudia" width="160px" height="85px" class="ui-section-customer--logo">
-			      <img src="{{ '/' | url }}assets/img/users/logo-trivago.png" loading="lazy" alt="trivago" width="160px" height="80px" class="ui-section-customer--logo">
-          </div>
-          <div style="padding-top: 2rem;" class="ui-section-customer__layout ui-layout-flex">
-            <img src="{{ '/' | url }}assets/img/users/logo-bosch.png" loading="lazy" alt="bosch" width="160px" height="85px" class="ui-section-customer--logo">
-            <img src="{{ '/' | url }}assets/img/users/logo-openstack.png" loading="lazy" alt="openstack" width="160px" height="85px" class="ui-section-customer--logo">
-			      <img src="{{ '/' | url }}assets/img/users/logo-dashlane.png" loading="lazy" alt="dashlane" width="160px" height="85px" class="ui-section-customer--logo">
-			      <img src="{{ '/' | url }}assets/img/users/logo-deloitte-digital.png" loading="lazy" alt="deloitte-digital" width="160px" height="85px" class="ui-section-customer--logo">
-          </div>
-          <div style="padding-top: 2rem;" class="ui-section-customer__layout ui-layout-flex">
-            <img src="{{ '/' | url }}assets/img/users/logo-akamai.png" loading="lazy" alt="akamai" width="160px" height="85px" class="ui-section-customer--logo">
-            <img src="{{ '/' | url }}assets/img/users/logo_cloudflare.png" loading="lazy" alt="cloudflare" width="160px" height="85px" class="ui-section-customer--logo">
-			      <img src="{{ '/' | url }}assets/img/users/logo-delta-airlines.png" loading="lazy" alt="delta airlines" width="160px" height="85px" class="ui-section-customer--logo">
-			      <img src="{{ '/' | url }}assets/img/users/logo-fever.png" loading="lazy" alt="fever" width="160px" height="85px" class="ui-section-customer--logo">
-          </div>
-          <div style="padding-top: 2rem;" class="ui-section-customer__layout ui-layout-flex">
-            <img src="{{ '/' | url }}assets/img/users/logo-washington-post.png" loading="lazy" alt="washington post" width="160px" height="105px" class="ui-section-customer--logo">
-            <img src="{{ '/' | url }}assets/img/users/logo-metro.png" loading="lazy" alt="metro" width="160px" height="162px" class="ui-section-customer--logo">
-			      <img src="{{ '/' | url }}assets/img/users/logo-el-corte-ingles.png" loading="lazy" alt="el corte ingles" width="160px" height="42px" class="ui-section-customer--logo">
-			      <img src="{{ '/' | url }}assets/img/users/logo-reply.png" loading="lazy" alt="reply" width="160px" height="50px" class="ui-section-customer--logo">
-          </div>
-          <div style="padding-top: 2rem;" class="ui-section-customer__layout ui-layout-flex">
-            <img src="{{ '/' | url }}assets/img/users/logo-wordpres.png" loading="lazy" alt="wordpress core performance Team" width="160px" height="39px" class="ui-section-customer--logo">
-            <img src="{{ '/' | url }}assets/img/users/logo-nuxt-js.png" loading="lazy" alt="nuxt core team" width="160px" height="40px" class="ui-section-customer--logo">
-			      <img src="{{ '/' | url }}assets/img/users/logo-sunglass-hut.png" loading="lazy" alt="sunglass hut" width="160px" height="40px" class="ui-section-customer--logo">
-			      <img src="{{ '/' | url }}assets/img/users/logo-whirlpool.png" loading="lazy" alt="whirlpool corporation" width="160px" height="74px" class="ui-section-customer--logo">
-          </div>
-        </div>
-      </section>
+      {% include "layouts/shared/users.njk" %}
       {% block shared_content_catalog %}
       {% endblock %}
       <section class="ui-section-title">
