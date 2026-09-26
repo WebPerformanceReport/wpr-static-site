@@ -1,0 +1,48 @@
+<section class="ui-section-title">
+  <div class="ui-layout-container">
+    <h2>Users</h2><a name="Users"></a>
+  </div>
+</section>
+<section class="ui-section-customer ui-section-customer--marquee">
+  <div class="ui-layout-container">
+    <p class="ui-text-intro ui-section-customer__intro">We are really proud that teams at big companies and brands around the world read their web performance report every week, right from their inbox. 🎉</p>
+  </div>
+  {#- Pure CSS marquee: the logo list split into two rows of 18. Each track
+      holds its row twice; sliding it by -50% lands the copy where the
+      original started, so the loop has no seam. The copy is aria-hidden with
+      empty alts so each name is read once. #}
+  {%- for row in users.logos | batch(18) %}
+  <div class="ui-section-customer__marquee">
+    <div class="ui-section-customer__track{% if loop.index is even %} ui-section-customer__track--reverse{% endif %}">
+      <ul class="ui-section-customer__group">
+        {%- for logo in row %}
+        <li><img src="{{ '/' | url }}assets/img/users/{{ logo.src }}" alt="{{ logo.name }}" width="{{ logo.width }}" height="{{ logo.height }}" loading="lazy" decoding="async" class="ui-section-customer__logo"></li>
+        {%- endfor %}
+      </ul>
+      <ul class="ui-section-customer__group" aria-hidden="true">
+        {%- for logo in row %}
+        <li><img src="{{ '/' | url }}assets/img/users/{{ logo.src }}" alt="" width="{{ logo.width }}" height="{{ logo.height }}" loading="lazy" decoding="async" class="ui-section-customer__logo"></li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </div>
+  {%- endfor %}
+</section>
+{#- Native lazy loading alone fails here: the browser never re-checks logos
+    moved by a GPU transform animation, and the marquee clips the ones parked
+    off to the side, so they would stay unloaded. Instead, watch the section,
+    which does not move, and switch every logo to eager when it gets close.
+    The copies share URLs, so this is 36 requests, not 72. Without JS,
+    browsers ignore loading="lazy" and load them all. #}
+<script>
+  (() => {
+    const section = document.querySelector('.ui-section-customer--marquee');
+    if (!section) return;
+    const load = () => section.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager'; });
+    if (!('IntersectionObserver' in window)) { load(); return; }
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) { load(); observer.disconnect(); }
+    }, { rootMargin: '600px 0px' });
+    observer.observe(section);
+  })();
+</script>

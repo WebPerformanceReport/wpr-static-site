@@ -1,0 +1,220 @@
+{
+  "logos": [
+    {
+      "src": "logo-google.png",
+      "name": "Google",
+      "width": 160,
+      "height": 55
+    },
+    {
+      "src": "logo-microsoft.png",
+      "name": "Microsoft",
+      "width": 165,
+      "height": 35
+    },
+    {
+      "src": "logo-airbnb.png",
+      "name": "Airbnb",
+      "width": 160,
+      "height": 50
+    },
+    {
+      "src": "logo-stripe.png",
+      "name": "Stripe",
+      "width": 160,
+      "height": 76
+    },
+    {
+      "src": "logo_cloudflare.png",
+      "name": "Cloudflare",
+      "width": 160,
+      "height": 54
+    },
+    {
+      "src": "logo-vercel.png",
+      "name": "Vercel",
+      "width": 160,
+      "height": 36
+    },
+    {
+      "src": "logo-firefox.png",
+      "name": "Firefox",
+      "width": 160,
+      "height": 59
+    },
+    {
+      "src": "logo-sap.png",
+      "name": "SAP",
+      "width": 165,
+      "height": 82
+    },
+    {
+      "src": "logo-fastly.png",
+      "name": "Fastly",
+      "width": 165,
+      "height": 66
+    },
+    {
+      "src": "logo-akamai.png",
+      "name": "Akamai",
+      "width": 160,
+      "height": 65
+    },
+    {
+      "src": "logo-ikea.png",
+      "name": "IKEA",
+      "width": 160,
+      "height": 64
+    },
+    {
+      "src": "logo-nestle.png",
+      "name": "Nestlé",
+      "width": 160,
+      "height": 43
+    },
+    {
+      "src": "logo-chanel.png",
+      "name": "Chanel",
+      "width": 160,
+      "height": 27
+    },
+    {
+      "src": "logo-bosch.png",
+      "name": "Bosch",
+      "width": 160,
+      "height": 38
+    },
+    {
+      "src": "logo-deloitte-digital.png",
+      "name": "Deloitte Digital",
+      "width": 160,
+      "height": 74
+    },
+    {
+      "src": "logo-washington-post.png",
+      "name": "The Washington Post",
+      "width": 160,
+      "height": 106
+    },
+    {
+      "src": "logo-delta-airlines.png",
+      "name": "Delta Air Lines",
+      "width": 160,
+      "height": 25
+    },
+    {
+      "src": "logo-trivago.png",
+      "name": "trivago",
+      "width": 160,
+      "height": 48
+    },
+    {
+      "src": "logo-estee-lauder.png",
+      "name": "Estée Lauder",
+      "width": 160,
+      "height": 20
+    },
+    {
+      "src": "logo-cbc-news.png",
+      "name": "CBC News",
+      "width": 160,
+      "height": 54
+    },
+    {
+      "src": "logo-jaguar-text.png",
+      "name": "Jaguar",
+      "width": 160,
+      "height": 40
+    },
+    {
+      "src": "logo-livechat.png",
+      "name": "LiveChat",
+      "width": 160,
+      "height": 36
+    },
+    {
+      "src": "logo-flixbus.png",
+      "name": "FlixBus",
+      "width": 160,
+      "height": 30
+    },
+    {
+      "src": "logo-unicef.png",
+      "name": "UNICEF",
+      "width": 160,
+      "height": 39
+    },
+    {
+      "src": "logo-rebuy.png",
+      "name": "reBuy",
+      "width": 160,
+      "height": 61
+    },
+    {
+      "src": "logo-saudia.png",
+      "name": "Saudia",
+      "width": 160,
+      "height": 38
+    },
+    {
+      "src": "logo-openstack.png",
+      "name": "OpenStack",
+      "width": 160,
+      "height": 29
+    },
+    {
+      "src": "logo-dashlane.png",
+      "name": "Dashlane",
+      "width": 160,
+      "height": 43
+    },
+    {
+      "src": "logo-fever.png",
+      "name": "Fever",
+      "width": 160,
+      "height": 60
+    },
+    {
+      "src": "logo-metro.png",
+      "name": "Metro",
+      "width": 160,
+      "height": 80
+    },
+    {
+      "src": "logo-el-corte-ingles.png",
+      "name": "El Corte Inglés",
+      "width": 160,
+      "height": 90
+    },
+    {
+      "src": "logo-reply.png",
+      "name": "Reply",
+      "width": 160,
+      "height": 50
+    },
+    {
+      "src": "logo-wordpres.png",
+      "name": "WordPress Core Performance Team",
+      "width": 160,
+      "height": 39
+    },
+    {
+      "src": "logo-nuxt-js.png",
+      "name": "Nuxt Core Team",
+      "width": 160,
+      "height": 40
+    },
+    {
+      "src": "logo-sunglass-hut.png",
+      "name": "Sunglass Hut",
+      "width": 160,
+      "height": 40
+    },
+    {
+      "src": "logo-whirlpool.png",
+      "name": "Whirlpool Corporation",
+      "width": 160,
+      "height": 74
+    }
+  ]
+}
