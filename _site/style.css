@@ -904,11 +904,18 @@ div label[for=ui-component-toggle__yearly] {
   width: fit-content;
 }
 
+/* Natural size, capped: source logos differ per page (Catchpoint 354px,
+   MDN 200px), and a fixed width would blur the smaller ones. */
 .ui-section-about__logo img {
   display: block;
   height: auto;
-  width: 14rem;
+  max-width: 14rem;
+  width: auto;
 }
+
+/* Square logos (GA4) would stand 200px tall at natural size, three times
+   the wordmarks beside them on other pages. */
+.ui-section-about__logo--square img { width: 6rem; }
 
 .ui-section-about__button {
   background-color: var(--ui-color-n-000);
