@@ -57,8 +57,8 @@
     }
     </style>
 
-    <link rel="preload" as="style" href="/style.css?20260927b">
-    <link rel="stylesheet" href="/style.css?20260927b">
+    <link rel="preload" as="style" href="/style.css?20260927c">
+    <link rel="stylesheet" href="/style.css?20260927c">
 
     <!-- TITLE -->
     <title>WebPerformance Report - Thanks for subscribing!</title>
@@ -107,7 +107,7 @@
               <p class="ui-section-hero--eyebrow">Reports. Decisions. Results.</p>
               <h1><span style="font-size: 2.4rem; color: #fff;">HTTP Observatory</span> <span style="font-size: 3.10rem;">Report</span></h1>
               <p class="ui-text-intro ui-section-hero--lead">Website security report every week in your inbox.</p>
-              <p class="ui-text-intro">What is protecting your website, what is missing, and what changed since the last report. Scanned with Mozilla’s HTTP Observatory and written up so anyone on the team can read it. No dashboard to log into.</p>
+              <p class="ui-text-intro">Keep your visitors and their data safer from theft and scams, and keep their trust: see which security headers help, which ones are missing, and what to prioritize.</p>
               <!-- CTA -->
               <div class="ui-component-cta ui-layout-flex">
                 <div class="ui-section-hero--actions">
@@ -163,7 +163,7 @@
             <div class="ui-section-about__card ui-section-about__card--product">
               <h3 class="ui-section-about__title">About WebPerformance Report</h3>
               <p>WebPerformance Report is a reporting service. It gathers data from the tools you already trust and turns it into a clear report delivered to your inbox, on your schedule. Free to start, no dashboard to keep checking.</p>
-              <p><strong>The HTTP Observatory Report</strong> scans your site’s HTTP security headers and grades them: Content Security Policy, HSTS, cookies, CORS, redirections, Referrer Policy, SRI and X-Frame-Options, plus the raw server headers and what changed since the last report.</p>
+              <p><strong>The HTTP Observatory Report</strong> shows how your site’s HTTP security headers are graded: Content Security Policy, HSTS, cookies, CORS, redirections, Referrer Policy, SRI and X-Frame-Options, plus the raw server headers and what changed since the last report.</p>
               <a href="https://webperformancereport.com/report/httpo/" rel="noopener" target="_blank" class="ui-component-button ui-component-button-normal ui-section-about__button">See the security report</a>
             </div>
             <!-- THE SOURCE: the tool behind this page's report -->
@@ -292,64 +292,31 @@
       
       <section class="ui-section-title">
         <div class="ui-layout-container">
-          <h2>HTTP Observatory Report</h2><a name="Report"></a>
+          <h2>Inside the Web Security Report</h2><a name="Report"></a>
         </div>
       </section>
-      <section class="ui-section-report">
+      <section class="ui-section-inside">
         <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- COPYWRITING -->
-            <div>
-              <h2>HTTP Observatory Report Details</h2>
-              <p class="ui-text-intro">Scoring. CSP analysis. Cookies. Raw server headers. Scan history.</p>
-            </div>
-            <!-- IMAGE -->
-            <img src="/assets/img/report/httpo/http-observatory-report-details.jpg?2503" width="512" height="302" loading="lazy" alt="HTTP Observatory Report Detail" class="ui-image-half-right">
-          </div>
-        </div>
-        <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- IMAGE -->
-            <img src="/assets/img/report/httpo/http-observatory-report-summary.jpg?2503" width="512" height="277" loading="lazy" alt="Scan Summary" class="ui-image-half-right ui-section-report--capture-scores">
-            <!-- COPYWRITING -->
-            <div class="ui-section-report--capture-content">
-              <h2>Scan Summary</h2>
-              <p class="ui-text-intro">Each site tested by Observatory is awarded a grade based on its final score.</p>
-            </div>
-          </div>
-        </div>
-        <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- COPYWRITING -->
-            <div class="ui-section-report--capture-content">
-              <h2>Scoring</h2>
-              <p class="ui-text-intro">CSP, Cookies, CORS, Redirections, Referrer Policy, HSTS, SRI, X-Frame-Options</p>
-            </div>
-            <!-- IMAGE -->
-            <img src="/assets/img/report/httpo/http-observatory-report-scoring.jpg?2503" width="512" height="257" loading="lazy" alt="Scoring" class="ui-image-half-right">
-          </div>
-        </div>
-        <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- IMAGE -->
-            <img src="/assets/img/report/httpo/http-observatory-report-csp.jpg?2503" width="512" height="183" loading="lazy" alt="CSP Analyst" class="ui-image-half-left ui-section-report--capture-results">
-            <!-- COPYWRITING -->
-            <div class="ui-section-report--capture-content">
-              <h2>CSP Analysis</h2>
-              <p class="ui-text-intro">The HTTP Content-Security-Policy response header.</p>
-            </div>
-          </div>
-        </div>
-        <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- COPYWRITING -->
-            <div class="ui-section-report--capture-content">
-              <h2>Raw Server Headers</h2>
-              <p class="ui-text-intro">Age, Date, Vary, Server, Connection, Content-Type, X-Powered-By, Cache_Control, Last-Modified.</p>
-            </div>
-            <!-- IMAGE -->
-            <img src="/assets/img/report/httpo/http-observatory-report-headers.jpg?2503" width="512" height="368" loading="lazy" alt=">Raw server headers" class="ui-image-half-right">
-          </div>
+          <p class="ui-text-intro ui-section-inside__intro">Weak security headers leave your visitors more exposed: injected scripts can steal what they type, hidden frames can trick them into clicks, and downgraded connections can be intercepted, often unnoticed because nothing looks broken. Every report shows where your headers stand across the four areas below, and what to prioritize.</p>
+          <ul class="ui-section-inside__cards ui-section-inside__cards--pairs">
+            <li class="ui-section-inside__card">
+              <h3 class="ui-section-inside__title">Scan summary</h3>
+              <p>Your site’s grade and score from Mozilla’s HTTP Observatory, with how many tests pass and how many fail.</p>
+            </li>
+            <li class="ui-section-inside__card">
+              <h3 class="ui-section-inside__title">Scoring</h3>
+              <p>The penalty behind each result, CSP, CORS, redirections, Referrer Policy, HSTS, SRI, X-Content-Type and X-Frame-Options, so you can prioritize the biggest ones.</p>
+            </li>
+            <li class="ui-section-inside__card">
+              <h3 class="ui-section-inside__title">CSP analysis</h3>
+              <p>Whether your Content Security Policy blocks inline scripts, eval(), plug-ins and insecure content: the protections against code injection.</p>
+            </li>
+            <li class="ui-section-inside__card">
+              <h3 class="ui-section-inside__title">Raw server headers</h3>
+              <p>The headers your server actually sends, including ones like Server and X-Powered-By that can reveal your technology stack.</p>
+            </li>
+          </ul>
+          <a href="https://webperformancereport.com/report/httpo/" rel="noopener" target="_blank" class="ui-component-button ui-component-button-normal ui-component-button-primary ui-section-inside__button">See a full security report</a>
         </div>
       </section>
       <section class="ui-section-title">
