@@ -57,8 +57,8 @@
     }
     </style>
 
-    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20260927b">
-    <link rel="stylesheet" href="{{ '/' | url }}style.css?20260927b">
+    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20260927c">
+    <link rel="stylesheet" href="{{ '/' | url }}style.css?20260927c">
 
     <!-- TITLE -->
     <title>{{ title }}</title>
@@ -99,7 +99,7 @@
               <p class="ui-section-hero--eyebrow">Reports. Decisions. Results.</p>
               <h1><span style="font-size: 2.4rem; color: #fff;">Google Analytics 4 </span> <span style="font-size: 3.10rem;">Report</span></h1>
               <p class="ui-text-intro ui-section-hero--lead">Web analytics report delivered directly to your inbox.</p>
-              <p class="ui-text-intro">Traffic numbers only mean something next to last week’s. Every report sets them side by side, so a channel drying up or a page losing its audience shows up while you can still act on it. Pulled from your Google Analytics 4 property, and no dashboard to log into.</p>
+              <p class="ui-text-intro">Know what is growing your traffic and what is slipping: see how your audience, channels and pages compare with the previous period, and where to focus next.</p>
               <!-- CTA -->
               <div class="ui-component-cta ui-layout-flex">
                 <div class="ui-section-hero--actions">
@@ -153,7 +153,7 @@
             <div class="ui-section-about__card ui-section-about__card--product">
               <h3 class="ui-section-about__title">About WebPerformance Report</h3>
               <p>WebPerformance Report is a reporting service. It gathers data from the tools you already trust and turns it into a clear report delivered to your inbox, on your schedule. Free to start, no dashboard to keep checking.</p>
-              <p><strong>The Google Analytics 4 Report</strong> reads your GA4 property and sets every number next to the previous period: audience and traffic, device category, countries, acquisition channels and top pages, so a drop shows up while you can still act on it.</p>
+              <p><strong>The Google Analytics 4 Report</strong> shows the numbers from your GA4 property next to the previous period: audience and traffic, device category, countries, acquisition channels and top pages, so a drop shows up while you can still act on it.</p>
               <a href="https://webperformancereport.com/report/ga4/" rel="noopener" target="_blank" class="ui-component-button ui-component-button-normal ui-section-about__button">See the analytics report</a>
             </div>
             <!-- THE SOURCE: the tool behind this page's report -->
@@ -172,75 +172,35 @@
       {% endblock %}
       <section class="ui-section-title">
         <div class="ui-layout-container">
-          <h2>Web Analytics Report</h2><a name="Report"></a>
+          <h2>Inside the Web Analytics Report</h2><a name="Report"></a>
         </div>
       </section>
-      <section class="ui-section-report">
+      <section class="ui-section-inside">
         <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- COPYWRITING -->
-            <div>
-              <h2>Analytics Report Details</h2>
-              <p class="ui-text-intro">Website, GA4 property, date range and comparison period, so everyone reading the report knows exactly what the numbers cover.</p>
-            </div>
-            <!-- IMAGE -->
-            <img src="{{ '/' | url }}assets/img/ga4/report-google-analytics-ga4-section-details.jpg?2608" width="512" height="369" loading="lazy" alt="Analytics Report Details" class="ui-image-half-right">
-          </div>
-        </div>
-        <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- IMAGE -->
-            <img src="{{ '/' | url }}assets/img/ga4/report-google-analytics-ga4-section-summary.jpg?2608" width="512" height="344" loading="lazy" alt="Analytics Summary" class="ui-image-half-right ui-section-report--capture-scores">
-            <!-- COPYWRITING -->
-            <div class="ui-section-report--capture-content">
-              <h2>Analytics Summary</h2>
-              <p class="ui-text-intro">A quick snapshot of audience reach, traffic volume and the direction each metric is moving compared with the previous period.</p>
-            </div>
-          </div>
-        </div>
-        <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- COPYWRITING -->
-            <div class="ui-section-report--capture-content">
-              <h2>Device Category</h2>
-              <p class="ui-text-intro">See how your audience splits across desktop, mobile and tablet, and spot when one device starts behaving differently from the rest.</p>
-            </div>
-            <!-- IMAGE -->
-            <img src="{{ '/' | url }}assets/img/ga4/report-google-analytics-ga4-section-device.jpg?2608" width="512" height="426" loading="lazy" alt="Device Category" class="ui-image-half-right">
-          </div>
-        </div>
-        <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- IMAGE -->
-            <img src="{{ '/' | url }}assets/img/ga4/report-google-analytics-ga4-section-country.jpg?2608" width="512" height="316" loading="lazy" alt="Country Breakdown" class="ui-image-half-right ui-section-report--capture-results">
-            <!-- COPYWRITING -->
-            <div class="ui-section-report--capture-content">
-              <h2>Country Breakdown</h2>
-              <p class="ui-text-intro">Where your visitors are located, so you can see which markets are growing and where your content is finding an audience.</p>
-            </div>
-          </div>
-        </div>
-        <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- COPYWRITING -->
-            <div class="ui-section-report--capture-content">
-              <h2>Acquisition Channels</h2>
-              <p class="ui-text-intro">Which channels bring people to your site: organic search, direct, referral, social and paid, with the change against the previous period.</p>
-            </div>
-            <!-- IMAGE -->
-            <img src="{{ '/' | url }}assets/img/ga4/report-google-analytics-ga4-section-channel.jpg?2608" width="512" height="316" loading="lazy" alt="Acquisition Channels" class="ui-image-half-right">
-          </div>
-        </div>
-        <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- IMAGE -->
-            <img src="{{ '/' | url }}assets/img/ga4/report-google-analytics-ga4-section-pages.jpg?2608" width="512" height="316" loading="lazy" alt="Top Pages" class="ui-image-half-right ui-section-report--capture-scores">
-            <!-- COPYWRITING -->
-            <div class="ui-section-report--capture-content">
-              <h2>Top Pages</h2>
-              <p class="ui-text-intro">The pages people actually visit, ranked by traffic, so you can tell which content is working and which needs attention.</p>
-            </div>
-          </div>
+          <p class="ui-text-intro ui-section-inside__intro">A traffic drop rarely announces itself: a channel dries up, a market cools or a page loses its audience, and it can take weeks before anyone notices. Every report shows your numbers next to the previous period across the five areas below, so you can see what moved and where to look first.</p>
+          <ul class="ui-section-inside__cards">
+            <li class="ui-section-inside__card">
+              <h3 class="ui-section-inside__title">Summary</h3>
+              <p>Active users, new users, sessions and views, each with the change against the previous period.</p>
+            </li>
+            <li class="ui-section-inside__card">
+              <h3 class="ui-section-inside__title">Device category</h3>
+              <p>How your audience splits between desktop and mobile, and whether one is growing while the other falls.</p>
+            </li>
+            <li class="ui-section-inside__card">
+              <h3 class="ui-section-inside__title">Country</h3>
+              <p>Where your visitors are, with users, sessions and views per country, so you can see which markets are growing.</p>
+            </li>
+            <li class="ui-section-inside__card">
+              <h3 class="ui-section-inside__title">Channel</h3>
+              <p>Which channels bring people in, direct, referral, organic search and more, and which ones are slipping.</p>
+            </li>
+            <li class="ui-section-inside__card">
+              <h3 class="ui-section-inside__title">Pages</h3>
+              <p>Your top pages by users, sessions and views, so you can tell which content is working and which is losing its audience.</p>
+            </li>
+          </ul>
+          <a href="https://webperformancereport.com/report/ga4/" rel="noopener" target="_blank" class="ui-component-button ui-component-button-normal ui-component-button-primary ui-section-inside__button">See a full analytics report</a>
         </div>
       </section>
       <section class="ui-section-title">

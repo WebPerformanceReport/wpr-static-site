@@ -57,8 +57,8 @@
     }
     </style>
 
-    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20260927b">
-    <link rel="stylesheet" href="{{ '/' | url }}style.css?20260927b">
+    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20260927c">
+    <link rel="stylesheet" href="{{ '/' | url }}style.css?20260927c">
 
     <!-- TITLE -->
     <title>{{ title }}</title>
@@ -99,7 +99,7 @@
               <p class="ui-section-hero--eyebrow">Reports. Decisions. Results.</p>
               <h1><span style="font-size: 2.4rem; color: #fff;">WAVE Accessibility </span> <span style="font-size: 3.10rem;">Report</span></h1>
               <p class="ui-text-intro ui-section-hero--lead">Web accessibility report every week in your inbox.</p>
-              <p class="ui-text-intro">Low contrast, missing alt text, form fields with no label: the barriers that lock people out of your site and that nobody on your team ever runs into. Which ones you have, which ones need a human to judge, and what changed since the last report. Scanned with WebAIM’s WAVE. No dashboard to log into.</p>
+              <p class="ui-text-intro">See the barriers that lock people out of your site, such as low contrast, missing alt text and form fields with no label, which ones need a human to judge, and what to prioritize to make your site usable for everyone.</p>
               <!-- CTA -->
               <div class="ui-component-cta ui-layout-flex">
                 <div class="ui-section-hero--actions">
@@ -156,7 +156,7 @@
             <div class="ui-section-about__card ui-section-about__card--product">
               <h3 class="ui-section-about__title">About WebPerformance Report</h3>
               <p>WebPerformance Report is a reporting service. It gathers data from the tools you already trust and turns it into a clear report delivered to your inbox, on your schedule. Free to start, no dashboard to keep checking.</p>
-              <p><strong>The WAVE Accessibility Report</strong> scans each page for the barriers that lock people out and sorts them: errors that affect people with disabilities, contrast errors, alerts that need a human to judge, and ARIA usage, plus what changed since the last report.</p>
+              <p><strong>The WAVE Accessibility Report</strong> shows the barriers WAVE finds on each page, sorted into errors that affect people with disabilities, contrast errors, alerts that need a human to judge, and ARIA usage, plus what changed since the last report.</p>
               <a href="https://webperformancereport.com/report/wave/" rel="noopener" target="_blank" class="ui-component-button ui-component-button-normal ui-section-about__button">See the accessibility report</a>
             </div>
             <!-- THE SOURCE: the tool behind this page's report -->
@@ -175,64 +175,31 @@
       {% endblock %}
       <section class="ui-section-title">
         <div class="ui-layout-container">
-          <h2>Web Accessibility Report</h2><a name="Report"></a>
+          <h2>Inside the Web Accessibility Report</h2><a name="Report"></a>
         </div>
       </section>
-      <section class="ui-section-report">
+      <section class="ui-section-inside">
         <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- COPYWRITING -->
-            <div>
-              <h2>Web Accessibility Report Details</h2>
-              <p class="ui-text-intro">Contrast Checker. Link Contrast Checker</p>
-            </div>
-            <!-- IMAGE -->
-            <img src="{{ '/' | url }}assets/img/report/wave/wave-web-accessibility-report-details.jpg?2503" width="512" height="302" loading="lazy" alt="Web Accessibility Report Details" class="ui-image-half-right">
-          </div>
-        </div>
-        <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- IMAGE -->
-            <img src="{{ '/' | url }}assets/img/report/wave/wave-web-accessibility-report-summary.jpg?2503" width="512" height="277" loading="lazy" alt="Accessibility Summary" class="ui-image-half-right ui-section-report--capture-scores">
-            <!-- COPYWRITING -->
-            <div class="ui-section-report--capture-content">
-              <h2>Web Accessibility Summary</h2>
-              <p class="ui-text-intro">Each icon, box, and piece of information added by WAVE presents some information about the accessibility of your page.</p>
-            </div>
-          </div>
-        </div>
-        <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- COPYWRITING -->
-            <div class="ui-section-report--capture-content">
-              <h2>Web Accessibility Error Details</h2>
-              <p class="ui-text-intro">Red Errors indicate issues that will impact certain users with disabilities.</p>
-            </div>
-            <!-- IMAGE -->
-            <img src="{{ '/' | url }}assets/img/report/wave/wave-web-accessibility-report-error-details.jpg?2503" width="512" height="257" loading="lazy" alt="Accessibility Error Details" class="ui-image-half-right">
-          </div>
-        </div>
-        <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- IMAGE -->
-            <img src="{{ '/' | url }}assets/img/report/wave/wave-web-accessibility-report-alert-details.jpg?2503" width="512" height="183" loading="lazy" alt="Accessibility Alert Details" class="ui-image-half-left ui-section-report--capture-results">
-            <!-- COPYWRITING -->
-            <div class="ui-section-report--capture-content">
-              <h2>Web Accessibility Alert Details</h2>
-              <p class="ui-text-intro">Yellow alerts indicate elements in the page that may cause accessibility issues.</p>
-            </div>
-          </div>
-        </div>
-        <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- COPYWRITING -->
-            <div class="ui-section-report--capture-content">
-              <h2>Web Accessibility Aria Details</h2>
-              <p class="ui-text-intro">ARIA can be used to present important accessibility information to people with disabilities, but it must be used very carefully.</p>
-            </div>
-            <!-- IMAGE -->
-            <img src="{{ '/' | url }}assets/img/report/wave/wave-web-accessibility-report-aria-details.jpg?2503" width="512" height="368" loading="lazy" alt="Accessibility Aria Details" class="ui-image-half-right">
-          </div>
+          <p class="ui-text-intro ui-section-inside__intro">Accessibility barriers lock people out: an unlabeled form field or low-contrast text can stop someone using a screen reader, or with low vision, from finishing what they came to do, often unnoticed because the page works fine for your team. Every report shows where those barriers are across the four areas below, and what to prioritize.</p>
+          <ul class="ui-section-inside__cards ui-section-inside__cards--pairs">
+            <li class="ui-section-inside__card">
+              <h3 class="ui-section-inside__title">Accessibility summary</h3>
+              <p>Errors, alerts, contrast errors, structural elements, features and ARIA, counted for the page, so you can see the size of the problem at a glance.</p>
+            </li>
+            <li class="ui-section-inside__card">
+              <h3 class="ui-section-inside__title">Errors</h3>
+              <p>The issues WAVE flags as barriers for people with disabilities, such as a form field with no label, listed by type and count.</p>
+            </li>
+            <li class="ui-section-inside__card">
+              <h3 class="ui-section-inside__title">Alerts</h3>
+              <p>Elements that may cause accessibility issues, such as redundant links or repeated alternative text, for someone on your team to judge.</p>
+            </li>
+            <li class="ui-section-inside__card">
+              <h3 class="ui-section-inside__title">ARIA</h3>
+              <p>Where your page uses ARIA labels, hidden elements and tabindex, which help people with disabilities only when they are used carefully.</p>
+            </li>
+          </ul>
+          <a href="https://webperformancereport.com/report/wave/" rel="noopener" target="_blank" class="ui-component-button ui-component-button-normal ui-component-button-primary ui-section-inside__button">See a full accessibility report</a>
         </div>
       </section>
       <section class="ui-section-title">

@@ -57,8 +57,8 @@
     }
     </style>
 
-    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20260927b">
-    <link rel="stylesheet" href="{{ '/' | url }}style.css?20260927b">
+    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20260927c">
+    <link rel="stylesheet" href="{{ '/' | url }}style.css?20260927c">
 
     <!-- TITLE -->
     <title>{{ title }}</title>
@@ -99,7 +99,7 @@
               <p class="ui-section-hero--eyebrow">Reports. Decisions. Results.</p>
               <h1><span style="font-size: 2.4rem; color: #fff;">Google Search Console </span> <span style="font-size: 3.10rem;">Report</span></h1>
               <p class="ui-text-intro ui-section-hero--lead">Search performance report delivered directly to your inbox.</p>
-              <p class="ui-text-intro">Rankings only mean something next to last week’s. Every report sets clicks, impressions and positions side by side, so a query slipping down the results or a page losing its visibility shows up while you can still act on it. Pulled from your Google Search Console property, and no dashboard to log into.</p>
+              <p class="ui-text-intro">Know how people find you on Google: which searches bring them to your site, which ones are dropping, and where to focus next to grow your organic traffic.</p>
               <!-- CTA -->
               <div class="ui-component-cta ui-layout-flex">
                 <div class="ui-section-hero--actions">
@@ -153,7 +153,7 @@
             <div class="ui-section-about__card ui-section-about__card--product">
               <h3 class="ui-section-about__title">About WebPerformance Report</h3>
               <p>WebPerformance Report is a reporting service. It gathers data from the tools you already trust and turns it into a clear report delivered to your inbox, on your schedule. Free to start, no dashboard to keep checking.</p>
-              <p><strong>The Google Search Console Report</strong> reads your Search Console property and sets clicks, impressions, CTR and average position next to the previous period, for your top queries, countries, devices and pages, so a query slipping down the results shows up while you can still act on it.</p>
+              <p><strong>The Google Search Console Report</strong> shows clicks, impressions, CTR and average position from your Search Console property next to the previous period, for your top queries, countries, devices and pages, so a query slipping down the results shows up while you can still act on it.</p>
               <a href="https://webperformancereport.com/report/gsc/" rel="noopener" target="_blank" class="ui-component-button ui-component-button-normal ui-section-about__button">See the search report</a>
             </div>
             <!-- THE SOURCE: the tool behind this page's report -->
@@ -172,75 +172,35 @@
       {% endblock %}
       <section class="ui-section-title">
         <div class="ui-layout-container">
-          <h2>Search Performance Report</h2><a name="Report"></a>
+          <h2>Inside the Search Performance Report</h2><a name="Report"></a>
         </div>
       </section>
-      <section class="ui-section-report">
+      <section class="ui-section-inside">
         <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- COPYWRITING -->
-            <div>
-              <h2>Search Report Details</h2>
-              <p class="ui-text-intro">Domain, date range and comparison period, so everyone reading the report knows exactly which property and which days the numbers cover.</p>
-            </div>
-            <!-- IMAGE -->
-            <img src="{{ '/' | url }}assets/img/gsc/report-google-search-console-section-details.jpg?1609" width="512" height="342" loading="lazy" alt="Search Report Details" class="ui-image-half-right">
-          </div>
-        </div>
-        <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- IMAGE -->
-            <img src="{{ '/' | url }}assets/img/gsc/report-google-search-console-section-summary.jpg?1609" width="512" height="339" loading="lazy" alt="Performance Summary" class="ui-image-half-right ui-section-report--capture-scores">
-            <!-- COPYWRITING -->
-            <div class="ui-section-report--capture-content">
-              <h2>Performance Summary</h2>
-              <p class="ui-text-intro">Clicks, impressions, click-through rate and average position at a glance, with the direction each one is moving compared with the previous period.</p>
-            </div>
-          </div>
-        </div>
-        <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- COPYWRITING -->
-            <div class="ui-section-report--capture-content">
-              <h2>Top Queries</h2>
-              <p class="ui-text-intro">The search terms that bring people to your site, with clicks, impressions, CTR and position for each, so you can see which queries are gaining ground and which are slipping.</p>
-            </div>
-            <!-- IMAGE -->
-            <img src="{{ '/' | url }}assets/img/gsc/report-google-search-console-section-queries.jpg?1609" width="512" height="341" loading="lazy" alt="Top Queries" class="ui-image-half-right">
-          </div>
-        </div>
-        <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- IMAGE -->
-            <img src="{{ '/' | url }}assets/img/gsc/report-google-search-console-section-countries.jpg?1609" width="512" height="341" loading="lazy" alt="Top Countries" class="ui-image-half-right ui-section-report--capture-results">
-            <!-- COPYWRITING -->
-            <div class="ui-section-report--capture-content">
-              <h2>Top Countries</h2>
-              <p class="ui-text-intro">Where your search traffic comes from, so you can see which markets are growing and where your pages are finding an audience in the results.</p>
-            </div>
-          </div>
-        </div>
-        <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- COPYWRITING -->
-            <div class="ui-section-report--capture-content">
-              <h2>Device Category</h2>
-              <p class="ui-text-intro">How your search performance splits across desktop, mobile and tablet, and whether one device starts earning clicks or positions differently from the rest.</p>
-            </div>
-            <!-- IMAGE -->
-            <img src="{{ '/' | url }}assets/img/gsc/report-google-search-console-section-device.jpg?1609" width="512" height="278" loading="lazy" alt="Device Category" class="ui-image-half-right">
-          </div>
-        </div>
-        <div class="ui-layout-container">
-          <div class="ui-section-report__layout ui-layout-grid ui-layout-grid-2">
-            <!-- IMAGE -->
-            <img src="{{ '/' | url }}assets/img/gsc/report-google-search-console-section-pages.jpg?1609" width="512" height="341" loading="lazy" alt="Top Pages" class="ui-image-half-right ui-section-report--capture-scores">
-            <!-- COPYWRITING -->
-            <div class="ui-section-report--capture-content">
-              <h2>Top Pages</h2>
-              <p class="ui-text-intro">The pages that earn the most search traffic, so you can tell which content Google is sending people to and which needs attention.</p>
-            </div>
-          </div>
+          <p class="ui-text-intro ui-section-inside__intro">Search is often how people find you for the first time, and when a query or a page drops in the results, fewer of them get there. Every report shows your clicks, impressions, CTR and position next to the previous period across the five areas below, so you can see what is gaining ground, what is dropping and where to focus next.</p>
+          <ul class="ui-section-inside__cards">
+            <li class="ui-section-inside__card">
+              <h3 class="ui-section-inside__title">Performance summary</h3>
+              <p>Clicks, impressions, click-through rate and average position, each with the change against the previous period.</p>
+            </li>
+            <li class="ui-section-inside__card">
+              <h3 class="ui-section-inside__title">Top queries</h3>
+              <p>The searches that bring people to your site, with clicks, impressions, CTR and position for each, so you can see which are gaining ground and which are dropping.</p>
+            </li>
+            <li class="ui-section-inside__card">
+              <h3 class="ui-section-inside__title">Top countries</h3>
+              <p>Where your search traffic comes from, so you can see which markets are growing in the results.</p>
+            </li>
+            <li class="ui-section-inside__card">
+              <h3 class="ui-section-inside__title">Device category</h3>
+              <p>How your search performance splits across devices, and whether one starts earning clicks differently from the rest.</p>
+            </li>
+            <li class="ui-section-inside__card">
+              <h3 class="ui-section-inside__title">Top pages</h3>
+              <p>The pages that earn the most search traffic, so you can tell which content Google is sending people to.</p>
+            </li>
+          </ul>
+          <a href="https://webperformancereport.com/report/gsc/" rel="noopener" target="_blank" class="ui-component-button ui-component-button-normal ui-component-button-primary ui-section-inside__button">See a full search report</a>
         </div>
       </section>
       <section class="ui-section-title">

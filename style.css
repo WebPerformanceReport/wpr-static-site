@@ -963,6 +963,87 @@ div label[for=ui-component-toggle__yearly] {
   margin: 2rem 0;
 }
 
+/* Home "Inside the Web Performance Report": an intro that frames speed as a
+   business cost, then six cards, one per area the report measures that
+   impact across. Replaces six rows of 512px email crops too small to read;
+   the button opens a full sample report instead. Light ground and brand-blue
+   titles: the accent orange is 2.3:1 on white. */
+.ui-section-inside {
+  background-color: var(--ui-color-background-subscribe);
+  padding-bottom: 2.5rem;
+  padding-top: 2.5rem;
+}
+
+.ui-section-inside .ui-section-inside__intro {
+  color: var(--ui-color-typography-body);
+  margin: 0 auto 2rem;
+  max-width: 52rem;
+  text-align: center;
+}
+
+/* Flex, not grid: report pages list five or six sections, and a short last
+   row centres instead of leaving a hole on the right. */
+.ui-section-inside__cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ui-gap-card);
+  justify-content: center;
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+.ui-section-inside__card { flex: 1 1 100%; }
+
+.ui-section-inside__card {
+  background-color: var(--ui-color-n-000);
+  border: .0625rem solid var(--ui-color-border);
+  border-radius: var(--ui-radius-card);
+  padding: 1.5rem;
+}
+
+.ui-section-inside .ui-section-inside__title {
+  color: var(--ui-color-brand);
+  font-size: var(--ui-typography-h3);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 .625rem;
+}
+
+.ui-section-inside__card p {
+  color: var(--ui-color-typography-body);
+  font-size: .9375rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ui-section-inside__button {
+  background-color: var(--ui-color-brand);
+  margin: 0 auto;
+}
+
+.ui-section-inside__button:hover {
+  background-color: var(--ui-color-brand-hover);
+  border-color: var(--ui-color-brand-hover);
+}
+
+@media screen and (min-width: 48rem) {
+
+  .ui-section-inside__card { flex-basis: calc((100% - var(--ui-gap-card)) / 2); flex-grow: 0; }
+
+}
+
+@media screen and (min-width: 64rem) {
+
+  .ui-section-inside__cards { gap: 2rem; }
+
+  .ui-section-inside__card { flex-basis: calc((100% - 4rem) / 3); }
+
+  /* Four sections read better as 2x2 than as a row of three plus one. */
+  .ui-section-inside__cards--pairs .ui-section-inside__card { flex-basis: calc((100% - 2rem) / 2); }
+
+}
+
 /*--------------------------------------------------------------
 |
 | 7.6 PRICING
