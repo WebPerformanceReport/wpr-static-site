@@ -584,20 +584,6 @@ div label[for=ui-component-toggle__yearly] {
   padding-top: 2rem;
 }
 
-.ui-section-customer__layout {
-  flex-direction: column;
-  row-gap: var(--ui-gap-customer);
-}
-
-.ui-section-customer--logo {
-  height: 100%;
-  width: auto;
-}
-
-.ui-section-customer--logo-str { height: 1.75rem; }
-  
-.ui-section-customer--logo-bhn { height: 1.375rem; }
-
 .ui-section-customer .ui-text-intro {
   color: var(--ui-color-typography-body);
 }
@@ -1426,22 +1412,6 @@ div label[for=ui-component-toggle__yearly] {
 
   /*------------------------------------------------------------
   |
-  | CUSTOMER
-  |
-  ------------------------------------------------------------*/
-
-  .ui-section-customer__layout {
-    column-gap: var(--ui-gap-customer);
-    flex-direction: row;
-  }
-  
-  .ui-section-customer--logo {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  /*------------------------------------------------------------
-  |
   | FEATURE
   |
   ------------------------------------------------------------*/
@@ -1683,18 +1653,6 @@ div label[for=ui-component-toggle__yearly] {
     padding-top: 4rem;
   }
   
-  /*------------------------------------------------------------
-  |
-  | CUSTOMER
-  |
-  ------------------------------------------------------------*/
-
-  .ui-section-customer--logo { height: 100%; }
-  
-  .ui-section-customer--logo-str { height: 2.25rem; }
-  
-  .ui-section-customer--logo-bhn { height: 1.75rem; }
-
   /*------------------------------------------------------------
   |
   | FEATURE
