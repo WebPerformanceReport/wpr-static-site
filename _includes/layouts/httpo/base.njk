@@ -57,8 +57,8 @@
     }
     </style>
 
-    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20260927">
-    <link rel="stylesheet" href="{{ '/' | url }}style.css?20260927">
+    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20260927b">
+    <link rel="stylesheet" href="{{ '/' | url }}style.css?20260927b">
 
     <!-- TITLE -->
     <title>{{ title }}</title>
@@ -143,17 +143,27 @@
       {% endblock %}
       <section class="ui-section-title">
         <div class="ui-layout-container">
-          <h2>About HTTP Observatory</h2><a name="About"></a>
+          <h2>About Security Report</h2><a name="About"></a>
         </div>
       </section>
       <section class="ui-section-about">
         <div class="ui-layout-container">
-          <p class="ui-text-intro">The HTTP Observatory is a tool developed by Mozilla to help website owners understand how well their sites are implementing modern security practices at the HTTP level. It works by analyzing the response headers returned by a server and checking them against a set of best practices widely accepted across the web industry.</p>
-          <p class="ui-text-intro">By including the HTTP Observatory in the WebPerformance Report, we provide an added layer of insight focused specifically on web security. The report evaluates your site for proper configuration of important headers such as Content Security Policy, Strict-Transport-Security, X-Frame-Options, Referrer Policy, and others. These headers play a vital role in defending your website against threats like clickjacking, code injection, and man-in-the-middle attacks.</p>
-          <p class="ui-text-intro">Understanding and improving HTTP headers is often overlooked, yet it is essential for maintaining a secure and trustworthy website. With the help of the HTTP Observatory, we not only highlight areas for improvement but also guide you toward simple, actionable changes that can significantly boost your site’s security and compliance with web standards.</p>
-          <!-- CTA -->
-          <div class="ui-component-cta ui-layout-flex">
-            <a href="https://developer.mozilla.org/en-US/observatory?utm_source=webperfreport&utm_medium=website&utm_campaign=about" rel="noopener" target="_blank" role="link" aria-label="Explore HTTP Observatory" class="ui-component-button ui-component-button-normal">Explore HTTP Observatory</a>
+          <div class="ui-section-about__cards">
+            <!-- THE PRODUCT: the same first paragraph on every report page -->
+            <div class="ui-section-about__card ui-section-about__card--product">
+              <h3 class="ui-section-about__title">About WebPerformance Report</h3>
+              <p>WebPerformance Report is a reporting service. It gathers data from the tools you already trust and turns it into a clear report delivered to your inbox, on your schedule. Free to start, no dashboard to keep checking.</p>
+              <p><strong>The HTTP Observatory Report</strong> scans your site’s HTTP security headers and grades them: Content Security Policy, HSTS, cookies, CORS, redirections, Referrer Policy, SRI and X-Frame-Options, plus the raw server headers and what changed since the last report.</p>
+              <a href="https://webperformancereport.com/report/httpo/" rel="noopener" target="_blank" class="ui-component-button ui-component-button-normal ui-section-about__button">See the security report</a>
+            </div>
+            <!-- THE SOURCE: the tool behind this page's report -->
+            <div class="ui-section-about__card ui-section-about__card--source">
+              <h3 class="ui-section-about__title">Where the data comes from</h3>
+              <a href="https://developer.mozilla.org/en-US/observatory?utm_source=webperfreport&utm_medium=website&utm_campaign=about" rel="noopener" target="_blank" class="ui-section-about__logo"><img alt="MDN HTTP Observatory by Mozilla" width="200" height="58" loading="lazy" src="{{ '/' | url }}assets/img/partners/patner-logo-mdn-mozilla.png"></a>
+              <p>The HTTP Observatory is developed by Mozilla and runs on MDN. It analyzes the response headers your server returns and checks them against security best practices widely accepted across the web industry.</p>
+              <p>Those headers defend your site against clickjacking, code injection and man-in-the-middle attacks, and they are easy to overlook.</p>
+              <a href="https://developer.mozilla.org/en-US/observatory?utm_source=webperfreport&utm_medium=website&utm_campaign=about" rel="noopener" target="_blank" class="ui-component-button ui-component-button-normal ui-section-about__button">Explore HTTP Observatory</a>
+            </div>
           </div>
         </div>
       </section>

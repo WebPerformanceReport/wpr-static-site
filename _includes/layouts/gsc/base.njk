@@ -57,8 +57,8 @@
     }
     </style>
 
-    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20260927">
-    <link rel="stylesheet" href="{{ '/' | url }}style.css?20260927">
+    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20260927b">
+    <link rel="stylesheet" href="{{ '/' | url }}style.css?20260927b">
 
     <!-- TITLE -->
     <title>{{ title }}</title>
@@ -143,18 +143,27 @@
       {% endblock %}
       <section class="ui-section-title">
         <div class="ui-layout-container">
-          <h2>About Google Search Console</h2><a name="About"></a>
+          <h2>About Search Report</h2><a name="About"></a>
         </div>
       </section>
       <section class="ui-section-about">
         <div class="ui-layout-container">
-          <p class="ui-text-intro">Google Search Console is Google’s free service for site owners. It shows how Google Search sees a website: which pages are indexed, which queries they appear for and how often people click through to them. For most teams it is the only first-party source of data on how their site performs in Google’s organic results.</p>
-          <p class="ui-text-intro">Its Performance report is the core of the tool. It records four metrics, clicks, impressions, click-through rate and average position, and breaks them down by query, page, country, device and search appearance.</p>
-          <p class="ui-text-intro">Beyond performance, Search Console reports on page indexing, sitemaps, Core Web Vitals, HTTPS and structured data, and alerts site owners when Google finds a problem that could keep pages out of the results.</p>
-          <p class="ui-text-intro">It keeps up to 16 months of search data, and a property can cover a whole domain, with every subdomain and protocol, or a single URL prefix. The service is free to use and connects with Google Analytics 4, so search queries can be read alongside what visitors do once they land.</p>
-          <!-- CTA -->
-          <div class="ui-component-cta ui-layout-flex">
-            <a href="https://search.google.com/search-console/about?utm_source=webperfreport&utm_medium=website&utm_campaign=about" rel="noopener" target="_blank" role="link" aria-label="Explore Google Search Console" class="ui-component-button ui-component-button-normal">Explore Google Search Console</a>
+          <div class="ui-section-about__cards">
+            <!-- THE PRODUCT: the same first paragraph on every report page -->
+            <div class="ui-section-about__card ui-section-about__card--product">
+              <h3 class="ui-section-about__title">About WebPerformance Report</h3>
+              <p>WebPerformance Report is a reporting service. It gathers data from the tools you already trust and turns it into a clear report delivered to your inbox, on your schedule. Free to start, no dashboard to keep checking.</p>
+              <p><strong>The Google Search Console Report</strong> reads your Search Console property and sets clicks, impressions, CTR and average position next to the previous period, for your top queries, countries, devices and pages, so a query slipping down the results shows up while you can still act on it.</p>
+              <a href="https://webperformancereport.com/report/gsc/" rel="noopener" target="_blank" class="ui-component-button ui-component-button-normal ui-section-about__button">See the search report</a>
+            </div>
+            <!-- THE SOURCE: the tool behind this page's report -->
+            <div class="ui-section-about__card ui-section-about__card--source">
+              <h3 class="ui-section-about__title">Where the data comes from</h3>
+              <a href="https://search.google.com/search-console/about?utm_source=webperfreport&utm_medium=website&utm_campaign=about" rel="noopener" target="_blank" class="ui-section-about__logo"><img alt="Google Search Console" width="200" height="92" loading="lazy" src="{{ '/' | url }}assets/img/catalog/google-search-console.png"></a>
+              <p>Google Search Console is Google’s free service for site owners. It shows how Google Search sees your site: which pages are indexed, which queries they appear for and how often people click through. For most teams it is the only first-party source of organic search data.</p>
+              <p>It keeps up to 16 months of search data and connects with Google Analytics 4.</p>
+              <a href="https://search.google.com/search-console/about?utm_source=webperfreport&utm_medium=website&utm_campaign=about" rel="noopener" target="_blank" class="ui-component-button ui-component-button-normal ui-section-about__button">Explore Google Search Console</a>
+            </div>
           </div>
         </div>
       </section>
