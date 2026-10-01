@@ -3363,80 +3363,60 @@ div label[for=ui-component-toggle__yearly] {
 |
 | 7.0.1 LAUNCH BAR
 |
-| Commercial-launch strip above the header. No dismiss control by
-| choice: CSS alone cannot remember a dismissal, so a close button
-| would reappear on every navigation, which is more irritating
-| than the bar itself. Taken down by hand from _data/launch.js.
-|
-| Footer navy rather than a new colour, so it reads as part of the
-| site chrome instead of an advert.
+| Shared guide announcement. One link provides a generous touch target;
+| inline text wraps naturally while the action and reading time stay together.
 |
 --------------------------------------------------------------*/
 
 .ui-section-launch-bar {
   background-color: var(--ui-color-background-footer);
-  padding-bottom: .75rem;
-  padding-top: .75rem;
   position: sticky;
   top: 0;
-  /* Above the logo and the hamburger, which sit at 2, so the header passes
-     behind the bar on scroll instead of over it. The open mobile menu stays
-     at 1 and the bar shows across the top of it, which is what you want from
-     a promo strip anyway. Do not try to lift the menu above this: the logo
-     sits before the checkbox in the DOM, so a sibling selector cannot raise
-     it to match and the panel swallows it. */
   z-index: 3;
 }
 
-/* Inline flow, not flex. This is a sentence with a link at the end, and as a
-   flex row the link became its own item: it could not sit beside the last
-   words, so it wrapped onto a line of its own and cost 26px on a phone. */
 .ui-section-launch-bar__layout {
+  box-sizing: border-box;
   color: var(--ui-color-typography-button);
-  font-size: var(--ui-typography-s);
-  line-height: 1.4;
-  margin: 0;
+  display: block;
+  font-size: .875rem;
+  line-height: 1.5;
+  min-height: 2.75rem;
+  padding: .75rem 0;
   text-align: center;
-}
-
-/* The code is what people copy, so it gets the accent. Sand on navy is 6.4:1. */
-.ui-section-launch-bar--code {
-  color: var(--ui-color-n-500);
-  letter-spacing: .02em;
-}
-
-/* Shown at every width. The whole bar is the link, but without a visible
-   affordance nothing signals that, and an untapped target is no target. */
-.ui-section-launch-bar--cta {
-  border-bottom: .0625rem solid rgba(255, 255, 255, .5);
-  color: var(--ui-color-typography-button);
-  font-weight: 700;
-  margin-left: .375rem;
-  position: relative;
   text-decoration: none;
+}
+
+.ui-section-launch-bar__layout strong {
+  color: var(--ui-color-n-500);
+}
+
+.ui-section-launch-bar--action {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .5rem;
+  margin-left: .375rem;
   white-space: nowrap;
 }
 
-.ui-section-launch-bar--cta:hover {
-  border-bottom-color: var(--ui-color-n-000);
+.ui-section-launch-bar--cta {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.ui-section-launch-bar__layout:hover {
   color: var(--ui-color-typography-button);
 }
 
-/* A 19px line of text is well under a comfortable touch target. This grows the
-   hit area to about 45px without adding a pixel to the bar's height. */
-.ui-section-launch-bar--cta::after {
-  content: "";
-  inset: -.8125rem -.5rem;
-  position: absolute;
+.ui-section-launch-bar__layout:hover .ui-section-launch-bar--cta {
+  color: var(--ui-color-n-500);
 }
 
-@media screen and (min-width: 48rem) {
-
-  /* 14px, not the 16px body size: a promo strip should read as chrome rather
-     than compete with the hero directly beneath it, and every pixel here is
-     permanent now that the bar is sticky. */
-  .ui-section-launch-bar__layout { font-size: .875rem; }
-
+.ui-section-launch-bar__layout:focus-visible {
+  outline: .125rem solid var(--ui-color-n-500);
+  outline-offset: -.125rem;
+  border-radius: .125rem;
 }
 
 /*--------------------------------------------------------------
