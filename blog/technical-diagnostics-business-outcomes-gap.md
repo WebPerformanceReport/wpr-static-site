@@ -1,6 +1,6 @@
 ---
 title: "The Technical Diagnostics and Business Outcomes Gap"
-description: "Why connecting technical diagnostics to business outcomes matters more than collecting another metric, and how a synthesis layer turns performance, accessibility, security, search and analytics signals into shared context."
+description: "Technical diagnostics and business outcomes describe the same website. Why connecting them matters more than collecting another metric."
 date: 2026-10-03
 layout: layouts/post.njk
 permalink: "/blog/technical-diagnostics-business-outcomes-gap/"
@@ -17,6 +17,8 @@ author:
   github: https://github.com/edwinmh
   linkedin: https://www.linkedin.com/in/edwinmolinahernandez/
 featuredImage: /assets/img/blog/technical-diagnostics-business-outcomes-gap-hero-image.jpg
+featuredImageWidth: 1200
+featuredImageHeight: 675
 ---
 
 <p class="ui-post-lead">Why connecting technical diagnostics to business outcomes matters more than collecting another metric.</p>

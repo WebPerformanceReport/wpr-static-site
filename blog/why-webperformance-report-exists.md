@@ -17,6 +17,8 @@ author:
   github: https://github.com/edwinmh
   linkedin: https://www.linkedin.com/in/edwinmolinahernandez/
 featuredImage: /assets/img/blog/why-webperformance-report-exists-hero-image.jpg
+featuredImageWidth: 1471
+featuredImageHeight: 829
 heroVideo: "hLPhaEQCpjA"
 heroVideoTitle: "Watch the conversation with Henri Helvetica"
 ---
