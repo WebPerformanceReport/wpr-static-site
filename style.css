@@ -2565,6 +2565,25 @@ div label[for=ui-component-toggle__yearly] {
 
 .ui-post-callout strong { color: var(--ui-color-brand); }
 
+/* References list (end of post) */
+
+.ui-post-references {
+  margin: 2.5rem 0 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--ui-color-border);
+  font-size: 0.8rem;
+  color: var(--ui-color-n-400);
+}
+
+.ui-section-post__content .ui-post-references__title {
+  font-size: 0.85rem;
+  margin: 0 0 0.5rem;
+}
+
+.ui-section-post__content .ui-post-references ol { margin-bottom: 0; }
+
+.ui-section-post__content .ui-post-references li { margin-bottom: 0.2rem; }
+
 /* In-article figure (screenshots) */
 
 .ui-post-figure {
