@@ -716,6 +716,11 @@ div label[for=ui-component-toggle__yearly] {
   text-align: center;
 }
 
+.ui-section-subscribe .ui-section-subscribe__intro {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
 /*--------------------------------------------------------------
 |
 | 7.3 ABOUT
@@ -3480,7 +3485,7 @@ div label[for=ui-component-toggle__yearly] {
 
   .ui-section-header--nav-link-first { order: -1; }
 
-  /* Redundant once Subscribe Free is a button two rows down. */
+  /* Redundant once Get Your Report Free is a button two rows down. */
   .ui-section-header--nav-link-subscribe { display: none; }
 
   .ui-section-header--nav-cta {

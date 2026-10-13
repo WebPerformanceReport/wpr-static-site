@@ -57,8 +57,8 @@
     }
     </style>
 
-    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20261003">
-    <link rel="stylesheet" href="{{ '/' | url }}style.css?20261003">
+    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20261013">
+    <link rel="stylesheet" href="{{ '/' | url }}style.css?20261013">
 
     <!-- TITLE -->
     <title>{{ title }}</title>
@@ -104,7 +104,7 @@
               <div class="ui-component-cta ui-layout-flex">
                 <div class="ui-section-hero--actions">
                   <a href="#Subscribe" role="link" aria-label="Get the Report" class="ui-component-button ui-component-button-normal ui-component-button-primary">Get the Report</a>
-                  <a href="{{ '/' | url }}plans/" role="link" aria-label="See Plans" class="ui-component-button ui-component-button-normal ui-component-button-ghost">See Plans</a>
+                  <a href="{{ '/' | url }}gsc/#Catalog" role="link" aria-label="Explore Reports" class="ui-component-button ui-component-button-normal ui-component-button-ghost">Explore Reports</a>
                 </div>
                 <p class="ui-text-note ui-section-hero--trust">
                   <small>Available from the Lite plan. Set up from your Board.</small>
@@ -135,6 +135,7 @@
       </section>
       <section class="ui-section-subscribe">
         <div class="ui-layout-container">
+          {% if mainTitleIntro %}<p class="ui-text-intro ui-section-subscribe__intro">{{ mainTitleIntro }}</p>{% endif %}
           {% block pagemaincontent %}
           {% endblock %}
         </div>

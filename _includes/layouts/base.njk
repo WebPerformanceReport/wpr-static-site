@@ -57,8 +57,8 @@
     }
     </style>
 
-    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20261003">
-    <link rel="stylesheet" href="{{ '/' | url }}style.css?20261003">
+    <link rel="preload" as="style" href="{{ '/' | url }}style.css?20261013">
+    <link rel="stylesheet" href="{{ '/' | url }}style.css?20261013">
 
     <!-- TITLE -->
     <title>{{ title }}</title>
@@ -83,9 +83,9 @@
             <a href="{{ '/' | url }}#Report" role="link" aria-label="Report" class="ui-section-header--nav-link">Report</a>
             <a href="{{ '/' | url }}plans/" role="link" aria-label="Plans" class="ui-section-header--nav-link ui-section-header--nav-link-featured ui-section-header--nav-link-first">Plans</a>
             <a href="{{ '/' | url }}#Contact" role="link" aria-label="Contact" class="ui-section-header--nav-link">Contact</a>
-            <a href="{{ '/' | url }}#Subscribe" role="link" aria-label="Subscribe Free" class="ui-section-header--nav-cta">Subscribe Free</a>
+            <a href="{{ '/' | url }}#Subscribe" role="link" aria-label="Get Your Report Free" class="ui-section-header--nav-cta">Get Your Report Free</a>
             <a href="https://board.webperformancereport.com/" rel="noopener" target="_blank" role="link" aria-label="Your Board" class="ui-section-header--nav-board"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3h4a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-4"/><path d="M8 14l4-4-4-4"/><path d="M12 10H3"/></svg><span>Your Board</span></a>
-                      <p class="ui-section-header--nav-note">Free plan: 4 reports a month, no card required.</p>
+            <p class="ui-section-header--nav-note">Free plan: 4 deliveries per month · AI Insight included</p>
           </nav>
         </div>
       </div>
@@ -99,16 +99,16 @@
               <p class="ui-section-hero--eyebrow">Reports. Decisions. Results.</p>
               <h1><span style="font-size: 2.4rem; color: #fff;">WebPerformance</span> <span style="font-size: 3.10rem;">Report</span></h1>
               <p class="ui-text-intro ui-section-hero--lead">Web performance report every week in your inbox.</p>
-              <p class="ui-text-intro">Nobody likes waiting for a page to load. Spot the speed and Core Web Vitals issues that hurt your user experience and can cost you conversions, see whether they are getting worse, and prioritize what to improve.</p>
+              <p class="ui-text-intro">Get automated reports on your website's performance, security, accessibility, analytics, and SEO. Clear insights from trusted tools, delivered directly to you. Stay informed, identify opportunities, and take action with confidence.</p>
               <!-- CTA -->
               <div class="ui-component-cta ui-layout-flex">
                 <div class="ui-section-hero--actions">
-                  <a href="{{ '/' | url }}#Subscribe" role="link" aria-label="Subscribe Free" class="ui-component-button ui-component-button-normal ui-component-button-primary">Subscribe Free</a>
-                  <a href="{{ '/' | url }}plans/" role="link" aria-label="See Plans" class="ui-component-button ui-component-button-normal ui-component-button-ghost">See Plans</a>
+                  <a href="{{ '/' | url }}#Subscribe" role="link" aria-label="Get Your Report Free" class="ui-component-button ui-component-button-normal ui-component-button-primary">Get Your Report Free</a>
+                  <a href="{{ '/' | url }}#Catalog" role="link" aria-label="Explore Reports" class="ui-component-button ui-component-button-normal ui-component-button-ghost">Explore Reports</a>
                 </div>
                 <p class="ui-text-note ui-section-hero--trust">
-                  <small>Free plan: 4 reports a month, AI Insight, no card required.</small>
-                  <small><strong>Powered by <a href="https://www.webpagetest.org/?utm_source=webperfreport&utm_medium=website&utm_campaign=sponsors" rel="noopener" target="_blank">WebPageTest</a></strong></small>
+                  <small><strong>Free plan: 4 deliveries per month · AI Insight included</strong></small>
+                  <small>Powered by <a href="https://www.webpagetest.org/?utm_source=webperfreport&utm_medium=website&utm_campaign=sponsors" rel="noopener" target="_blank">WebPageTest</a></small>
                 </p>
               </div>
             </div>
@@ -135,6 +135,7 @@
       </section>
       <section class="ui-section-subscribe">
         <div class="ui-layout-container">
+          {% if mainTitleIntro %}<p class="ui-text-intro ui-section-subscribe__intro">{{ mainTitleIntro }}</p>{% endif %}
           {% block pagemaincontent %}
           {% endblock %}
         </div>

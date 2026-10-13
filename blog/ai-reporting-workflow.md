@@ -17,6 +17,8 @@ author:
   github: https://github.com/edwinmh
   linkedin: https://www.linkedin.com/in/edwinmolinahernandez/
 featuredImage: /assets/img/blog/ai-reporting-workflow-hero-image.jpg
+featuredImageWidth: 1664
+featuredImageHeight: 936
 ---
 
 <p class="ui-post-lead">A single report tells you what happened at one moment. A history of reports gives you context.</p>
