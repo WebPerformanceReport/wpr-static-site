@@ -9,20 +9,22 @@ description: Explore plans and pricing for WebPerformance Report. Automated repo
 <section class="ui-section-pricing">
   <div class="ui-layout-container">
     <p class="ui-text-intro">Automated reports, delivered to the right people, at the right time.</p>
+    {%- comment -%} All four radios must stay before the toggle row and the price grid:
+        the price and label rules in style.css use `:checked ~ div`. {%- endcomment %}
     <input type="radio" id="ui-component-toggle__monthly" name="toggle" checked>
     <input type="radio" id="ui-component-toggle__yearly" name="toggle">
-    <div class="ui-component-toggle ui-layout-flex">
-      <label for="ui-component-toggle__monthly" class="ui-component-toggle--label">Monthly</label>
-      <label for="ui-component-toggle__yearly" class="ui-component-toggle--label">Annual -10%</label>
-    </div>
-    <p class="ui-text-intro"><small>Choose monthly or annual billing to see the discount.</small></p>
     <input type="radio" id="ui-component-toggle__eur" name="currency" checked>
     <input type="radio" id="ui-component-toggle__usd" name="currency">
-    <div class="ui-component-toggle ui-layout-flex">
-      <label for="ui-component-toggle__eur" class="ui-component-toggle--label">EUR (€)</label>
-      <label for="ui-component-toggle__usd" class="ui-component-toggle--label">USD ($)</label>
+    <div class="ui-section-pricing__toggles">
+      <div class="ui-component-toggle ui-layout-flex" role="group" aria-label="Billing period">
+        <label for="ui-component-toggle__monthly" class="ui-component-toggle--label">Monthly</label>
+        <label for="ui-component-toggle__yearly" class="ui-component-toggle--label">Annual -10%</label>
+      </div>
+      <div class="ui-component-toggle ui-layout-flex" role="group" aria-label="Currency">
+        <label for="ui-component-toggle__eur" class="ui-component-toggle--label">EUR (€)</label>
+        <label for="ui-component-toggle__usd" class="ui-component-toggle--label">USD ($)</label>
+      </div>
     </div>
-    <p class="ui-text-intro"><small>Select your billing currency.</small></p>
     <div class="ui-section-pricing__layout ui-layout-grid ui-layout-grid-3">
       <div class="ui-component-card ui-component-card--pricing">
         <h2>Free</h2>
@@ -41,7 +43,7 @@ description: Explore plans and pricing for WebPerformance Report. Automated repo
           <li class="ui-component-list--item ui-component-list--item-check">Weekly frequency</li>
           <li class="ui-component-list--item ui-component-list--item-check">AI Insight ✨</li>
         </ul>
-        <a href="https://board.webperformancereport.com/plans" role="link" aria-label="Get Free" class="ui-component-button ui-component-button-normal ui-component-button-secondary">Get Free</a>
+        <a href="https://board.webperformancereport.com/plans?utm_source=webperfreport&amp;utm_medium=website&amp;utm_campaign=plans&amp;utm_content=free" role="link" aria-label="Get Free" class="ui-component-button ui-component-button-normal ui-component-button-secondary">Get Free</a>
       </div>
       <div class="ui-component-card ui-component-card--pricing">
         <h2>Lite</h2>
@@ -60,7 +62,7 @@ description: Explore plans and pricing for WebPerformance Report. Automated repo
           <li class="ui-component-list--item ui-component-list--item-check">Daily, weekly, monthly</li>
           <li class="ui-component-list--item ui-component-list--item-check">AI Insight ✨</li>
         </ul>
-        <a href="https://board.webperformancereport.com/plans" role="link" aria-label="Get Lite" class="ui-component-button ui-component-button-normal ui-component-button-secondary">Get Lite</a>
+        <a href="https://board.webperformancereport.com/plans?utm_source=webperfreport&amp;utm_medium=website&amp;utm_campaign=plans&amp;utm_content=lite" role="link" aria-label="Get Lite" class="ui-component-button ui-component-button-normal ui-component-button-secondary">Get Lite</a>
       </div>
       <div class="ui-component-card ui-component-card--pricing">
         <h2>Starter</h2>
@@ -79,7 +81,7 @@ description: Explore plans and pricing for WebPerformance Report. Automated repo
           <li class="ui-component-list--item ui-component-list--item-check">Daily, weekly, monthly</li>
           <li class="ui-component-list--item ui-component-list--item-check">AI Insight ✨</li>
         </ul>
-        <a href="https://board.webperformancereport.com/plans" role="link" aria-label="Get Starter" class="ui-component-button ui-component-button-normal ui-component-button-secondary">Get Starter</a>
+        <a href="https://board.webperformancereport.com/plans?utm_source=webperfreport&amp;utm_medium=website&amp;utm_campaign=plans&amp;utm_content=starter" role="link" aria-label="Get Starter" class="ui-component-button ui-component-button-normal ui-component-button-secondary">Get Starter</a>
       </div>
     </div>
     <div class="ui-section-pricing__layout ui-layout-grid ui-layout-grid-3">
@@ -100,7 +102,7 @@ description: Explore plans and pricing for WebPerformance Report. Automated repo
           <li class="ui-component-list--item ui-component-list--item-check">Daily, weekly, monthly</li>
           <li class="ui-component-list--item ui-component-list--item-check">AI Insight ✨</li>
         </ul>
-        <a href="https://board.webperformancereport.com/plans" role="link" aria-label="Get Growth" class="ui-component-button ui-component-button-normal ui-component-button-primary">Get Growth</a>
+        <a href="https://board.webperformancereport.com/plans?utm_source=webperfreport&amp;utm_medium=website&amp;utm_campaign=plans&amp;utm_content=growth" role="link" aria-label="Get Growth" class="ui-component-button ui-component-button-normal ui-component-button-primary">Get Growth</a>
       </div>
       <div class="ui-component-card ui-component-card--pricing">
         <h2>Pro</h2>
@@ -119,7 +121,7 @@ description: Explore plans and pricing for WebPerformance Report. Automated repo
           <li class="ui-component-list--item ui-component-list--item-check">Daily, weekly, monthly</li>
           <li class="ui-component-list--item ui-component-list--item-check">AI Insight ✨</li>
         </ul>
-        <a href="https://board.webperformancereport.com/plans" role="link" aria-label="Get Pro" class="ui-component-button ui-component-button-normal ui-component-button-secondary">Get Pro</a>
+        <a href="https://board.webperformancereport.com/plans?utm_source=webperfreport&amp;utm_medium=website&amp;utm_campaign=plans&amp;utm_content=pro" role="link" aria-label="Get Pro" class="ui-component-button ui-component-button-normal ui-component-button-secondary">Get Pro</a>
       </div>
       <div class="ui-component-card ui-component-card--pricing">
         <h2>Business</h2>
@@ -138,7 +140,7 @@ description: Explore plans and pricing for WebPerformance Report. Automated repo
           <li class="ui-component-list--item ui-component-list--item-check">Daily, weekly, monthly</li>
           <li class="ui-component-list--item ui-component-list--item-check">AI Insight ✨</li>
         </ul>
-        <a href="https://board.webperformancereport.com/plans" role="link" aria-label="Get Business" class="ui-component-button ui-component-button-normal ui-component-button-secondary">Get Business</a>
+        <a href="https://board.webperformancereport.com/plans?utm_source=webperfreport&amp;utm_medium=website&amp;utm_campaign=plans&amp;utm_content=business" role="link" aria-label="Get Business" class="ui-component-button ui-component-button-normal ui-component-button-secondary">Get Business</a>
       </div>
     </div>
   </div>

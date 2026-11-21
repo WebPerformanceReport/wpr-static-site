@@ -367,6 +367,20 @@ input[type="radio"][id^="ui-component-toggle__"] {
   padding: .125rem;
 }
 
+/* Billing period and currency share one row so the price cards sit higher.
+   Wraps to two rows only when the screen is too narrow for both. */
+.ui-section-pricing__toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.ui-section-pricing__toggles .ui-component-toggle {
+  margin: 0;
+}
+
 .page--plans .ui-component-toggle--label {
   border-radius: .25rem;
   color: #4c97d9;
@@ -386,15 +400,18 @@ div label[for=ui-component-toggle__usd] {
   color: #fff;
 }
 
+/* Only the recommended plan (Growth, marked -primary) gets the solid button;
+   every other plan is outlined, so the strongest button matches the
+   "Popular" badge instead of contradicting it. */
 .page--plans .ui-section-pricing .ui-component-button {
-  background-color: #4c97d9;
+  background-color: #fff;
   border-color: #4c97d9;
-  color: #fff;
+  color: #4c97d9;
 }
 
 .page--plans .ui-section-pricing .ui-component-button.ui-component-button-primary {
-  background-color: #fff;
-  color: #4c97d9;
+  background-color: #4c97d9;
+  color: #fff;
 }
 
 #ui-component-toggle__monthly:checked ~
