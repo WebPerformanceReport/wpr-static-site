@@ -59,14 +59,13 @@
     <title>Plans &amp; Pricing | WebPerformance Report</title>
   </head>
   <body class="page--plans">
-    <aside class="ui-section-launch-bar" aria-label="Featured guide">
+    <aside class="ui-section-launch-bar" aria-label="Black Friday offer">
   <div class="ui-layout-container">
-    <a href="/blog/ai-reporting-workflow/" class="ui-section-launch-bar__layout">
-      <span>Turn your reports into <strong>answers with AI.</strong></span>
+    <a href="/plans/" class="ui-section-launch-bar__layout">
+      <span><span aria-hidden="true">🖤</span> <b>Black Friday:</b> <strong>50% off</strong><span class="ui-section-launch-bar--wide"> any paid plan</span>. <span class="ui-section-launch-bar--deadline">Ends Nov 30.</span></span>
       <span class="ui-section-launch-bar--action">
-        <span class="ui-section-launch-bar--cta">See how <span aria-hidden="true">→</span></span>
-        <span class="ui-section-launch-bar--separator" aria-hidden="true">·</span>
-        <span class="ui-section-launch-bar--meta">5 min read</span>
+        <span>Code <span class="ui-section-launch-bar--code">BLACK50</span></span>
+        <span class="ui-section-launch-bar--cta">See plans <span aria-hidden="true">→</span></span>
       </span>
     </a>
   </div>
@@ -110,6 +109,45 @@
 <section class="ui-section-pricing">
   <div class="ui-layout-container">
     <p class="ui-text-intro">Automated reports, delivered to the right people, at the right time.</p>
+    <p class="ui-component-promo-note"><span aria-hidden="true">🖤</span> <strong>Black Friday:</strong> 50% off any paid plan for 12 months with code <button type="button" class="ui-component-promo-note--code" data-copy="BLACK50" data-tip="Copy code" aria-label="Copy code BLACK50">BLACK50</button>. Ends Nov 30.<span class="ui-component-card--pricing-sr" role="status" aria-live="polite"></span></p>
+    <script data-cookieconsent="ignore">
+      document.addEventListener('click', function (e) {
+        var btn = e.target.closest && e.target.closest('[data-copy]');
+        if (!btn) return;
+        var text = btn.getAttribute('data-copy');
+        var status = btn.parentNode.querySelector('[role="status"]');
+        function show(ok) {
+          btn.setAttribute('data-tip', ok ? 'Copied!' : 'Copy failed');
+          btn.classList.add('is-copied');
+          if (status) status.textContent = ok ? 'Code ' + text + ' copied' : 'Could not copy the code';
+          clearTimeout(btn._t);
+          btn._t = setTimeout(function () {
+            btn.setAttribute('data-tip', 'Copy code');
+            btn.classList.remove('is-copied');
+            if (status) status.textContent = '';
+          }, 2000);
+        }
+        function legacyCopy() {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          var ok = false;
+          try { ok = document.execCommand('copy'); } catch (err) {}
+          document.body.removeChild(ta);
+          btn.focus();
+          show(ok);
+        }
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(function () { show(true); }, legacyCopy);
+        } else {
+          legacyCopy();
+        }
+      });
+    </script>
     <input type="radio" id="ui-component-toggle__monthly" name="toggle" checked>
     <input type="radio" id="ui-component-toggle__yearly" name="toggle">
     <input type="radio" id="ui-component-toggle__eur" name="currency" checked>
@@ -148,11 +186,12 @@
         <h2>Lite</h2>
         <p class="ui-text-note"><small>For small sites with light reporting needs.</small></p>
         <div class="ui-component-card--pricing-price">
-          <span class="ui-component-card--pricing-amount ui-price ui-price--m-eur">€15</span>
-          <span class="ui-component-card--pricing-amount ui-price ui-price--y-eur">€13<span class="ui-component-card--pricing-decimal">.50</span></span>
-          <span class="ui-component-card--pricing-amount ui-price ui-price--m-usd">$15</span>
-          <span class="ui-component-card--pricing-amount ui-price ui-price--y-usd">$13<span class="ui-component-card--pricing-decimal">.50</span></span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--m-eur"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>€15</s> <span class="ui-component-card--pricing-sr">Black Friday price </span>€7<span class="ui-component-card--pricing-decimal">.50</span></span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--y-eur"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>€13<span class="ui-component-card--pricing-decimal">.50</span></s> <span class="ui-component-card--pricing-sr">Black Friday price </span>€6<span class="ui-component-card--pricing-decimal">.75</span></span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--m-usd"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>$15</s> <span class="ui-component-card--pricing-sr">Black Friday price </span>$7<span class="ui-component-card--pricing-decimal">.50</span></span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--y-usd"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>$13<span class="ui-component-card--pricing-decimal">.50</span></s> <span class="ui-component-card--pricing-sr">Black Friday price </span>$6<span class="ui-component-card--pricing-decimal">.75</span></span>
           <small>/month</small>
+          <span class="ui-component-card--pricing-promo">With code BLACK50, for 12 months</span>
         </div>
         <ul class="ui-component-list ui-component-list--pricing ui-layout-grid">
           <li class="ui-component-list--item ui-component-list--item-check">20 report deliveries</li>
@@ -167,11 +206,12 @@
         <h2>Starter</h2>
         <p class="ui-text-note"><small>For teams getting started.</small></p>
         <div class="ui-component-card--pricing-price">
-          <span class="ui-component-card--pricing-amount ui-price ui-price--m-eur">€30</span>
-          <span class="ui-component-card--pricing-amount ui-price ui-price--y-eur">€27</span>
-          <span class="ui-component-card--pricing-amount ui-price ui-price--m-usd">$30</span>
-          <span class="ui-component-card--pricing-amount ui-price ui-price--y-usd">$27</span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--m-eur"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>€30</s> <span class="ui-component-card--pricing-sr">Black Friday price </span>€15</span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--y-eur"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>€27</s> <span class="ui-component-card--pricing-sr">Black Friday price </span>€13<span class="ui-component-card--pricing-decimal">.50</span></span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--m-usd"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>$30</s> <span class="ui-component-card--pricing-sr">Black Friday price </span>$15</span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--y-usd"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>$27</s> <span class="ui-component-card--pricing-sr">Black Friday price </span>$13<span class="ui-component-card--pricing-decimal">.50</span></span>
           <small>/month</small>
+          <span class="ui-component-card--pricing-promo">With code BLACK50, for 12 months</span>
         </div>
         <ul class="ui-component-list ui-component-list--pricing ui-layout-grid">
           <li class="ui-component-list--item ui-component-list--item-check">40 report deliveries</li>
@@ -188,11 +228,12 @@
         <h2>Growth <span class="ui-component-card--pricing-badge">Popular</span></h2>
         <p class="ui-text-note"><small>For teams that need growth.</small></p>
         <div class="ui-component-card--pricing-price">
-          <span class="ui-component-card--pricing-amount ui-price ui-price--m-eur">€60</span>
-          <span class="ui-component-card--pricing-amount ui-price ui-price--y-eur">€54</span>
-          <span class="ui-component-card--pricing-amount ui-price ui-price--m-usd">$60</span>
-          <span class="ui-component-card--pricing-amount ui-price ui-price--y-usd">$54</span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--m-eur"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>€60</s> <span class="ui-component-card--pricing-sr">Black Friday price </span>€30</span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--y-eur"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>€54</s> <span class="ui-component-card--pricing-sr">Black Friday price </span>€27</span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--m-usd"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>$60</s> <span class="ui-component-card--pricing-sr">Black Friday price </span>$30</span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--y-usd"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>$54</s> <span class="ui-component-card--pricing-sr">Black Friday price </span>$27</span>
           <small>/month</small>
+          <span class="ui-component-card--pricing-promo">With code BLACK50, for 12 months</span>
         </div>
         <ul class="ui-component-list ui-component-list--pricing ui-layout-grid">
           <li class="ui-component-list--item ui-component-list--item-check">100 report deliveries</li>
@@ -207,11 +248,12 @@
         <h2>Pro</h2>
         <p class="ui-text-note"><small>For growing teams with steady demand.</small></p>
         <div class="ui-component-card--pricing-price">
-          <span class="ui-component-card--pricing-amount ui-price ui-price--m-eur">€90</span>
-          <span class="ui-component-card--pricing-amount ui-price ui-price--y-eur">€81</span>
-          <span class="ui-component-card--pricing-amount ui-price ui-price--m-usd">$90</span>
-          <span class="ui-component-card--pricing-amount ui-price ui-price--y-usd">$81</span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--m-eur"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>€90</s> <span class="ui-component-card--pricing-sr">Black Friday price </span>€45</span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--y-eur"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>€81</s> <span class="ui-component-card--pricing-sr">Black Friday price </span>€40<span class="ui-component-card--pricing-decimal">.50</span></span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--m-usd"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>$90</s> <span class="ui-component-card--pricing-sr">Black Friday price </span>$45</span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--y-usd"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>$81</s> <span class="ui-component-card--pricing-sr">Black Friday price </span>$40<span class="ui-component-card--pricing-decimal">.50</span></span>
           <small>/month</small>
+          <span class="ui-component-card--pricing-promo">With code BLACK50, for 12 months</span>
         </div>
         <ul class="ui-component-list ui-component-list--pricing ui-layout-grid">
           <li class="ui-component-list--item ui-component-list--item-check">200 report deliveries</li>
@@ -226,11 +268,12 @@
         <h2>Business</h2>
         <p class="ui-text-note"><small>For organizations with advanced needs.</small></p>
         <div class="ui-component-card--pricing-price">
-          <span class="ui-component-card--pricing-amount ui-price ui-price--m-eur">€150</span>
-          <span class="ui-component-card--pricing-amount ui-price ui-price--y-eur">€135</span>
-          <span class="ui-component-card--pricing-amount ui-price ui-price--m-usd">$150</span>
-          <span class="ui-component-card--pricing-amount ui-price ui-price--y-usd">$135</span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--m-eur"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>€150</s> <span class="ui-component-card--pricing-sr">Black Friday price </span>€75</span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--y-eur"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>€135</s> <span class="ui-component-card--pricing-sr">Black Friday price </span>€67<span class="ui-component-card--pricing-decimal">.50</span></span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--m-usd"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>$150</s> <span class="ui-component-card--pricing-sr">Black Friday price </span>$75</span>
+          <span class="ui-component-card--pricing-amount ui-price ui-price--y-usd"><s class="ui-component-card--pricing-was"><span class="ui-component-card--pricing-sr">Regular price </span>$135</s> <span class="ui-component-card--pricing-sr">Black Friday price </span>$67<span class="ui-component-card--pricing-decimal">.50</span></span>
           <small>/month</small>
+          <span class="ui-component-card--pricing-promo">With code BLACK50, for 12 months</span>
         </div>
         <ul class="ui-component-list ui-component-list--pricing ui-layout-grid">
           <li class="ui-component-list--item ui-component-list--item-check">400 report deliveries</li>

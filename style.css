@@ -1132,6 +1132,46 @@ div label[for=ui-component-toggle__yearly] {
   vertical-align: top;
 }
 
+/* Black Friday: regular price struck through beside the discounted one.
+   Remove these rules and the markup in plans/index.liquid after Nov 30. */
+.ui-component-card--pricing-was {
+  color: var(--ui-color-n-400);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-right: .25rem;
+  vertical-align: middle;
+}
+
+.ui-component-card--pricing-was .ui-component-card--pricing-decimal {
+  font-size: inherit;
+  font-weight: inherit;
+  vertical-align: baseline;
+}
+
+/* The promo line makes paid cards taller than Free; keep the tops aligned. */
+.ui-section-pricing__layout {
+  align-items: start;
+}
+
+.ui-component-card--pricing-promo {
+  display: block;
+  font-size: .875rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-top: .5rem;
+}
+
+/* Read aloud ("Regular price", "Black Friday price"), never shown. */
+.ui-component-card--pricing-sr {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .ui-component-card--pricing-featured {
   border-color: var(--ui-color-brand);
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.05);
@@ -3438,6 +3478,98 @@ div label[for=ui-component-toggle__yearly] {
   gap: .5rem;
   margin-left: .375rem;
   white-space: nowrap;
+}
+
+.ui-section-launch-bar--code {
+  border: .0625rem solid var(--ui-color-n-500);
+  border-radius: .25rem;
+  color: var(--ui-color-n-500);
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: .2em;
+  line-height: 1.4;
+  padding: 0 .25rem 0 .45rem;
+}
+
+.ui-section-launch-bar--deadline {
+  white-space: nowrap;
+}
+
+/* Detail that only fits on wider screens; phones get the short version. */
+@media screen and (max-width: 47.9375rem) {
+  .ui-section-launch-bar--wide {
+    display: none;
+  }
+}
+
+/* Plans page echo of the launch bar offer, so the click lands on the same
+   message. The accent is too light for text on this background, so it is
+   used for the border only. */
+.ui-component-promo-note {
+  border: .0625rem solid var(--ui-color-n-500);
+  border-radius: .5rem;
+  box-sizing: border-box;
+  margin: 0 auto 2rem;
+  max-width: 58rem;
+  padding: .75rem 1rem;
+  text-align: center;
+}
+
+/* The code box is the copy button. A tooltip above it says "Copy code" on
+   hover or keyboard focus and "Copied!" after a click or tap, so touch users
+   get the confirmation too. The tooltip is absolutely positioned: showing it
+   never moves the text around it. */
+.ui-component-promo-note--code {
+  background-color: #fff;
+  border: .0625rem solid #2f6fa8;
+  border-radius: .25rem;
+  color: var(--ui-color-typography-body);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  letter-spacing: .15em;
+  line-height: 1.3;
+  padding: .125rem .35rem .125rem .5rem;
+  position: relative;
+}
+
+.ui-component-promo-note--code:hover {
+  background-color: #e8f1fa;
+}
+
+.ui-component-promo-note--code:focus-visible {
+  outline: .125rem solid #2f6fa8;
+  outline-offset: .125rem;
+}
+
+.ui-component-promo-note--code::after {
+  background-color: var(--ui-color-n-220);
+  border-radius: .25rem;
+  bottom: calc(100% + .5rem);
+  color: #fff;
+  content: attr(data-tip);
+  font-size: .75rem;
+  font-weight: 600;
+  left: 50%;
+  letter-spacing: normal;
+  line-height: 1;
+  opacity: 0;
+  padding: .375rem .5rem;
+  pointer-events: none;
+  position: absolute;
+  transform: translateX(-50%);
+  transition: opacity .15s ease;
+  white-space: nowrap;
+}
+
+.ui-component-promo-note--code:hover::after,
+.ui-component-promo-note--code:focus-visible::after,
+.ui-component-promo-note--code.is-copied::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-component-promo-note--code::after { transition: none; }
 }
 
 .ui-section-launch-bar--cta {
