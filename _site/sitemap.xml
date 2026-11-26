@@ -5,14 +5,6 @@
     <lastmod>2026-01-04</lastmod>
   </url>
   <url>
-    <loc>https://webperformancereport.com/httpo/</loc>
-    <lastmod>2026-01-04</lastmod>
-  </url>
-  <url>
-    <loc>https://webperformancereport.com/wave/</loc>
-    <lastmod>2026-01-04</lastmod>
-  </url>
-  <url>
     <loc>https://webperformancereport.com/blog/why-webperformance-report-exists/</loc>
     <lastmod>2026-07-29</lastmod>
   </url>
@@ -53,27 +45,35 @@
     <lastmod>2026-08-01</lastmod>
   </url>
   <url>
-    <loc>https://webperformancereport.com/ga4/</loc>
-    <lastmod>2026-08-01</lastmod>
-  </url>
-  <url>
-    <loc>https://webperformancereport.com/plans/</loc>
-    <lastmod>2026-08-17</lastmod>
-  </url>
-  <url>
-    <loc>https://webperformancereport.com/</loc>
-    <lastmod>2026-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://webperformancereport.com/gsc/</loc>
-    <lastmod>2026-09-16</lastmod>
-  </url>
-  <url>
     <loc>https://webperformancereport.com/blog/ai-reporting-workflow/</loc>
     <lastmod>2026-09-19</lastmod>
   </url>
   <url>
     <loc>https://webperformancereport.com/blog/technical-diagnostics-business-outcomes-gap/</loc>
     <lastmod>2026-10-03</lastmod>
+  </url>
+  <url>
+    <loc>https://webperformancereport.com/</loc>
+    <lastmod>2026-10-13</lastmod>
+  </url>
+  <url>
+    <loc>https://webperformancereport.com/wave/</loc>
+    <lastmod>2026-10-13</lastmod>
+  </url>
+  <url>
+    <loc>https://webperformancereport.com/httpo/</loc>
+    <lastmod>2026-10-13</lastmod>
+  </url>
+  <url>
+    <loc>https://webperformancereport.com/ga4/</loc>
+    <lastmod>2026-10-13</lastmod>
+  </url>
+  <url>
+    <loc>https://webperformancereport.com/gsc/</loc>
+    <lastmod>2026-10-13</lastmod>
+  </url>
+  <url>
+    <loc>https://webperformancereport.com/plans/</loc>
+    <lastmod>2026-11-21</lastmod>
   </url>
 </urlset>

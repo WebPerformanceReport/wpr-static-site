@@ -3,11 +3,14 @@ permalink: /sitemap.xml
 eleventyExcludeFromCollections: true
 ---
 {#- Pages kept out of the sitemap: the post-subscription thank-you pages, which
-    have nothing to rank for and should not be entry points. -#}
+    have nothing to rank for and should not be entry points, and the CO2
+    sample report, which is still in progress and not in git. Remove
+    "/report/co2/" from this list when that report is published. -#}
 {%- set excluded = [
   "/thanks/",
   "/wave/thanks/",
-  "/httpo/thanks/"
+  "/httpo/thanks/",
+  "/report/co2/"
 ] -%}
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
