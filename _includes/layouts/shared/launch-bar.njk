@@ -1,7 +1,22 @@
 {#- Site-wide announcement. Copy and destination live here; styles are in
     style.css under "7.0.1 LAUNCH BAR". Empty this file to remove the bar.
-    Black Friday offer ends November 30: remove the bar and the matching note
-    at the top of plans/index.liquid after that date. -#}
+
+    Black Friday offer runs through Cyber Monday, November 30. To remove it
+    after that date, go through all four places:
+    1. This file: empty it (every base.njk includes it, so the bar goes
+       everywhere at once).
+    2. plans/index.liquid, top: the promo note (<p class="ui-component-promo-note">)
+       and the copy-button <script> right after it.
+    3. plans/index.liquid, the five paid cards: in each price span delete the
+       <s class="ui-component-card--pricing-was"> part and the
+       "Black Friday price" label, and put the regular price back as the
+       amount (Lite €15, Starter €30, Growth €60, Pro €90, Business €150, and
+       the annual/USD variants). Then delete the
+       <span class="ui-component-card--pricing-promo"> line. Keep the Free
+       card's "No credit card required" line (-pricing-sub), it is permanent.
+    4. style.css: .ui-component-card--pricing-was, .ui-component-card--pricing-sr,
+       .ui-component-card--pricing-promo, the .ui-component-promo-note rules
+       and, once the bar is gone, the 7.0.1 LAUNCH BAR rules. -#}
 <aside class="ui-section-launch-bar" aria-label="Black Friday offer">
   <div class="ui-layout-container">
     <a href="{{ '/plans/' | url }}" class="ui-section-launch-bar__layout">
