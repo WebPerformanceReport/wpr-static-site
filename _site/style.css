@@ -62,6 +62,11 @@ TABLE OF CONTENT
   --ui-color-n-900: #1a1a1a;
 
   --ui-color-n-200: #6690b9;
+  /* Sky blue: the light blue of the logo's envelope sheet (#41a2d8), a touch
+     deeper so it can carry text on white. 3.1:1, enough for large bold text
+     (19px+ bold); the logo's own #41a2d8 is 2.8:1. One sky blue for the
+     header name and the plans toggles. */
+  --ui-color-n-205: #4c97d9;
   --ui-color-n-210: #426a90;
   --ui-color-n-220: #1a2a39;
   --ui-color-n-230: #dddddd;
@@ -362,7 +367,7 @@ input[type="radio"][id^="ui-component-toggle__"] {
 
 .page--plans .ui-component-toggle {
   background-color: transparent;
-  border: .0625rem solid #4c97d9;
+  border: .0625rem solid var(--ui-color-n-205);
   border-radius: .375rem;
   padding: .125rem;
 }
@@ -383,7 +388,7 @@ input[type="radio"][id^="ui-component-toggle__"] {
 
 .page--plans .ui-component-toggle--label {
   border-radius: .25rem;
-  color: #4c97d9;
+  color: var(--ui-color-n-205);
   font-weight: 600;
   padding: .45rem .9rem;
 }
@@ -396,7 +401,7 @@ div label[for=ui-component-toggle__yearly],
 div label[for=ui-component-toggle__eur],
 .page--plans #ui-component-toggle__usd:checked ~
 div label[for=ui-component-toggle__usd] {
-  background-color: #4c97d9;
+  background-color: var(--ui-color-n-205);
   color: #fff;
 }
 
@@ -405,12 +410,12 @@ div label[for=ui-component-toggle__usd] {
    "Popular" badge instead of contradicting it. */
 .page--plans .ui-section-pricing .ui-component-button {
   background-color: #fff;
-  border-color: #4c97d9;
-  color: #4c97d9;
+  border-color: var(--ui-color-n-205);
+  color: var(--ui-color-n-205);
 }
 
 .page--plans .ui-section-pricing .ui-component-button.ui-component-button-primary {
-  background-color: #4c97d9;
+  background-color: var(--ui-color-n-205);
   color: #fff;
 }
 
@@ -490,6 +495,65 @@ div label[for=ui-component-toggle__yearly] {
 /* LOGO */
 
 .ui-section-header--logo { z-index: 1; }
+
+/* The icon alone (an envelope and a clock) does not say whose site this is,
+   and the hero heading that spells the name only exists on the home pages.
+   The name is real text, not part of the image: it stays sharp, uses the site
+   font, and gives the link its accessible name (the img alt is empty so
+   screen readers do not read it twice). Stacked on two lines so it fits the
+   ~185px left between the icon and the menu at 1024px. */
+.ui-section-header--logo {
+  align-items: center;
+  display: flex;
+  gap: .75rem;
+  text-decoration: none;
+}
+
+.ui-section-header--logo-name {
+  color: var(--ui-color-n-220);
+  /* 19px bold is "large text" in WCAG, where 3:1 is enough for the salmon
+     accent below. 18px would not qualify (the line is 18.66px). */
+  font-size: 1.1875rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  line-height: 1.15;
+}
+
+/* The envelope's light blue, so the name and the icon read as one logo.
+   3.1:1 on the white header, which passes AA for large text at the size set
+   above. */
+.ui-section-header--logo-name-accent {
+  color: var(--ui-color-n-205);
+  display: block;
+}
+
+/* Tablet portrait has no room for it: at 768px the menu already leaves only
+   26px beside the icon, and the name touches the menu until about 940px.
+   Hidden visually, not with display: none, because the empty alt leaves the
+   name as the link's only accessible label. */
+@media screen and (min-width: 48rem) and (max-width: 59.9375rem) {
+
+  .ui-section-header--logo-name {
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+/* With the 100px icon the name ends 14px from the menu at 1024px and reads
+   like one of its links, and the container is fixed at 60rem all the way to
+   75rem, so the gap does not grow. Keep the 72px tablet icon through that
+   range (41px gap); from 75rem the container widens for the full icon. */
+@media screen and (min-width: 64rem) and (max-width: 74.9375rem) {
+
+  .ui-section-header--logo img {
+    height: 4.5rem;
+    width: 4.5rem;
+  }
+}
 
 /* HAMBURGER */
 
