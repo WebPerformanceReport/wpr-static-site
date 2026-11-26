@@ -61,7 +61,26 @@ TABLE OF CONTENT
   --ui-color-n-700: #282828;
   --ui-color-n-900: #1a1a1a;
 
-  --ui-color-n-200: #6690b9;
+  /* PALETTE ROLES (Dec 2026 cleanup). Blues with one job each, and salmon:
+     - Ink   n-220 #1a2a39  dark text on light grounds, footer, bars
+     - Deep  n-215 #263f58  the hero ground, so salmon can be text on it
+     - Brand n-210 #426a90  headings on light grounds, title bands, links,
+                            buttons, selections
+     - Sky   n-205 #4c97d9  the logo's blue: outlines and large text only
+     - Mist  n-150 #e8f1fa  light tint for callouts and hover fills
+     - Salmon n-500 #dd9d71 text only on ink or deep (6.4:1, 4.7:1); on light
+       grounds a fill behind ink text (6.4:1). It is 2.3:1 on white and 2.5:1
+       on brand, so never text there.
+     The old light blue #6690b9 (n-200) and the one-off blues #2f6fa8,
+     #2563eb and #1565c0 are retired: white on #6690b9 was 3.4:1. */
+
+  --ui-color-n-150: #e8f1fa;
+  --ui-color-n-215: #263f58;
+  /* Sky blue: the light blue of the logo's envelope sheet (#41a2d8), a touch
+     deeper so it can carry text on white. 3.1:1, enough for large bold text
+     (19px+ bold) but not for small text or white text on top of it; the
+     logo's own #41a2d8 is 2.8:1. */
+  --ui-color-n-205: #4c97d9;
   --ui-color-n-210: #426a90;
   --ui-color-n-220: #1a2a39;
   --ui-color-n-230: #dddddd;
@@ -76,7 +95,9 @@ TABLE OF CONTENT
   --ui-color-background-header   : var(--ui-color-n-000);
   --ui-color-background-subscribe  : var(--ui-color-n-050);
   --ui-color-background-feature  : var(--ui-color-n-050);
-  --ui-color-background-primary  : var(--ui-color-n-200);
+  /* The body ground, which the hero shows through. Deep blue, so the hero's
+     salmon "Report" reads at 4.7:1 and its white text at 10.9:1. */
+  --ui-color-background-primary  : var(--ui-color-n-215);
   --ui-color-background-secondary: var(--ui-color-n-210);
   --ui-color-background-tertiary : var(--ui-color-n-100);
   --ui-color-background-footer   : var(--ui-color-n-220);
@@ -87,7 +108,11 @@ TABLE OF CONTENT
 
   /* TYPOGRAPHY COLOR */
 
-  --ui-color-typography-heading: var(--ui-color-n-500);
+  /* Brand on the light grounds: 5.7:1 on white, 5.2:1 on #f5f5f5. Ink read
+     too heavy on the plan and catalog cards. Headings on the blue bands are
+     set to white where those bands are styled (title, hero, catalog feature
+     card). */
+  --ui-color-typography-heading: var(--ui-color-brand);
   --ui-color-typography-body   : var(--ui-color-n-900);
   --ui-color-typography-note   : var(--ui-color-n-230);
   --ui-color-typography-button : var(--ui-color-n-000);
@@ -311,8 +336,10 @@ svg {
   color: var(--ui-color-typography-button);
 }
 
+/* Mist, not the body ground: that is brand now, and brand text on it would
+   vanish. Brand on mist is 5.1:1. */
 .ui-component-button-secondary {
-  background-color: var(--ui-color-background-primary);
+  background-color: var(--ui-color-n-150);
   color: var(--ui-color-brand);
 }
 
@@ -362,7 +389,7 @@ input[type="radio"][id^="ui-component-toggle__"] {
 
 .page--plans .ui-component-toggle {
   background-color: transparent;
-  border: .0625rem solid #4c97d9;
+  border: .0625rem solid var(--ui-color-n-205);
   border-radius: .375rem;
   padding: .125rem;
 }
@@ -381,9 +408,12 @@ input[type="radio"][id^="ui-component-toggle__"] {
   margin: 0;
 }
 
+/* Sky is the outline only. Text and the selected fill are brand: sky text
+   was 2.9:1 on the grey ground and white on sky 3.1:1, both too light at
+   this size. */
 .page--plans .ui-component-toggle--label {
   border-radius: .25rem;
-  color: #4c97d9;
+  color: var(--ui-color-brand);
   font-weight: 600;
   padding: .45rem .9rem;
 }
@@ -396,30 +426,31 @@ div label[for=ui-component-toggle__yearly],
 div label[for=ui-component-toggle__eur],
 .page--plans #ui-component-toggle__usd:checked ~
 div label[for=ui-component-toggle__usd] {
-  background-color: #4c97d9;
-  color: #fff;
+  background-color: var(--ui-color-brand);
+  color: var(--ui-color-n-000);
 }
 
 /* Only the recommended plan (Growth, marked -primary) gets the solid button;
    every other plan is outlined, so the strongest button matches the
-   "Popular" badge instead of contradicting it. */
+   "Popular" badge instead of contradicting it. Brand, not sky: button
+   labels are small text, and sky is 3.1:1 against white either way round. */
 .page--plans .ui-section-pricing .ui-component-button {
-  background-color: #fff;
-  border-color: #4c97d9;
-  color: #4c97d9;
+  background-color: var(--ui-color-n-000);
+  border-color: var(--ui-color-brand);
+  color: var(--ui-color-brand);
 }
 
 .page--plans .ui-section-pricing .ui-component-button.ui-component-button-primary {
-  background-color: #4c97d9;
-  color: #fff;
+  background-color: var(--ui-color-brand);
+  color: var(--ui-color-n-000);
 }
 
 #ui-component-toggle__monthly:checked ~
 div label[for=ui-component-toggle__monthly],
 #ui-component-toggle__yearly:checked ~
 div label[for=ui-component-toggle__yearly] {
-  background-color: var(--ui-color-background-primary);
-  color: var(--ui-color-typography-body);
+  background-color: var(--ui-color-brand);
+  color: var(--ui-color-n-000);
 }
 
 /*--------------------------------------------------------------
@@ -491,6 +522,65 @@ div label[for=ui-component-toggle__yearly] {
 
 .ui-section-header--logo { z-index: 1; }
 
+/* The icon alone (an envelope and a clock) does not say whose site this is,
+   and the hero heading that spells the name only exists on the home pages.
+   The name is real text, not part of the image: it stays sharp, uses the site
+   font, and gives the link its accessible name (the img alt is empty so
+   screen readers do not read it twice). Stacked on two lines so it fits the
+   ~185px left between the icon and the menu at 1024px. */
+.ui-section-header--logo {
+  align-items: center;
+  display: flex;
+  gap: .75rem;
+  text-decoration: none;
+}
+
+.ui-section-header--logo-name {
+  color: var(--ui-color-n-220);
+  /* 19px bold is "large text" in WCAG, where 3:1 is enough for the salmon
+     accent below. 18px would not qualify (the line is 18.66px). */
+  font-size: 1.1875rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  line-height: 1.15;
+}
+
+/* The envelope's light blue, so the name and the icon read as one logo.
+   3.1:1 on the white header, which passes AA for large text at the size set
+   above. */
+.ui-section-header--logo-name-accent {
+  color: var(--ui-color-n-205);
+  display: block;
+}
+
+/* Tablet portrait has no room for it: at 768px the menu already leaves only
+   26px beside the icon, and the name touches the menu until about 940px.
+   Hidden visually, not with display: none, because the empty alt leaves the
+   name as the link's only accessible label. */
+@media screen and (min-width: 48rem) and (max-width: 59.9375rem) {
+
+  .ui-section-header--logo-name {
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+/* With the 100px icon the name ends 14px from the menu at 1024px and reads
+   like one of its links, and the container is fixed at 60rem all the way to
+   75rem, so the gap does not grow. Keep the 72px tablet icon through that
+   range (41px gap); from 75rem the container widens for the full icon. */
+@media screen and (min-width: 64rem) and (max-width: 74.9375rem) {
+
+  .ui-section-header--logo img {
+    height: 4.5rem;
+    width: 4.5rem;
+  }
+}
+
 /* HAMBURGER */
 
 #ui-section-header--menu-id { display: none; }
@@ -534,7 +624,7 @@ div label[for=ui-component-toggle__yearly] {
 /* MENU */
 
 .ui-section-header--nav {
-  background-color: var(--ui-color-background-primary);
+  background-color: var(--ui-color-n-000);
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.05);
   flex-direction: column;
   gap: var(--ui-gap-header);
@@ -713,6 +803,25 @@ div label[for=ui-component-toggle__yearly] {
   padding-top: 2rem;
   text-align: center;
 }
+
+/* A title band that opens the page (Plans, Blog, About, legal pages) takes
+   the hero's deep blue, so every page starts with the same ground under the
+   menu. Title bands further down a page keep brand. :first-of-type, because
+   on the home page the hero is the first section and none of its title
+   bands match. */
+main > section.ui-section-title:first-of-type {
+  background-color: var(--ui-color-background-primary);
+}
+
+/* Headings default to brand; on the brand bands they turn white (5.7:1).
+   Salmon was 2.5:1 here. */
+.ui-section-title h1,
+.ui-section-title h2,
+.ui-section-hero h1 { color: var(--ui-color-n-000); }
+
+/* The hero name is two-tone by design: white and salmon. The full salmon,
+   4.7:1 on the deep blue hero ground. */
+.ui-section-hero--accent { color: var(--ui-color-n-500); }
 
 .ui-section-title--full {
   margin-left: 50%;
@@ -1102,13 +1211,18 @@ div label[for=ui-component-toggle__yearly] {
   width: 100%;
 }
 
-/* Reserve two lines so every card in a row keeps its price and button aligned */
+/* Reserve two lines so every card in a row keeps its price and button aligned.
+   No bottom margin: the price's own top margin is the gap, where the two
+   margins together left 48px between the description and the price. */
 .ui-component-card--pricing .ui-text-note {
+  margin-bottom: 0;
   min-height: 2.25rem;
 }
 
+/* Centre, not baseline: on the baseline the small "Popular" pill sat on the
+   title's baseline and read as dropped below the word. */
 .ui-component-card--pricing h2 {
-  align-items: baseline;
+  align-items: center;
   display: flex;
   gap: .5rem;
   justify-content: center;
@@ -1148,12 +1262,62 @@ div label[for=ui-component-toggle__yearly] {
   vertical-align: baseline;
 }
 
-/* The promo line makes paid cards taller than Free; keep the tops aligned. */
+/* Cards in a row share one height, and each card is a column whose button
+   is pushed to the bottom, so the buttons line up even when a card has less
+   content (Free has no promo line). */
 .ui-section-pricing__layout {
-  align-items: start;
+  align-items: stretch;
+}
+
+.ui-component-card--pricing {
+  display: flex;
+  flex-direction: column;
+}
+
+.ui-component-card--pricing .ui-component-button {
+  margin-top: auto;
+}
+
+/* Where subgrid is supported, each card's six parts (title, description,
+   price, list, button, note) share rows with the other cards in its grid, so
+   lists, buttons and notes line up whatever the text length: Free has no
+   promo line and a shorter note. Spacing inside the card is unchanged; the
+   flex column above is the fallback. */
+@supports (grid-template-rows: subgrid) {
+  .ui-component-card--pricing {
+    display: grid;
+    grid-row: span 6;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+  }
+
+  .ui-component-card--pricing .ui-component-button { margin-top: 0; }
+}
+
+/* Fine print under each button naming the report types, by what they cover
+   rather than by the tool behind them. 10px so it supports the button
+   instead of competing with it; n-400 keeps it at 5.0:1. */
+.ui-component-card--pricing-types {
+  color: var(--ui-color-n-400);
+  font-size: .625rem;
+  line-height: 1.4;
+  margin: .75rem 0 0;
+  text-align: center;
+  text-wrap: balance;
 }
 
 .ui-component-card--pricing-promo {
+  display: block;
+  font-size: .875rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-top: .5rem;
+}
+
+/* Line under the Free price ("No credit card required"). Same metrics as the
+   promo line so the slot matches the paid cards; unlike the promo it stays
+   after Black Friday. */
+.ui-component-card--pricing-sub {
   display: block;
   font-size: .875rem;
   font-weight: 700;
@@ -1178,10 +1342,12 @@ div label[for=ui-component-toggle__yearly] {
   position: relative;
 }
 
+/* Salmon as a fill behind ink text, 6.4:1. White on the old light blue was
+   3.4:1. */
 .ui-component-card--pricing-badge {
-  background-color: var(--ui-color-background-primary);
+  background-color: var(--ui-color-n-500);
   border-radius: 999px;
-  color: var(--ui-color-typography-button);
+  color: var(--ui-color-n-220);
   display: inline-block;
   font-size: .7rem;
   font-weight: 700;
@@ -1922,8 +2088,8 @@ div label[for=ui-component-toggle__yearly] {
 
 .wpr-subscribe input:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+  border-color: var(--ui-color-brand);
+  box-shadow: 0 0 0 2px rgba(66, 106, 144, .25);
 }
 
 /* Checkbox inline with text */
@@ -1937,7 +2103,7 @@ div label[for=ui-component-toggle__yearly] {
 .wpr-subscribe .field.checkbox input[type="checkbox"] {
   flex-shrink: 0;
   margin: 0;
-  accent-color: #2563eb;
+  accent-color: var(--ui-color-brand);
 }
 
 .wpr-subscribe .field.checkbox label {
@@ -1962,21 +2128,39 @@ div label[for=ui-component-toggle__yearly] {
   margin-top: 1.25rem;
 }
 
+/* Same solid brand button as the rest of the site (see
+   .ui-component-board-card--cta): white on brand, 5.7:1, ink on hover. It
+   was white on yellow #ffb200, 1.8:1 and outside the palette, in the
+   browser's default font. */
 .wpr-subscribe button {
   display: inline-block;
-  background-color: #ffb200;
-  color: #fff;
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 0.6rem 1.4rem;
-  border: none;
-  border-radius: 6px;
+  background-color: var(--ui-color-brand);
+  border: .0625rem solid var(--ui-color-brand);
+  border-radius: var(--ui-radius-button);
+  color: var(--ui-color-typography-button);
   cursor: pointer;
-  transition: background-color 0.2s;
+  font-family: inherit;
+  font-size: var(--ui-typography-p);
+  font-weight: 700;
+  line-height: 1;
+  padding: .875rem 1.75rem 1rem;
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
+/* Before, hover repeated the resting colour, so the button gave no
+   feedback. */
 .wpr-subscribe button:hover {
-  background-color: #ffb200;
+  background-color: var(--ui-color-brand-hover);
+  border-color: var(--ui-color-brand-hover);
+}
+
+.wpr-subscribe button:focus-visible {
+  outline: .125rem solid var(--ui-color-n-220);
+  outline-offset: .125rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wpr-subscribe button { transition: none; }
 }
 
 /* Status messages */
@@ -2080,7 +2264,7 @@ div label[for=ui-component-toggle__yearly] {
 
 .ui-component-card--post__meta {
   align-items: center;
-  color: var(--ui-color-n-300);
+  color: var(--ui-color-n-400);
   display: flex;
   flex-wrap: wrap;
   font-size: var(--ui-typography-s);
@@ -2175,7 +2359,7 @@ div label[for=ui-component-toggle__yearly] {
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 2rem;
-  color: var(--ui-color-n-300);
+  color: var(--ui-color-n-400);
   font-size: var(--ui-typography-s);
 }
 
@@ -2215,7 +2399,7 @@ div label[for=ui-component-toggle__yearly] {
 
 .ui-section-post__content > p > em:only-child {
   font-size: 0.9rem;
-  color: var(--ui-color-n-300);
+  color: var(--ui-color-n-400);
   display: block;
   margin-bottom: 0.25rem;
 }
@@ -2286,7 +2470,7 @@ div label[for=ui-component-toggle__yearly] {
   align-items: center;
   gap: 0.35rem;
   font-size: var(--ui-typography-s);
-  color: var(--ui-color-n-300);
+  color: var(--ui-color-n-400);
   margin-bottom: 1rem;
 }
 
@@ -2349,7 +2533,7 @@ div label[for=ui-component-toggle__yearly] {
   align-items: center;
   gap: 1rem;
   font-size: var(--ui-typography-s);
-  color: var(--ui-color-n-300);
+  color: var(--ui-color-n-400);
 }
 
 .ui-post-meta-date,
@@ -2434,7 +2618,7 @@ div label[for=ui-component-toggle__yearly] {
 
 .ui-post-toc__link {
   font-size: var(--ui-typography-s);
-  color: var(--ui-color-n-300);
+  color: var(--ui-color-n-400);
   text-decoration: none;
   line-height: 1.4;
   display: block;
@@ -2551,7 +2735,7 @@ div label[for=ui-component-toggle__yearly] {
 }
 
 .ui-post-metric-card--blue {
-  background: #e3f0fa;
+  background: var(--ui-color-n-150);
   border: 1px solid #b6d4ef;
 }
 
@@ -2572,7 +2756,7 @@ div label[for=ui-component-toggle__yearly] {
 }
 
 .ui-post-metric-card--green .ui-post-metric-card__label { color: #2e7d32; }
-.ui-post-metric-card--blue  .ui-post-metric-card__label { color: #1565c0; }
+.ui-post-metric-card--blue  .ui-post-metric-card__label { color: var(--ui-color-brand); }
 
 .ui-post-metric-card__value {
   font-size: 2rem;
@@ -2592,7 +2776,7 @@ div label[for=ui-component-toggle__yearly] {
 }
 
 .ui-post-metric-card--green .ui-post-metric-card__sublabel { color: #2e7d32; }
-.ui-post-metric-card--blue  .ui-post-metric-card__sublabel { color: #1565c0; }
+.ui-post-metric-card--blue  .ui-post-metric-card__sublabel { color: var(--ui-color-brand); }
 
 .ui-post-metric-card__desc {
   font-size: var(--ui-typography-s);
@@ -2608,14 +2792,14 @@ div label[for=ui-component-toggle__yearly] {
   font-weight: 600;
   font-style: italic;
   line-height: 1.6;
-  color: var(--ui-color-n-300);
+  color: var(--ui-color-n-400);
   margin-bottom: 0.25rem;
 }
 
 /* Callout box */
 
 .ui-post-callout {
-  background: #e3f0fa;
+  background: var(--ui-color-n-150);
   border-left: 3px solid var(--ui-color-brand);
   border-radius: 0 var(--ui-radius-card) var(--ui-radius-card) 0;
   padding: 1rem 1.25rem;
@@ -3098,12 +3282,13 @@ div label[for=ui-component-toggle__yearly] {
 
 /*--------------------------------------------------------------
 |
-| 7.3.2 SPONSOR STRIP - SPONSOR PLUS COLLABORATION
+| 7.3.2 SPONSOR STRIP - PARTNERSHIP PLUS COLLABORATION
 |
-| Wave and httpo carry two different relationships: Catchpoint
-| sponsors the product, WebAIM and Mozilla collaborate on the
-| report. Filing both under one label would misrepresent both, so
-| each gets its own wording.
+| Wave and httpo carry two different relationships: Catchpoint is
+| a partner of the product ("In Partnership with", formerly
+| "Sponsored by"), WebAIM and Mozilla collaborate on the report.
+| Filing both under one label would misrepresent both, so each
+| gets its own wording.
 |
 | The prepositions carry no meaning on their own, so they step
 | back in weight and colour instead of taking a line each, which
@@ -3342,6 +3527,9 @@ div label[for=ui-component-toggle__yearly] {
   justify-content: center;
 }
 
+/* On brand, so white like the title bands. */
+.ui-component-card--catalog-feature h3 { color: var(--ui-color-n-000); }
+
 .ui-component-card--catalog-feature p { color: var(--ui-color-typography-button); }
 
 .ui-component-card--catalog-feature .ui-component-card--catalog-cta {
@@ -3521,7 +3709,7 @@ div label[for=ui-component-toggle__yearly] {
    never moves the text around it. */
 .ui-component-promo-note--code {
   background-color: #fff;
-  border: .0625rem solid #2f6fa8;
+  border: .0625rem solid var(--ui-color-brand);
   border-radius: .25rem;
   color: var(--ui-color-typography-body);
   cursor: pointer;
@@ -3534,11 +3722,11 @@ div label[for=ui-component-toggle__yearly] {
 }
 
 .ui-component-promo-note--code:hover {
-  background-color: #e8f1fa;
+  background-color: var(--ui-color-n-150);
 }
 
 .ui-component-promo-note--code:focus-visible {
-  outline: .125rem solid #2f6fa8;
+  outline: .125rem solid var(--ui-color-brand);
   outline-offset: .125rem;
 }
 
